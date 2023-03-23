@@ -7,49 +7,51 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MemberInfo
- */
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import oimarket.model.dao.memberDao;
+import oimarket.model.dto.MemberDto;
+
 @WebServlet("/member/info")
 public class MemberInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MemberInfo() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    public MemberInfo() { super();}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String path = request.getSession().getServletContext().getRealPath("/member/eimg");
+		
+		MultipartRequest multi = new MultipartRequest(
+				request, path , 1024*1024*10 , "UTF-8" , new DefaultFileRenamePolicy() );
+		
+		String mname = multi.getParameter("mname");
+		String mid = multi.getParameter("mid");
+		String mpwd = multi.getParameter("mpwd");
+		String mresidence = multi.getParameter("mresidence");
+		String memail = multi.getParameter("memail");
+		String mmw = multi.getParameter("mmw");
+		String mphone = multi.getParameter("mphone") ;
+		String mimg = multi.getParameter("mid");
+
+		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
+		
+		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, memail, mmw, mphone, mimg);
+		boolean result = memberDao.getInstance().signup(dto);
+		response.getWriter().print(result);
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
+	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 	}
 
 }
