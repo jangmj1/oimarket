@@ -29,29 +29,26 @@
 		
 		<div class="mainbox">
 			<form class="signupForm">
-				이름 :		<input maxlength="10" type="text" name="mname"> 		<br>
-				<div class="checkconfirm"></div>		
+				이름 :		<input onkeyup="nullnamecheck()" maxlength="10" type="text" name="mname" class="mname"> 		
+				<span class="checkconfirm"></span>	<br>	
 					
-				아이디 :		<input onkeyup="idcheck()" maxlength="20" type="text" name="mid">			<br>
-				<div class="checkconfirm"></div>		
+				아이디 :		<input onkeyup="idcheck()" maxlength="20" type="text" name="mid" class="mid">			
+				<span class="checkconfirm"></span> <br>		
 								
-				비밀번호 :		<input onkeyup="pwdcheck()" maxlength="30" type="text" name="mpwd">			<br>
-				<div class="checkconfirm"></div>		
+				비밀번호 :		<input onkeyup="pwdcheck()" maxlength="30" type="text" name="mpwd" class="mpwd">			
+				<span class="checkconfirm"></span> <br>		
 				
-				비밀번호 확인 :	<input onkeyup="pwdconfirmcheck()" maxlength="30" type="text" name="mpwdconfirm">	<br>
-				<div class="checkconfirm"></div>		
+				비밀번호 확인 :	<input onkeyup="pwdconfirmcheck()" maxlength="30" type="text" name="mpwdconfirm" class="mpwdconfirm">	
+				<span class="checkconfirm"></span> <br>		
 				
-				사는 지역 :	<input type="text" name="mresidence">	<br>
-				
-				이메일 :		<input onkeyup="emailcheck()" maxlength="30" type="text" name="memail">		<br>
-				<div class="checkconfirm"></div>		
+				사는 지역 :	<input onkeyup="nullresidcheck()" type="text" name="mresidence" class="mresidence">		
+				<span class="checkconfirm"></span> <br>		
 								
 				성별 : 		<input type="radio" name="mmw" value="남자" checked="checked"> 남자
 							<input type="radio" name="mmw" value="여자"> 여자	<br>
-				<div class="checkconfirm"></div>		
 											
-				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="30" type="number" name="mphone">		<br>
-				<div class="checkconfirm"></div>		
+				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="30" type="number" name="mphone" class="mphone">	
+				<span class="checkconfirm"></span> <br>		
 								
 				프로필 :		<input type="file" name="mimg">			<br>
 				<button onclick="signup()" type="button"> 가입하기 </button>

@@ -7,7 +7,6 @@ public class MemberDto {
 	private String mid;
 	private String mpwd;
 	private String mresidence;
-	private String memail;
 	private String mmw;
 	private String mphone;
 	private String mimg;
@@ -16,7 +15,7 @@ public class MemberDto {
 	public MemberDto() {}
 
 	// 2. 풀 생성자
-	public MemberDto(int mno, String mname, String mid, String mpwd, String mresidence, String memail, String mmw,
+	public MemberDto(int mno, String mname, String mid, String mpwd, String mresidence, String mmw,
 			String mphone, String mimg) {
 		super();
 		this.mno = mno;
@@ -24,21 +23,19 @@ public class MemberDto {
 		this.mid = mid;
 		this.mpwd = mpwd;
 		this.mresidence = mresidence;
-		this.memail = memail;
 		this.mmw = mmw;
 		this.mphone = mphone;
 		this.mimg = mimg;
 	}
 
 	// 3. 회원가입용 생성자
-	public MemberDto(String mname, String mid, String mpwd, String mresidence, String memail, String mmw, String mphone,
+	public MemberDto(String mname, String mid, String mpwd, String mresidence, String mmw, String mphone,
 			String mimg) {
 		super();
 		this.mname = mname;
 		this.mid = mid;
 		this.mpwd = mpwd;
 		this.mresidence = mresidence;
-		this.memail = memail;
 		this.mmw = mmw;
 		this.mphone = mphone;
 		this.mimg = mimg;
@@ -47,7 +44,7 @@ public class MemberDto {
 	@Override
 	public String toString() {
 		return "MemberDto [mno=" + mno + ", mname=" + mname + ", mid=" + mid + ", mpwd=" + mpwd + ", mresidence="
-				+ mresidence + ", memail=" + memail + ", mmw=" + mmw + ", mphone=" + mphone + ", mimg=" + mimg + "]";
+				+ mresidence + ", mmw=" + mmw + ", mphone=" + mphone + ", mimg=" + mimg + "]";
 	}
 
 	public int getMno() {
@@ -88,14 +85,6 @@ public class MemberDto {
 
 	public void setMresidence(String mresidence) {
 		this.mresidence = mresidence;
-	}
-
-	public String getMemail() {
-		return memail;
-	}
-
-	public void setMemail(String memail) {
-		this.memail = memail;
 	}
 
 	public String getMmw() {

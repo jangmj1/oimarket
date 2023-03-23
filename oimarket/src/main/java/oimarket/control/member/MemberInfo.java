@@ -33,7 +33,6 @@ public class MemberInfo extends HttpServlet {
 		String mid = multi.getParameter("mid");
 		String mpwd = multi.getParameter("mpwd");
 		String mresidence = multi.getParameter("mresidence");
-		String memail = multi.getParameter("memail");
 		String mmw = multi.getParameter("mmw");
 		String mphone = multi.getParameter("mphone") ;
 		String mimg = multi.getParameter("mid");
@@ -42,7 +41,7 @@ public class MemberInfo extends HttpServlet {
 		
 		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
 		
-		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, memail, mmw, mphone, mimg);
+		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, mmw, mphone, mimg);
 		boolean result = memberDao.getInstance().signup(dto);
 		response.getWriter().print(result);
 	}
