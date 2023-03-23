@@ -7,49 +7,57 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class MemberInfo
- */
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import oimarket.model.dao.MemberDao;
+import oimarket.model.dto.MemberDto;
+
 @WebServlet("/member/info")
 public class MemberInfo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MemberInfo() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String uploadpath=request.getSession().getServletContext().getRealPath("/img");
+		
+		MultipartRequest multi=new MultipartRequest(
+				request,
+				uploadpath,
+				1024*1024*10,
+				"UTF-8",
+				new DefaultFileRenamePolicy()
+				);
+		
+		String mname=multi.getParameter("mname");				System.out.println(mname);
+		String mid=multi.getParameter("mid");					System.out.println(mid);
+		String mpwd=multi.getParameter("mpwd");					System.out.println(mpwd);
+		String mresidence=multi.getParameter("mresidence") ;	System.out.println(mresidence);
+		String memail=multi.getParameter("memail");				System.out.println(memail);
+		String mmw= multi.getParameter("mmw") ;					System.out.println(mmw);
+		String mphone=multi.getParameter("mphone") ;			System.out.println(mphone);
+		String mimg=multi.getFilesystemName("mimg");			System.out.println(mimg);
+		
+		MemberDto dto=new MemberDto(0, mname, mid, mpwd, mresidence, memail, mmw, mphone, mimg);
+		boolean result=MemberDao.getInstance().signup(dto);
+		
+		response.getWriter().print(result);
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 	}
 
 }

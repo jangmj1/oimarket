@@ -24,8 +24,8 @@
 			정보 <br>
 			정보 <br>
 			정보 <br>
-			정보 <br>
-			정보 <br>
+			<a href="/oimarket/member/signup.jsp">회원가입</a> <br>
+			<a href="#">로그인</a> <br>
 		</div>
 		
 	</div>
