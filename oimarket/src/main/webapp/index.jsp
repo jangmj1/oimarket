@@ -63,7 +63,8 @@
 	
 	
 	
-	
+	<!-- jquery -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
 	<!-- 개인 js -->
 	<script src="/oimarket/js/member/signup.js" type="text/javascript"></script>
 

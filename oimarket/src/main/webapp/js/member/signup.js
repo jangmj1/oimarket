@@ -21,11 +21,10 @@ function signup(){
 				} else {
 					alert('회원가입 실패')
 				}
-			} // success end 
-	}) // ajax end
+			} // success end 		
+	})
 }
-
-let checkconfirm = document.querySelectorAll('.checkconfirm')
+// let checkconfirm = document.querySelectorAll('.checkconfirm')
 
 /*// id 유효성검사
 function idcheck(){ // onkeyup : 키 누르고 떼었때

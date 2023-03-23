@@ -24,7 +24,7 @@ public class MemberInfo extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getSession().getServletContext().getRealPath("/member/eimg");
+		String path = request.getSession().getServletContext().getRealPath("/img");
 		
 		MultipartRequest multi = new MultipartRequest(
 				request, path , 1024*1024*10 , "UTF-8" , new DefaultFileRenamePolicy() );
@@ -38,6 +38,8 @@ public class MemberInfo extends HttpServlet {
 		String mphone = multi.getParameter("mphone") ;
 		String mimg = multi.getParameter("mid");
 
+		System.out.println(mname);
+		
 		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
 		
 		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, memail, mmw, mphone, mimg);
