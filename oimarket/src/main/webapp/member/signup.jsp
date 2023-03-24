@@ -11,19 +11,20 @@
 		<form class="signupForm">
 			<h3>회원가입</h3>
 			<div>
-				이름:<input name="mname" type="text">
+				이름:<input onkeyup="namecheck()" class="mname"  name="mname" type="text">
+				<div class="checkname" ></div>
 			</div>
 			<div>
-				아이디:<input name="mid" type="text">
-				<div>o</div>
+				아이디:<input onkeyup="idcheck()" class="mid" name="mid" type="text">
+				<div class="checkid" ></div>
 			</div>
 			<div>
-				비밀번호:<input name="mpwd" type="text">
-				<div>o</div>
+				비밀번호:<input onkeyup="pwdcheck()" class="mpwd" name="mpwd" type="text">
+				<div class="checkpwd"></div>
 			</div>
 			<div>
-				비밀번호확인:<input type="text">
-				<div>o</div>
+				비밀번호확인:<input onkeyup="repwdcheck()" class="repwdck" type="text">
+				<div class="repwdcheck"></div>
 			</div>
 			<div>
 				사는지역:
@@ -42,16 +43,12 @@
 				</select>
 			</div>
 			<div>
-				이메일:<input name="memail" type="text">
-				<button type="button">인증</button>
-			</div>
-			<div>
 				성별:
 				<input name="mmw" value="1" type="radio">남
 				<input name="mmw" value="2" type="radio">여
 			</div>
 			<div>
-				핸드폰번호:<input name="mphone" type="text">
+				핸드폰번호: <span onkeyup="phone()" class="phone"> <input style="width: 40px;" type="text">-<input style="width: 40px;" type="text">-<input style="width: 40px;" type="text"></span>
 			</div>
 			<div>
 			프로필사진:<input name="mimg" type="file">

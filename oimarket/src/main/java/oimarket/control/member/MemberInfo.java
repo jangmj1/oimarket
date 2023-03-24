@@ -40,12 +40,11 @@ public class MemberInfo extends HttpServlet {
 		String mid=multi.getParameter("mid");					System.out.println(mid);
 		String mpwd=multi.getParameter("mpwd");					System.out.println(mpwd);
 		String mresidence=multi.getParameter("mresidence") ;	System.out.println(mresidence);
-		String memail=multi.getParameter("memail");				System.out.println(memail);
 		String mmw= multi.getParameter("mmw") ;					System.out.println(mmw);
 		String mphone=multi.getParameter("mphone") ;			System.out.println(mphone);
 		String mimg=multi.getFilesystemName("mimg");			System.out.println(mimg);
 		
-		MemberDto dto=new MemberDto(0, mname, mid, mpwd, mresidence, memail, mmw, mphone, mimg);
+		MemberDto dto=new MemberDto(0, mname, mid, mpwd, mresidence,mmw, mphone, mimg);
 		boolean result=MemberDao.getInstance().signup(dto);
 		
 		response.getWriter().print(result);
