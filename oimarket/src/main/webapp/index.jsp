@@ -6,27 +6,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style type="text/css">
-		.wrap{
-			width: 600px;
-			margin: 0 auto;
-		}
-	</style>
-	
-	<!-- 개인 css -->
-	<link href="/oimarket/css/member/signup.css" rel="stylesheet">
-		
 </head>
 <body>
 
+	<%@ include file="/header.jsp" %>
 	
 
 	<div class="wrap">
 		
-		
-		<img alt="" src="/oimarket/img/배경.png" width="100%">
-		
+			
 		<div class="mainbox">
 			<form class="signupForm">
 				이름 :		<input onkeyup="nullnamecheck()" maxlength="10" type="text" name="mname" class="mname"> 		
@@ -35,10 +23,10 @@
 				아이디 :		<input onkeyup="idcheck()" maxlength="20" type="text" name="mid" class="mid">			
 				<span class="checkconfirm"></span> <br>		
 								
-				비밀번호 :		<input onkeyup="pwdcheck()" maxlength="30" type="text" name="mpwd" class="mpwd">			
+				비밀번호 :		<input onkeyup="pwdcheck()" maxlength="30" type="password" name="mpwd" class="mpwd">			
 				<span class="checkconfirm"></span> <br>		
 				
-				비밀번호 확인 :	<input onkeyup="pwdconfirmcheck()" maxlength="30" type="text" name="mpwdconfirm" class="mpwdconfirm">	
+				비밀번호 확인 :	<input onkeyup="pwdconfirmcheck()" maxlength="30" type="password" name="mpwdconfirm" class="mpwdconfirm">	
 				<span class="checkconfirm"></span> <br>		
 				
 				사는 지역 :	<input onkeyup="nullresidcheck()" type="text" name="mresidence" class="mresidence">		
@@ -53,6 +41,7 @@
 				프로필 :		<input type="file" name="mimg">			<br>
 				<button onclick="signup()" type="button"> 가입하기 </button>
 			</form>
+			
 		
 		</div>
 		
