@@ -22,9 +22,14 @@ public class findmember extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String type=request.getParameter("type");
 		String mid= request.getParameter("mid");
-		boolean result=MemberDao.getInstance().findid(mid);
+		String phone= request.getParameter("phone");
+		
+		boolean result=MemberDao.getInstance().findmember(mid,type,phone);
 		response.getWriter().print(result);
+	
+		
 		
 	}
 

@@ -18,14 +18,10 @@
 
 	<div class="wrap">
 		
-		<img alt="" src="/oimarket/img/배경.png" width="100%">
+		<img alt="" src="/oimarket/img/오이마켓.png" width="100%">
 		<div class="mainbox">
-			정보 <br>
-			정보 <br>
-			정보 <br>
-			정보 <br>
-			<a href="/oimarket/member/signup.jsp">회원가입</a> <br>
-			<a href="#">로그인</a> <br>
+			<li><a href="/oimarket/member/signup.jsp">회원가입</a> </li>
+			<li><a href="/oimarket/member/signup.jsp">로그인</a> </li>
 		</div>
 		
 	</div>

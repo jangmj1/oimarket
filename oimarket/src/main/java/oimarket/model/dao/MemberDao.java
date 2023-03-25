@@ -21,21 +21,39 @@ public class MemberDao extends Dao{
 
 	
 	//*아이디 유효성-존재하는 아이디인지 확인하기
-	public boolean findid(String mid) {
-		String sql="select * from member where mid =?";
-		try {
-			ps=con.prepareStatement(sql);
-			ps.setString(1, mid);
-			rs=ps.executeQuery();
-			if(rs.next()) {
-				//같은 아이디가 있다는뜻
-				return false;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return true;//같은 아이디가 없으면
+	public boolean findmember(String mid,String type,String phone) {
+		
+		if(type.equals("1")) {//만약에 타입이 1이면 즉 동일한 아이디를 찾는거면
+			
+			String sql="select * from member where mid =?";
+			
+				try {
+					ps=con.prepareStatement(sql);
+					ps.setString(1, mid);
+					rs=ps.executeQuery();
+					//같은 아이디가 있다는뜻
+					if(rs.next()) {return false;}
+						
+				} catch (SQLException e) {
+					System.out.println(e);
+				}
+		}else if(type.equals("2")){//만약에 타입이 2이면 즉 동일한 핸드폰 번호를 찾는거면
+			String sql="select * from member where mphone =?";
+			
+				try {
+					ps=con.prepareStatement(sql);
+					ps.setString(1, phone);
+					rs=ps.executeQuery();
+					
+					//같은 핸드폰번호가가 있다는뜻
+					if(rs.next()) {return false;}
+				} catch (SQLException e) {
+					System.out.println(e);
+				}
+		
+		}	
+		
+		return true;//같은 회원이 없거나 같은 번호가 없거나
 		
 		
 	}
@@ -58,8 +76,7 @@ public class MemberDao extends Dao{
 			return true;
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		}return false;
 	}
 
