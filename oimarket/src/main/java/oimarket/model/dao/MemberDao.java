@@ -21,7 +21,7 @@ public class MemberDao extends Dao{
 
 	
 	//*아이디 유효성-존재하는 아이디인지 확인하기
-	public boolean findmember(String mid,String type,String phone) {
+	public boolean findmember(String mid,String type,String mphone) {
 		
 		if(type.equals("1")) {//만약에 타입이 1이면 즉 동일한 아이디를 찾는거면
 			
@@ -42,7 +42,7 @@ public class MemberDao extends Dao{
 			
 				try {
 					ps=con.prepareStatement(sql);
-					ps.setString(1, phone);
+					ps.setString(1, mphone);
 					rs=ps.executeQuery();
 					
 					//같은 핸드폰번호가가 있다는뜻

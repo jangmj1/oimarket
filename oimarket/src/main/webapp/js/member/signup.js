@@ -2,13 +2,17 @@ console.log('연동')
 
 let checkconfirm=document.querySelectorAll('.checkconfirm');
 
+function logo(){
+	location.href="/oimarket/index.jsp"
+}
+
 //아이디 존재 여부 확인 특수문자 문자길이 체크 함수 
 function namecheck(){//이름 유효성(한글만가능)
 	let mid=document.querySelector('.mname').value;
 	let testname=/^[ㄱ-힣]{2,5}$/
 	if(testname.test(mid)){
 			checkconfirm[0].innerHTML='OK'
-			checkconfirm[0].style.color='blue';
+			checkconfirm[0].style.color='gray';
 	}else{
 			checkconfirm[0].innerHTML='한글로입력해주세요'
 			checkconfirm[0].style.color='red';
@@ -38,7 +42,7 @@ function idcheck(){//아이디 유효성(정규식 표현 및 존재여부)
 				console.log(r)
 				if(r=='true'){
 					checkconfirm[1].innerHTML='OK'
-					checkconfirm[1].style.color='blue';
+					checkconfirm[1].style.color='gray';
 					
 				}else{
 					checkconfirm[1].innerHTML='같은 아이디가 존재합니다'
@@ -62,7 +66,7 @@ function pwdcheck(){//비밀번호 유효성 검사
 	
 	if( testpwd.test(mpwd) ) {//정규식 통과시
 					checkconfirm[2].innerHTML='OK'
-					checkconfirm[2].style.color='blue';
+					checkconfirm[2].style.color='gray';
 	}else{
 		
 					checkconfirm[2].innerHTML='비밀번호는 8 ~ 16자 영문, 숫자 조합 해주세요'
@@ -76,7 +80,7 @@ function repwdcheck(){//비밀번호 재확인 유효성
 	let mpwd=document.querySelector('.mpwd').value;
 	if(repwdcheck==mpwd){
 					checkconfirm[3].innerHTML='OK'
-					checkconfirm[3].style.color='blue';
+					checkconfirm[3].style.color='gray';
 					
 	}else{
 					checkconfirm[3].innerHTML='비밀번호가 서로 다릅니다'
@@ -84,12 +88,15 @@ function repwdcheck(){//비밀번호 재확인 유효성
 	}
 }
 
+
+
+let mphone=''; // 나중에 회원가입할때 따로 가져가야해서 전역변수로뺌
 function phone(){//핸드폰 번호 유효성 검사
 	//1.핸드폰 번호 받기
 	let phone1 = document.querySelector('.phone1').value
 	let phone2 = document.querySelector('.phone2').value
 	let phone3 = document.querySelector('.phone3').value
-	let phone=phone1+phone2+phone3
+	 mphone=phone1+phone2+phone3
 	
 	
 	//유효성검사하기 준비물
@@ -107,7 +114,7 @@ function phone(){//핸드폰 번호 유효성 검사
 			$.ajax({// aj s
 				url:"/oimarket/findmember",
 				method:"get",
-				data:{"phone":phone,"type":2},
+				data:{"mphone":mphone,"type":2},
 				success:(r)=>{//s s
 					console.log(r)
 					if(r=='true'){//if  s
@@ -153,7 +160,7 @@ function confirmphone(){//인증번호 확인
 						document.querySelector('.confirmphone').style.display='none'; //다시숨기기
 						console.log('인증성공!')
 						checkconfirm[4].innerHTML='OK';
-						checkconfirm[4].style.color='blue';
+						checkconfirm[4].style.color='gray';
 						
 					//if  e
 					}else{console.log('인증번호가 틀렸습니다.')}
@@ -164,6 +171,20 @@ function getmmw(event){
 	 
   mmw=event.target.value; //성별검사 
     
+}
+
+function premimg(object){//첨부파일 미리보기
+	console.log(object.files[0]	);
+	console.log(document.querySelector('.mimg').files[0]);
+	let file=new FileReader();
+	
+	file.readAsDataURL(object.files[0]);
+	file.onload= (e)=>{
+		document.querySelector('.premimg').src=e.target.result;
+	}
+	
+	
+	
 }
 
 
@@ -182,6 +203,7 @@ function signup(){
 			
 			let signupForm=document.querySelectorAll('.signupForm')[0];
 			let signupFormData=new FormData(signupForm);
+			signupFormData.set("mphone",mphone);//인풋 3개 합쳐진거는 따로 가져가기
 			
 			$.ajax({
 				url:"/oimarket/member/info",

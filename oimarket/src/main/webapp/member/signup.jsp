@@ -13,9 +13,9 @@
 </head>
 <body>
 	<div class="wrap">
-		<img class="logo" alt="" src="/oimarket/img/오이마켓.png">
+		<img onclick="logo()" class="logo" alt="" src="/oimarket/img/오이마켓.png">
 		<form class="signupForm">
-			<div>
+			<div class="signtext">
 				<h3>회원가입</h3>
 				<div class="mtext">
 					<h5>이름</h5>
@@ -69,19 +69,22 @@
 					
 					<div class="checkconfirm" ></div>
 					<div class="confirmphone">
-						<h5>인증번호</h5>
-						<span><input class="confirmphoneNo" style="width: 40px;" type="text"><button onclick="confirmphone()" type="button">확인</button></span>
+						<h5>인증번호 : </h5>
+						<span><input class="confirmphoneNo" style="width: 40px;" type="text"><button class="confirmphonebtn" onclick="confirmphone()" type="button">확인</button></span>
 					</div>
 				</div>
 				
 				<div class="mtext ">
 					<h5>프로필사진</h5>
-					<input class="mimg" name="mimg" type="file">
+					<img class="premimg" alt="" src="/oimarket/img/default.webp">
+					<input onchange="premimg(this)" class="mimg" name="mimg" type="file">
 				</div>
 			</div>
 			<div><button class="signup" onclick="signup()" type="button">가입하기</button></div>
 		</form>
 	</div>
+	
+	
 	
 
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- 아작트 쓰기위한용도 -->

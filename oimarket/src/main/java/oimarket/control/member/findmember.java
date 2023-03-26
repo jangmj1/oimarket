@@ -24,9 +24,9 @@ public class findmember extends HttpServlet {
 		
 		String type=request.getParameter("type");
 		String mid= request.getParameter("mid");
-		String phone= request.getParameter("phone");
+		String mphone= request.getParameter("mphone");
 		
-		boolean result=MemberDao.getInstance().findmember(mid,type,phone);
+		boolean result=MemberDao.getInstance().findmember(mid,type,mphone);
 		response.getWriter().print(result);
 	
 		

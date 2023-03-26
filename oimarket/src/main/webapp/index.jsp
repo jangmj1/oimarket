@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style type="text/css">
-		.wrap{
-			width: 600px;
-			margin: 0 auto;
-		}
-	</style>
+	<link href="/oimarket/css/index.css" rel="stylesheet">
 </head>
 <body>
 
@@ -20,16 +15,14 @@
 		
 		<img alt="" src="/oimarket/img/오이마켓.png" width="100%">
 		<div class="mainbox">
-			<li><a href="/oimarket/member/signup.jsp">회원가입</a> </li>
-			<li><a href="/oimarket/member/signup.jsp">로그인</a> </li>
+			<button  onclick="signupPage()">회원가입</button> 
+			<button><a href="/oimarket/member/signup.jsp">로그인</a></button>
 		</div>
 		
 	</div>
 	
-	<script type="text/javascript">
 	
-	
-	</script>
+	<script src="/oimarket/js/index.js" type="text/javascript"></script>
 
 </body>
 </html>
