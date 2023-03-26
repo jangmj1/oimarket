@@ -19,17 +19,21 @@
 	<div class="container">
 		<h3>회원가입</h3>
 		<form class="infoForm">
+			<div class="title">이름</div>
+			<input type="text" name="mname" class="name">
+				
+			
+			
+			<div class="title">아이디</div>
+			<input onkeyup="idcheck()" type="text" name="mid" class="mid">
+			<div class="checkconfirm"> </div>
+			
+			<div>비밀번호 </div>
+			<input onkeyup="pwdcheck()" type="password" name="mpwd" class="mpwd">
+			<div class="checkconfirm"></div>
+			
 			<div>
-				이름:<input type="text" name="mname">
-			</div>
-			<div>
-				아이디:<input type="text" name="mid">
-			</div>
-			<div>
-				비밀번호:<input type="password" name="mpwd">
-			</div>
-			<div>
-				사는지역:<select name="mresidence">
+				사는지역:<select name="mresidence" class="mresidence">
 						<option>서울</option>
 						<option>경기</option>
 						<option>안산</option>
@@ -39,16 +43,19 @@
 			</div>	
 			
 			<div>
-				성별:<input type="radio" name="mmw" value="남">남
-				   <input type="radio" name="mmw" value="여">여
+				성별:<input type="radio" name="mmw" value="남" class="mmw">남
+				   <input type="radio" name="mmw" value="여" class="mmw">여
 			</div>
+			<div class="title"> 폰번호</div>
+				<div><input onkeyup="phonecheck()" type="text" name="mphone" class="mphone1"></div>
+				<div><input  onkeyup="phonecheck()"type="text" name="mphone" class="mphone2"></div>
 			<div>
-				폰번호:<span><input type="text" name="mphone"> -</span>
-					<span><input type="text" name="mphone"> -</span>
-					<span><input type="text" name="mphone"></span>
-			</div>
+				<div><input  onkeyup="phonecheck()"type="text" name="mphone" class="mphone3"></div>
+				<button onclick="getauth()" type="button">인증하기</button>
+			</div>		
+			
 			<div>
-				이미지프로필:<input type="file" name="mimg">
+				이미지프로필:<input type="file" name="mimg" class="mimg">
 			</div>
 			<div>
 				<button onclick="register()" type="button">회원등록</button>
