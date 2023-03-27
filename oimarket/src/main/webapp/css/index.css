@@ -1,0 +1,44 @@
+@charset "EUC-KR";
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+.wrap{
+	width: 600px;
+	margin: 0 auto;
+}
+
+.mainbox{
+	display: flex;
+	justify-content: center;
+	
+}
+a{
+	color: white;
+	text-decoration: none;
+	
+}
+
+.mainbox button{
+	 font-family: 'GmarketSansMedium';
+	 background-color:#96F56E;
+	 margin: 30px;
+	 padding: 25px 60px;
+	border-radius: 10px;
+    border: none;
+        color: white;
+}
+
+
+
+
+
+
+

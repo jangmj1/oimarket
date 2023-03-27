@@ -9,31 +9,31 @@ import javax.servlet.http.HttpServletResponse;
 
 import oimarket.model.dao.MemberDao;
 
-
-@WebServlet("/login")
-public class Login extends HttpServlet {
+/**
+ * Servlet implementation class findmember
+ */
+@WebServlet("/findmember")
+public class findmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public Login() {super();}
+    public findmember() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String type=request.getParameter("type");
+		String mid= request.getParameter("mid");
+		String mphone= request.getParameter("mphone");
+		
+		boolean result=MemberDao.getInstance().findmember(mid,type,mphone);
+		response.getWriter().print(result);
+	
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// [ 최성아 ]
-		String mid = request.getParameter("mid");
-		String mpwd = request.getParameter("mpwd");
-				
-		boolean result = MemberDao.getInstance().login( mid , mpwd );
-		
-		System.out.println(result);
-		
-		if (result == true) {
-			request.getSession().setAttribute("login", mid);
-		}
-		response.getWriter().print(result);
-				
 	}
 
 }

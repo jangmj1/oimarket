@@ -6,13 +6,7 @@
 <meta charset="UTF-8">
 <title> oi Market</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style type="text/css">
-	.wrap{
-		width: 600px;
-		margin: 0 auto;
-	}
-</style>
+
 
 <!-- 개인 css -->
 <link href="/oimarket/css/member/header.css" rel="stylesheet">
