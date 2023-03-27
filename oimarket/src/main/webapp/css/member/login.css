@@ -1,3 +1,53 @@
 @charset "UTF-8";
 
+/* 버튼 폰트 */
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+.mainbox{
+	background-color: #f8fafc96
+}
+
+.idinput, .pwdinput{
+	display: flex;
+    justify-content: center;
+}
+
+.mid , .mpwd {
+	border: 1px solid #eeeeee; border-radius: 5px;
+	margin: 5px; padding: 5px;
+}
+
+
+/* 로그인 버튼 위치 */
+.login_btn{
+	display: flex;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+/* 로그인 버튼 */
+.login_btn1{
+	font-family: GmarketSansMedium;
+	background-color: #96F56E;
+	border: none;	border-radius: 10px;
+	color : white;
+	width: 200px;	height: 50px;
+    font-size: 20px;
+}
+
+/* 아이디 찾기 비밀번호 찾기 페이지 변환 */
+.idpwpage{
+	display: flex;
+    justify-content: center;
+} 
+
+.idpwpage a {
+	font-family: GmarketSansMedium;
+	padding: 5px;
+	margin: 5px;
+}

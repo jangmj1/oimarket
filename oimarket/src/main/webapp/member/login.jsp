@@ -15,25 +15,25 @@
 
 	<div class="wrap">
 		<div class="mainbox">
-		
-		<div class="idpwinput">
-			<div>
-				아이디 : <input class="mid" type="text">
-			</div>
-			
-			<div>
-				비밀번호 : <input class="mpwd" type="password">
-			</div>
-		</div>
-		
-		<button onclick="login()" type="button"> 로그인 </button>
-		
-			<div><a href="/oimarket/member/findid.jsp"> 아이디 찾기 </a></div>
-			<div><a href="/oimarket/member/findpwd.jsp"> 비밀번호 찾기 </a></div>
+				<div class="idinput">
+					<div> <input class="mid" type="text" placeholder="아이디"> </div>
+				</div>	
 				
+				<div class="pwdinput">
+					<div> <input class="mpwd"  type="password" placeholder="패스워드"> </div>
+				</div>			
+						 
+				<div class="login_btn">
+					<button class="login_btn1" onclick="login()" type="button"> 로그인 </button>
+				</div>
+				
+					<div class="idpwpage">
+						<div><a href="/oimarket/member/findid.jsp"> 아이디 찾기 </a></div>
+						<div><a href="/oimarket/member/findpwd.jsp"> 비밀번호 찾기 </a></div>
+					</div>
+		</div>			
 				
 			
-		</div>
 	</div>
 	
 
