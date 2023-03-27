@@ -31,16 +31,14 @@ public class MemberInfo extends HttpServlet {
 
 	//출력
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList< MemberDto>list=new ArrayList<>();
-		//JAVA에서 JS으로 가기위한 형변환
-		ObjectMapper mapper=new ObjectMapper();
-		String json=mapper.writeValueAsString(list);
-		
-		//응답
+
+		String mid=request.getParameter("mid");//검사할 아이디 요청
+		boolean result=MemberDao.getInstance().idcheck(mid);//dao에게 전달하고 결과받기
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		response.getWriter().print(json);
+		response.getWriter().print(result);
+	
+	
 		
 	}
 
