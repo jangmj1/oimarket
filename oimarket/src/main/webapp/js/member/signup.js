@@ -97,7 +97,7 @@ function phone(){//핸드폰 번호 유효성 검사
 	let phone2 = document.querySelector('.phone2').value
 	let phone3 = document.querySelector('.phone3').value
 	 mphone=phone1+phone2+phone3
-	
+	console.log(mphone)
 	
 	//유효성검사하기 준비물
 	let testphone1=/^[0-9]{3,3}$/g;
