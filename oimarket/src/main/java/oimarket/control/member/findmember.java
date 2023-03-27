@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import oimarket.model.dao.MemberDao;
 
-/**
- * Servlet implementation class findmember
- */
 @WebServlet("/findmember")
 public class findmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,9 +23,11 @@ public class findmember extends HttpServlet {
 		String mid= request.getParameter("mid");
 		String mphone= request.getParameter("mphone");
 		
+		//핸드폰번호,아이디가존재하는지
 		boolean result=MemberDao.getInstance().findmember(mid,type,mphone);
 		response.getWriter().print(result);
-	
+		
+		
 		
 		
 	}
