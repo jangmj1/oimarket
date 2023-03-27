@@ -16,14 +16,21 @@
 	
 </head>
 <body>
+	<!-- 연습용 삭제가능페이지 -->
 	<div class="wrap">
 		<h3>아이디찾기 페이지 </h3>
 			이름 :<input class="mname" type="text">
-			핸드폰번호 :<input class="mphone" type="text">
-			<button type="button" onclick="findid()">아이디찾기</button>
+			핸드폰번호 :<input  class="mphone" type="text">
+			<button onclick="findid()" type="button">아이디찾기</button>
+			
+			
+			<div class="findidbox">
+			
+				
+			</div>
 	</div>
 	
-	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- 아작트 쓰기위한용도 -->
 	<script src="/oimarket/js/member/findmember.js" type="text/javascript"></script>
 </body>
 </html>

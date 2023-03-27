@@ -16,16 +16,26 @@
 	
 </head>
 <body>
+	<!-- 연습용 삭제가능페이지 -->
 	<div class="wrap">
 		<h3>로그인</h3>
-		아이디:<input type="text">
-		비밀번호:<input type="text">
-		<button type="button">로그인</button>
+		아이디:<input class="mid" type="text">
+		비밀번호:<input class="mpwd" type="password">
+		<button onclick="login()" type="button">로그인</button>
 		<div class="findmember">
 			<a href="/oimarket/member/findid.jsp">아이디찾기</a>
 			<a href="/oimarket/member/findpwd.jsp">비밀번호찾기</a>
 		</div>
+		
+		<div class="loginbox">
+		
+		</div>
 	</div>
+	
+	
+	
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- 아작트 쓰기위한용도 -->
 	<script src="/oimarket/js/member/findmember.js" type="text/javascript"></script>
 </body>
 </html>

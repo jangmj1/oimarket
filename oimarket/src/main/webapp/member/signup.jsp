@@ -30,12 +30,12 @@
 				</div>
 				<div class="mtext">
 					<h5>비밀번호</h5>
-					<input onkeyup="pwdcheck()" class="mpwd" name="mpwd" type="text">
+					<input onkeyup="pwdcheck()" class="mpwd" name="mpwd" type="password">
 					<div class="checkconfirm"></div>
 				</div>
 				<div class="mtext">
 					<h5>비밀번호확인</h5>
-					<input onkeyup="repwdcheck()" class="repwdck" type="text">
+					<input onkeyup="repwdcheck()" class="repwdck" type="password">
 					<div class="checkconfirm"></div>
 				</div>
 				<div class="mtext span">
