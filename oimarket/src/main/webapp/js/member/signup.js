@@ -1,5 +1,8 @@
 console.log('member js 연동')
 
+let jj = document.querySelector('.mresidence').value ;
+console.log(jj)
+
 // span 유효성검사 값 가져오기
 let checkconfirm = document.querySelectorAll('.checkconfirm')
 
@@ -10,13 +13,16 @@ function signup(){
 	for ( let i = 0 ; i<checkconfirm.length; i++ ){
 		if(checkconfirm[i].innerHTML == '✓'){ count ++ }
 	}
-	if( count != 5 ) { alert('정상적으로 입력되지 않은 데이터가 있습니다.'); return; }
+	if( count != 4 ) { alert('정상적으로 입력되지 않은 데이터가 있습니다.'); return; }
+	
 	
 	let signupForm = document.querySelectorAll('.signupForm')[0];
 	let signupFormdata = new FormData ( signupForm );
 	
 	console.log( signupForm )
 	console.log( signupFormdata )
+	
+	
 	
 	$.ajax({
 		url : "/oimarket/member/info" ,
@@ -110,7 +116,14 @@ function pwdconfirmcheck(){
 
 // 유효성검사4(번호 중복 검사)
 function phonecheck(){ // onkeyup : 키 누르고 떼었때
-	let mphone = document.querySelector('.mphone').value;
+	let mphone1 = document.querySelector('.mphone1').value;
+	let mphone2 = document.querySelector('.mphone2').value;	
+	let mphone3 = document.querySelector('.mphone3').value;
+	
+	let mphone = mphone1 + mphone2 + mphone3
+	
+	console.log(mphone)
+	
 	let mphonej = /^[0-9]{11}$/	
 	if( mphonej.test( mphone ) ){	// 정규표현식 패턴이 true 이면 
 		// 아이디 중복검사 [ js->서블릿->dao 에게 해당 아이디 검색 select ]
@@ -120,15 +133,15 @@ function phonecheck(){ // onkeyup : 키 누르고 떼었때
 			data : { "mphone" : mphone } ,			// 입력받은 아이디 보내기 
 			success : (r)=>{ 
 				if( r == 'true'){ 
-					checkconfirm[5].innerHTML = '사용 중인 번호입니다.';
+					checkconfirm[4].innerHTML = '사용 중인 번호입니다.';
 				}else{
-					checkconfirm[5].innerHTML = '✓';
+					checkconfirm[4].innerHTML = '✓';
 				}
 			}
 		}) // ajax end 
 		
 	}else{ // 정규표현식 패턴이 false 이면 
-		checkconfirm[5].innerHTML = '숫자만을 이용해서 11자 입력해주세요.';
+		checkconfirm[4].innerHTML = '숫자만을 이용해서 11자 입력해주세요.';
 	}
 }
 

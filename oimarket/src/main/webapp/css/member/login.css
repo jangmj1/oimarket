@@ -12,6 +12,11 @@
 	background-color: #f8fafc96
 }
 
+.id_pwd_loc{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
 .idinput, .pwdinput{
 	display: flex;
     justify-content: center;
@@ -27,7 +32,6 @@
 .login_btn{
 	display: flex;
 	justify-content: center;
-	padding-bottom: 30px;
 }
 
 /* 로그인 버튼 */
@@ -39,11 +43,15 @@
 	width: 200px;	height: 50px;
     font-size: 20px;
 }
+.login_btn1:hover{
+	 background-color : #2c9200;
+}
 
 /* 아이디 찾기 비밀번호 찾기 페이지 변환 */
 .idpwpage{
 	display: flex;
     justify-content: center;
+    padding: 20px;    
 } 
 
 .idpwpage a {

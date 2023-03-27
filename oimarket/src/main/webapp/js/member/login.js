@@ -1,13 +1,15 @@
+
 // 1. 로그인
 function login() {
 	let mid = document.querySelector('.mid').value;
-	let mpwd = document.querySelector('.mpwd').value;
+	let mpwd = document.querySelector('.mpwd').value;	
 	
 	$.ajax({
 		url : "/oimarket/login" ,
 		method : "post" ,
 		data : { "mid" : mid , "mpwd" : mpwd } ,
 		success : (r) => {
+
 			if ( r == 'true' ){
 				alert('로그인 성공')
 			} else { 

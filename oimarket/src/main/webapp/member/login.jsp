@@ -15,6 +15,7 @@
 
 	<div class="wrap">
 		<div class="mainbox">
+			<div class="id_pwd_loc">
 				<div class="idinput">
 					<div> <input class="mid" type="text" placeholder="아이디"> </div>
 				</div>	
@@ -22,7 +23,7 @@
 				<div class="pwdinput">
 					<div> <input class="mpwd"  type="password" placeholder="패스워드"> </div>
 				</div>			
-						 
+			</div>			 
 				<div class="login_btn">
 					<button class="login_btn1" onclick="login()" type="button"> 로그인 </button>
 				</div>

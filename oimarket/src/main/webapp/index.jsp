@@ -29,13 +29,21 @@
 				비밀번호 확인 :	<input onkeyup="pwdconfirmcheck()" maxlength="30" type="password" name="mpwdconfirm" class="mpwdconfirm">	
 				<span class="checkconfirm"></span> <br>		
 				
-				사는 지역 :	<input onkeyup="nullresidcheck()" type="text" name="mresidence" class="mresidence">		
-				<span class="checkconfirm"></span> <br>		
+				사는 지역 :	<select name="mresidence">
+								<option class="mresidence"> 서울
+								<option class="mresidence"> 경기
+								<option class="mresidence"> 전남
+								<option class="mresidence"> 전북
+								<option class="mresidence"> 경상남도
+								<option class="mresidence"> 경상북도					
+							</select> <br>
 								
 				성별 : 		<input type="radio" name="mmw" value="남자" checked="checked"> 남자
 							<input type="radio" name="mmw" value="여자"> 여자	<br>
 											
-				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="30" type="number" name="mphone" class="mphone">	
+				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="3" type="number" name="mphone1" class="mphone1">	
+							<input onkeyup="phonecheck()" maxlength="4" type="number" name="mphone2" class="mphone2">
+							<input onkeyup="phonecheck()" maxlength="4" type="number" name="mphone3" class="mphone3">
 				<span class="checkconfirm"></span> <br>		
 								
 				프로필 :		<input type="file" name="mimg">			<br>
