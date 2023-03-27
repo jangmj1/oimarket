@@ -41,9 +41,9 @@
 				성별 : 		<input type="radio" name="mmw" value="남자" checked="checked"> 남자
 							<input type="radio" name="mmw" value="여자"> 여자	<br>
 											
-				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="3" type="number" name="mphone1" class="mphone1">	
-							<input onkeyup="phonecheck()" maxlength="4" type="number" name="mphone2" class="mphone2">
-							<input onkeyup="phonecheck()" maxlength="4" type="number" name="mphone3" class="mphone3">
+				핸드폰번호 :	<input onkeyup="phonecheck()" maxlength="3" type="number" class="mphone1">	
+							<input onkeyup="phonecheck()" maxlength="4" type="number" class="mphone2">
+							<input onkeyup="phonecheck()" maxlength="4" type="number" class="mphone3">
 				<span class="checkconfirm"></span> <br>		
 								
 				프로필 :		<input type="file" name="mimg">			<br>

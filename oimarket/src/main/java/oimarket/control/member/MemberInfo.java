@@ -37,6 +37,8 @@ public class MemberInfo extends HttpServlet {
 		String mphone = multi.getParameter("mphone") ;
 		String mimg = multi.getParameter("mid");
 		
+		System.out.println("mphone 값 : " + mphone);
+		
 		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
 		
 		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, mmw, mphone, mimg);

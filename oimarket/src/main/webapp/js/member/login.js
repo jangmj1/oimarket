@@ -1,5 +1,5 @@
 
-// 1. 로그인
+// 1. [최성아] 로그인
 function login() {
 	let mid = document.querySelector('.mid').value;
 	let mpwd = document.querySelector('.mpwd').value;	
@@ -21,7 +21,7 @@ function login() {
 	
 } // login end
 
-// 2. 아이디 찾기
+// 2. [최성아] 아이디 찾기
 function findid() {
 	let mname = document.querySelector('.mname').value
 	let mphone = document.querySelector('.mphone').value
@@ -36,12 +36,12 @@ function findid() {
 			}else{
 				document.querySelector('.getid').innerHTML = r;
 			}
-		}
-	})
+		} // success end
+	}) // ajax end
 	
 }
 
-// 3. 비밀번호 찾기
+// 3. [최성아] 비밀번호 찾기
 function findpwd() {
 	let info = {
 		type : 2 ,
@@ -59,8 +59,8 @@ function findpwd() {
 				}else{
 					document.querySelector('.tempwd').innerHTML = r;
 			}
-		}
-	})
+		} // success end
+	}) // ajax end
 
 	
 }

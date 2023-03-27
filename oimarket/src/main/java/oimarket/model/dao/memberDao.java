@@ -44,7 +44,7 @@ public class memberDao extends Dao{
 			rs = ps.executeQuery();
 			if ( rs.next() ) { return true; } // 아이디 중복이면 true
 		}catch (Exception e) {System.out.println(e);}
-		return false; // 아이디 중복 아니면 false
+		return false; // 핸드폰번호 중복 아니면 false
 	}	
 	
 	// 4. 로그인

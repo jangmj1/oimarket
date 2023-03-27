@@ -16,7 +16,8 @@ public class Find extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public Find() {super();}
-
+    
+    // [최성아] 아이디찾기 type : 1 / 비밀번호찾기 type : 2
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String type = request.getParameter("type");
@@ -27,10 +28,8 @@ public class Find extends HttpServlet {
 			result = memberDao.getInstance().findid( mname , mphone );
 		} else if ( type.equals("2") ) {
 			String mid = request.getParameter("mid");
-			String mphone = request.getParameter("memail");
-			
-			System.out.println(mid + mphone);
-			
+			String mphone = request.getParameter("mphone");
+						
 			Random random = new Random();
 			String randomPwd = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 			

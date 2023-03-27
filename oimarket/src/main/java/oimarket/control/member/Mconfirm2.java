@@ -17,8 +17,8 @@ public class Mconfirm2 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String mphone = request.getParameter("mphone");
-		boolean result = memberDao.getInstance().phonecheck(mphone);
+		String mphone = request.getParameter("mphone");		
+		boolean result = memberDao.getInstance().phonecheck(mphone);		
 		response.getWriter().print(result);
 		
 	}

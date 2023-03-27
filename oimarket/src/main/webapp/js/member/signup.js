@@ -9,36 +9,37 @@ let checkconfirm = document.querySelectorAll('.checkconfirm')
 // 회원가입
 function signup(){
 
-	let count = 0;
-	for ( let i = 0 ; i<checkconfirm.length; i++ ){
-		if(checkconfirm[i].innerHTML == '✓'){ count ++ }
-	}
-	if( count != 4 ) { alert('정상적으로 입력되지 않은 데이터가 있습니다.'); return; }
+	let count=0;
 	
+	for(let i=0;i<checkconfirm.length;i++){
+		if(checkconfirm[i].innerHTML=='✓'){count++;}
+		}
+		console.log(count);
 	
-	let signupForm = document.querySelectorAll('.signupForm')[0];
-	let signupFormdata = new FormData ( signupForm );
+	if ( count ==4 ){
+		let signupForm = document.querySelectorAll('.signupForm')[0];
+		let signupFormdata = new FormData ( signupForm );
+		signupFormdata.set("mphone" , mphone);
+		
+		$.ajax({
+			url : "/oimarket/member/info" ,
+			method : "post" ,
+			data : signupFormdata ,
+			contentType : false ,
+			processData : false ,
+			success : (r) => {
+				console.log(r);
+					if ( r == 'true'){
+						alert('회원가입 성공')
+					} else {
+						alert('회원가입 실패')
+					}
+				} // success end 		
+		}) // ajax end
+					
+	}else { alert('정상적으로 입력되지 않은 데이터가 있습니다.'); return;}
 	
-	console.log( signupForm )
-	console.log( signupFormdata )
-	
-	
-	
-	$.ajax({
-		url : "/oimarket/member/info" ,
-		method : "post" ,
-		data : signupFormdata ,
-		contentType : false ,
-		processData : false ,
-		success : (r) => {
-			console.log(r);
-				if ( r == 'true'){
-					alert('회원가입 성공')
-				} else {
-					alert('회원가입 실패')
-				}
-			} // success end 		
-	})
+
 }
 
 // 유효성검사-1(이름 null 검사)
@@ -114,37 +115,42 @@ function pwdconfirmcheck(){
 	
 } // pwdconfirmcheck end
 
+let mphone='';
 // 유효성검사4(번호 중복 검사)
 function phonecheck(){ // onkeyup : 키 누르고 떼었때
 	let mphone1 = document.querySelector('.mphone1').value;
 	let mphone2 = document.querySelector('.mphone2').value;	
 	let mphone3 = document.querySelector('.mphone3').value;
 	
-	let mphone = mphone1 + mphone2 + mphone3
+	mphone = mphone1 + mphone2 + mphone3
+	
+	let tphone1=/^[0-9]{3,3}$/g;
+	let tphone2=/^[0-9]{4,4}$/g;
+	let tphone3=/^[0-9]{4,4}$/g;
 	
 	console.log(mphone)
 	
-	let mphonej = /^[0-9]{11}$/	
-	if( mphonej.test( mphone ) ){	// 정규표현식 패턴이 true 이면 
-		// 아이디 중복검사 [ js->서블릿->dao 에게 해당 아이디 검색 select ]
-		$.ajax({
-			url : "/oimarket//member/mconfirm2" ,
-			method : "get" , 
-			data : { "mphone" : mphone } ,			// 입력받은 아이디 보내기 
-			success : (r)=>{ 
-				if( r == 'true'){ 
-					checkconfirm[4].innerHTML = '사용 중인 번호입니다.';
-				}else{
-					checkconfirm[4].innerHTML = '✓';
+	if ( tphone1.test(mphone1) ){
+		if ( tphone2.test(mphone2)&&tphone3.test(mphone3) ){
+			
+			// 핸드폰 중복검사 [ js->서블릿->dao 에게 해당 아이디 검색 select ]
+			$.ajax({
+				url : "/oimarket//member/mconfirm2" ,
+				method : "get" , 
+				data : { "mphone" : mphone } ,			// 입력받은 아이디 보내기 
+				success : (r)=>{ 
+					if( r == 'true'){ 
+						checkconfirm[4].innerHTML = '사용 중인 번호입니다.';
+					}else{
+						checkconfirm[4].innerHTML = '✓';
+					}
 				}
-			}
-		}) // ajax end 
-		
-	}else{ // 정규표현식 패턴이 false 이면 
-		checkconfirm[4].innerHTML = '숫자만을 이용해서 11자 입력해주세요.';
+			}) // ajax end 			
+		}
 	}
-}
+		
 
+}
 
 
 
