@@ -12,6 +12,7 @@ function login() {
 
 			if ( r == 'true' ){
 				alert('로그인 성공')
+				location.href = "/oimarket/member/memberInfo.jsp"	
 			} else { 
 				alert('아이디나 비밀번호가 옳지 않습니다.')
 			}

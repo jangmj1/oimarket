@@ -27,17 +27,8 @@
 		<a href="/oimarket/header.jsp"><img alt="" src="/oimarket/img/배경.png" width="100%"></a>
 
 		<div class="mainbox"> 
-	
-	
-		<!-- 회원가입 페이지 -->
-		<div class="loginbtn">
-			<a href="/oimarket/index.jsp">회원가입page</a>
-		</div>
 		
-		<!-- 로그인 페이지-->
-		<div class="loginbtn">
-			<a href="/oimarket/member/login.jsp">로그인page</a>
-		</div>		
+		
 	
 		</div>
 		

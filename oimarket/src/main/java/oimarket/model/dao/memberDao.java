@@ -94,10 +94,36 @@ public class memberDao extends Dao{
 		return "false";
 	}
 	
+	// 7. 회원 정보 호출
+	public MemberDto getMember( String mid ) {
+		String sql = "select m.mno , m.mname , m.mid , m.mresidence , m.mmw , m.mphone , m.mimg from member m where m.mid = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs = ps.executeQuery();
+			if ( rs.next() ) {
+				MemberDto dto = new MemberDto(
+						rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7)); 
+						return dto;
+			}
+		}catch (Exception e) {System.out.println("회원정보호출" + e);}
+		return null;
+	}
 	
-	
-	
-	
+	// 8. 회원 정보 탈퇴
+	public boolean delete ( String mid , String mpwd ) {
+		String sql = "delete from member where mid = ? and mpwd = ? ";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
+			ps.setString(2, mpwd);
+			int count = ps.executeUpdate();
+			if ( count == 1 ) { return true; }
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 	
 	
 	
