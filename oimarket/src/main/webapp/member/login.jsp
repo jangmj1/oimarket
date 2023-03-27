@@ -10,8 +10,6 @@
 </head>
 <body>
 
-	<%@ include file="/header.jsp" %>
-
 	<div class="wrap">
 		<div class="mainbox">
 			<div class="id_pwd_loc">
