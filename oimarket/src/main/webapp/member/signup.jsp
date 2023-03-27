@@ -30,14 +30,27 @@
 				<input onkeyup="pwdcheck()" class="mpwd" name="mpwd" type="text">
 				
 				<div class="title">사는장소</div>
-				<input class="mresidence" name="mresidence" type="text">							
+					<select name="mresidence">
+						<option value="1">서울</option>
+						<option value="2">경기</option>
+						<option value="3">강원도</option>
+						<option value="4">인천</option>
+						<option value="5">충청도</option>
+						<option value="6">경상도</option>
+						<option value="7">전라도</option>
+						<option value="8">부산</option>
+						<option value="9">울산</option>
+						<option value="10">제주</option>
+						<option value="11">그외</option>
+					</select>					
 				
 				<div class="title">성별</div>
 				<input type="radio" name="mmw" value="남">남
 				<input type="radio" name="mmw" value="여">여			<br/>
 				
 				<div class="title">핸드폰번호</div>
-				<input onkeyup="pncheck()"class="mphone" name="mphone" type="text">
+				<span ><input class="phone1" type="text">-<input class="phone2" type="text">-<input class="phone3" type="text">
+				<button class="phone" onclick="phone()" type="button">인증하기</button></span>
 				
 				<div class="title">프로필</div>
 				<input type="file" name="mimg" class="mimg">
