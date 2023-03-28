@@ -35,10 +35,8 @@ public class MemberInfo extends HttpServlet {
 		String mresidence = multi.getParameter("mresidence");
 		String mmw = multi.getParameter("mmw");
 		String mphone = multi.getParameter("mphone") ;
-		String mimg = multi.getParameter("mid");
-		
-		System.out.println("mphone 값 : " + mphone);
-		
+		String mimg = multi.getFilesystemName("mimg");
+				
 		response.setCharacterEncoding("UTF-8");			// 응답 데이터 한글 인코딩 
 		
 		MemberDto dto = new MemberDto(mname, mid, mpwd, mresidence, mmw, mphone, mimg);

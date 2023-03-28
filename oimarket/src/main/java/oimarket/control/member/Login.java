@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import oimarket.model.dao.memberDao;
 import oimarket.model.dto.MemberDto;
@@ -47,12 +49,40 @@ public class Login extends HttpServlet {
 		}
 		response.getWriter().print(result);}
 
-
+	// [최성아] 회원 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String path = request.getSession().getServletContext().getRealPath("/img");
+		MultipartRequest multi = new MultipartRequest(
+				request, path , 1024 * 1024 * 10 , "UTF-8" , new DefaultFileRenamePolicy() );
+		
+		String mid = (String)request.getSession().getAttribute("login");
+		String newmimg = multi.getFilesystemName("newmimg"); 
+		String newmname = multi.getParameter("newmname");
+		String newmphone = multi.getParameter("newmphone");	
+		String newmresidence = multi.getParameter("newmresidence");
+		String mpwd = multi.getParameter("mpwd");
+		String newmpwd = multi.getParameter("newmpwd");
+		String defaultimg = multi.getParameter("defaultimg");
+		
+		// 첨부파일 if
+		if ( newmimg == null ) { // 기존 이미지 파일 그대로 사용
+			newmimg = memberDao.getInstance().getMember( mid ).getMimg();
+		} 
+		// 3. 만약에 기본프로필 사용체크 했으면
+		if ( defaultimg.equals("true") ) { // 기본프로필 사용
+			newmimg = null;
+		}
+		
+		boolean result = memberDao.getInstance().update(mid, newmname, mpwd, newmpwd, newmresidence, newmphone, newmimg);
+		
+		System.out.println(result);
+		
+		response.getWriter().print(result);		
+		
 	}
 
-
+	// [최성아] 회원 탈퇴
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mid = (String)request.getSession().getAttribute("login");
 		String mpwd = request.getParameter("mpwd");

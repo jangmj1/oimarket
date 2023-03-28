@@ -125,7 +125,24 @@ public class memberDao extends Dao{
 		return false;
 	}
 	
-	
+	// 9. 회원수정
+	public boolean update(String mid , String newmname , String mpwd , String newmpwd , String newmresidence ,  String newmphone , String newmimg ) {
+		String sql = "update member set mname = ? , mpwd = ? , mresidence = ? , mphone = ? , mimg = ? where mid = ? and mpwd = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, newmname);
+			ps.setString(2, newmpwd);
+			ps.setString(3, newmresidence);
+			ps.setString(4, newmphone);
+			ps.setString(5, newmimg);
+			ps.setString(6, mid);
+			ps.setString(7, mpwd);
+			
+			int count = ps.executeUpdate();
+			if ( count == 1 ) { return true; }
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 	
 	
 	

@@ -21,7 +21,8 @@
 		<button onclick="setDelete()"> 회원 탈퇴 </button>
 		<input type="text" class="deleteinput" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!"> <br>
 		
-		<button onclick="setUpdate()"> 회원 수정 </button>
+		<button onclick="modal_Update()" style="border: none;"> 회원 수정창으로 띄우기 </button>
+		
 		
 		</div>
 	</div>

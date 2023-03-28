@@ -15,13 +15,12 @@ function getLogin() {
 			
 			if ( r.mid != null){
 				html += `
-					<div> ${r.mid} </div>
-					<div> ${r.mimg} </div>
-					<div> ${r.mmw} </div>
-					<div> ${r.mname} </div>
-					<div> ${r.mphone} </div>
-					<div> ${r.mresidence} </div>
-						`
+					<div> 아이디 :  ${r.mid} </div>
+					<div> 프로필 :  <img style="width: 20%;" class="mimg">${r.mimg} </div>
+					<div> 닉네임 :  ${r.mname} </div>
+					<div> 핸드폰 :  ${r.mphone} </div>
+					<div> 거주지 :  ${r.mresidence} </div>
+		`
 			}else if ( r.mid == null ){
 				alert('로그인 후 이용가능합니다.')
 				location.href = "/oimarket/member/login.jsp";
@@ -52,7 +51,7 @@ function setDelete() {
 }
 
 // [최성아] 회원 수정
-function setUpdate() {
+function modal_Update() {
 	location.href = "/oimarket/member/update.jsp"
 }
 
