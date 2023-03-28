@@ -70,14 +70,29 @@ public class MemberInfo extends HttpServlet {
 		
 	}
 
-	
+	//회원수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String path=request.getSession().getServletContext().getRealPath("/img");//업로드할 경로
+		 MultipartRequest multi=new MultipartRequest(
+				 request,
+				 path,
+				 1024*1024*10,
+				 "UTF-8",
+				 new DefaultFileRenamePolicy());
+		 String mname=multi.getParameter("mname"); System.out.println("mname:"+mname);
+		 String mid=(String)request.getSession().getAttribute("login"); System.out.println("mid:"+mid);
+		 String mpwd=multi.getParameter("mpwd"); System.out.println("mpwd:"+mpwd);
+		 String newmpwd=multi.getParameter("newmpwd"); System.out.println("newmpwd:"+newmpwd);
+		 String mresidence=multi.getParameter("mresidence"); System.out.println("mresidence:"+mresidence);
+		 String mphone=multi.getParameter("mphone"); System.out.println("mphone:"+mphone);
+		 String mimg=multi.getFilesystemName("mimg"); System.out.println("mimg:"+mimg);
+		  
+		 boolean result= MemberDao.getInstance().update(mname,mid,mpwd,newmpwd,mresidence,mphone,mimg);
+		 
+		 response.getWriter().print(result);
 	}
 
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
+
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}

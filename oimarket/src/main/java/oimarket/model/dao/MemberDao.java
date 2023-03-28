@@ -116,4 +116,26 @@ public class MemberDao extends Dao{
 			}return "false";
 			
 		}
+		
+	//회원수정
+		public boolean update(String mname,String mid,String mpwd,String newmpwd,String mresidence,String mphone,String mimg) {
+			String sql="update member set mname=?, mpwd=?,mresidence=?,mphone=?,mimg=? where mid=? and mpwd=? ";
+			try {
+				ps=con.prepareStatement(sql);
+				ps.setString(1,mname);
+				ps.setString(2,mpwd);
+				ps.setString(3,mresidence);
+				ps.setString(4,mphone);
+				ps.setString(5,mimg);
+				ps.setString(6,mid);
+				ps.setString(7,mpwd);
+				int result=ps.executeUpdate();//수정된 레코드 결과 반환임
+				if(result==1) { return true;}
+			} catch (Exception e) {
+				System.out.println(e);
+			}return false;
+		}
+
+		
+		
 }

@@ -51,10 +51,13 @@
 				<div><input  type="text" name="mphone2" class="mphone3"></div>
 				<button onclick="getauth()" type="button">인증하기</button>
 					
+				
+			<div class="title">프로필 </div>
+				<div class="pimgbox">
+					<input  type="file" name="mimg"		class="mimg">	
+					<img class="premimg" alt="" src="/jspweb/member/pimg/기본프로필.webp">		
+				</div>
 			
-			<div>
-				이미지프로필:<input type="file" name="mimg" class="mimg">
-			</div>
 			<div>
 				<button onclick="register()" type="button">회원등록</button>
 			</div>
@@ -62,7 +65,6 @@
 		
 		
 	</div>
-		
 		
 		
 		
