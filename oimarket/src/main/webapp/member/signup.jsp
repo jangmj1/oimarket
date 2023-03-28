@@ -18,7 +18,7 @@
 			<div class="signtext">
 				<h3>회원가입</h3>
 				<div class="mtext">
-					<h5>이름</h5>
+					<h5>닉네임</h5>
 					<input onkeyup="namecheck()" class="mname"  name="mname" type="text">
 					<div class="checkconfirm" ></div>
 				</div>

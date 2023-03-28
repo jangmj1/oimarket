@@ -16,6 +16,13 @@
 	
 </head>
 <body>
+		
+		<button onclick="myPage()">마이페이지</button>
+	
+	<!-- jquery -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- 아작트 쓰기위한용도 -->
+	<!-- 사용자 -->
+	<script src="/oimarket/js/footer.js" type="text/javascript"></script>
 
 </body>
 </html>

@@ -16,7 +16,7 @@
 		<img alt="" src="/oimarket/img/오이마켓.png" width="100%">
 		<div class="mainbox">
 			<button  onclick="signupPage()">회원가입</button> 
-			<button><a href="/oimarket/member/signup.jsp">로그인</a></button>
+			<button  onclick="loginPage()">로그인</button>
 		</div>
 		
 	</div>

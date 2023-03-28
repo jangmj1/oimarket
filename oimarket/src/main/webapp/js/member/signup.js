@@ -174,8 +174,8 @@ function getmmw(event){
 }
 
 function premimg(object){//첨부파일 미리보기
-	console.log(object.files[0]	);
-	console.log(document.querySelector('.mimg').files[0]);
+	console.log(object.files[0]	);//이렇게하나
+	console.log(document.querySelector('.mimg').files[0]);//요렇게하나 같은거임
 	let file=new FileReader();
 	
 	file.readAsDataURL(object.files[0]);

@@ -52,7 +52,36 @@ public class MemberInfo extends HttpServlet {
 	}
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		//수정하기 --연습용
+			//준비물들
+		String path=request.getSession().getServletContext().getRealPath("/img");
+		
+		MultipartRequest multi=new MultipartRequest(
+				request,
+				path,
+				1024*1024*10,
+				"UTF-8",
+				new DefaultFileRenamePolicy()
+				);
+		
+		String type=multi.getParameter("type");
+		String updatemimg=multi.getFilesystemName("updatemimg");System.out.println(updatemimg);
+		String updatamname=multi.getParameter("updatamname");System.out.println(updatamname);
+		String mid=(String)request.getSession().getAttribute("login") ; //실제사용하진않음 아이디로 번호와
+		int mno=MemberDao.getInstance().getmember(mid).getMno();
+		
+		//유효성
+		if(updatemimg==null||updatamname==null) { //아무것도 안하고 그냥 적용하면 기존꺼 사용
+			updatemimg=MemberDao.getInstance().getmember(mid).getMimg();
+			updatamname=MemberDao.getInstance().getmember(mid).getMname();
+		}
+		
+		if(type.equals("1")) {
+			//dao
+			boolean result=MemberDao.getInstance().updateProfile(mno,updatemimg,updatamname);
+			response.getWriter().print(result);
+		}
+		
 	}
 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

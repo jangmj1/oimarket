@@ -1,6 +1,7 @@
 package oimarket.model.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import oimarket.model.dto.MemberDto;
 
@@ -15,7 +16,7 @@ public class MemberDao extends Dao{
 	public static MemberDao getInstance() {
 		return dao;
 	}
-
+	
 	
 	//*아이디 중복확인(회원가입용)
 	public boolean idCheck(String mid) {
@@ -76,6 +77,28 @@ public class MemberDao extends Dao{
 
 	
 //----------------------------------------------------------------------------------------------------//
+	
+	//mid로 로그인한 회원정보 호출하기--연습용(푸터에 항상쫓아다녀야할것)
+	public MemberDto getmember(String mid) {
+		String sql="select * from member where mid=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mid);
+			rs=ps.executeQuery();
+			if (rs.next()) {
+				MemberDto dto=new MemberDto(
+						rs.getInt(1), rs.getString(2),  rs.getString(3),
+						 null,  rs.getString(5),  rs.getString(6),
+						 rs.getString(7),  rs.getString(8));
+				return dto;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return null;
+		
+	}
+	
 	
 	//*비밀번호 찾기,변경--연습용
 	public String findpwd(String mid,String mphone,String newpwd) {
@@ -142,6 +165,22 @@ public class MemberDao extends Dao{
 			e.printStackTrace();
 		}return false;
 		
+	}
+	
+	//프로필 수정하기(사진과 닉네임명 =별다른 유효성 없이 변경이 가능하다 로그인했으니까)--연습용
+	public boolean updateProfile(int mno,String updatemimg,String updatamname) {
+		String sql="update member set mname=?, mimg=? where mno=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, updatamname);
+			ps.setString(2, updatemimg);
+			ps.setInt(3, mno);
+			ps.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+		}return false;
 	}
 	
 	
