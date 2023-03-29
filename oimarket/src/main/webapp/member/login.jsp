@@ -13,7 +13,7 @@
 	<div class="wrap">
 		<div class="mainbox">
 			<div class="id_pwd_loc">
-				<img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png">
+				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>
 				<div class="idinput">
 					<div> <input class="mid" type="text" placeholder="아이디"> </div>
 				</div>	
