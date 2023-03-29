@@ -38,7 +38,10 @@ function findid(){//입력받은값 가져오기
 			console.log(r);
 			if(r=='false'){
 				alert('회원정보가 없습니다')
-			}else{alert('회원님의 id는'+r+'입니다');}
+			}else{alert('회원님의 id는' +r+ '입니다. 로그인페이지로 이동합니다');
+				
+					location.href="/oimarket/member/login.jsp";			
+			}
 		}//success e
 	})//ajax e
 };//m e
@@ -56,7 +59,9 @@ function findpwd(){
 			 console.log(r);
 			 if(r=='false'){
 				 alert('회원정보가 없습니다')
-			 }else{alert('임시비밀번호 폰으로 전송했습니다')}
+			 }else{alert('임시비밀번호를 폰으로 전송했습니다. 로그인페이지로 이동합니다');
+			 			location.href="/oimarket/member/login.jsp";
+			 }
 		 }
 	 })	
 }

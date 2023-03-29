@@ -20,21 +20,21 @@
 	background-color: #f8fafc96
 }
 
-.id_pwd_loc{
+.id_pwd_loc , .findid_mphone_loc{
     padding-top: 30px;
     padding-bottom: 20px;
 }
 
-.id_pwd_loc img {
+.id_pwd_loc img , .findid_mphone_loc img {
 	margin: 0 auto;
 }
 
-.idinput, .pwdinput{
+.idinput, .pwdinput, .title{
 	display: flex;
     justify-content: center;
 }
 
-.mid , .mpwd {
+.mid , .mpwd , .mname , .mphone , .mid{
 	border: 1px solid #eeeeee; border-radius: 5px;
 	margin: 5px; padding: 5px;
 }
@@ -45,13 +45,13 @@ a{
 
 
 /* 로그인 버튼 위치 */
-.login_btn{
+.login_btn , .findid_btn , .findpwd_btn{
 	display: flex;
 	justify-content: center;
 }
 
 /* 로그인 버튼 */
-.login_btn1{
+.login_btn1 , .findid, .findpwd{
 	font-family: GmarketSansMedium;
 	background-color: #60ac3f;
 	border: none;	border-radius: 10px;
@@ -75,3 +75,5 @@ a{
 	padding: 5px;
 	margin: 5px;
 }
+
+
