@@ -55,21 +55,18 @@ public class login extends HttpServlet {
 	}
 
 
+	// [최성아] 로그인 성공 여부 체크
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	request.setCharacterEncoding("UTF-8");
+		String mid = request.getParameter("mid");
+		String mpwd = request.getParameter("mpwd");
+				System.out.println(mid+mpwd);
+		boolean result = MemberDao.getInstance().login( mid , mpwd );
 		
-		String mid=request.getParameter("mid");
-		String mpwd=request.getParameter("mpwd");
+		System.out.println(result);
 		
-		boolean result=MemberDao.getInstance().login(mid,mpwd);
-		if(result==true) {
-			request.getSession().setAttribute("login", mid);//저장 로그인 세션 만듬!
+		if (result == true) {
+			request.getSession().setAttribute("login", mid);
 		}
-		//Dao 받은 결과 전달 ajax에게 전달
-		response.getWriter().print(result);
-		
-		
-	}
+		response.getWriter().print(result);}
 
 }

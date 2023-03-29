@@ -38,6 +38,10 @@
 	border: 1px solid #eeeeee; border-radius: 5px;
 	margin: 5px; padding: 5px;
 }
+a{
+	color: black;
+	text-decoration: none;
+}
 
 
 /* 로그인 버튼 위치 */
