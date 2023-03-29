@@ -183,7 +183,23 @@ public class MemberDao extends Dao{
 		}return false;
 	}
 	
-	
+	//mno를 가지고 기본 pw가 맞는지 확인--연습용
+	public boolean findoldpwd(int mno ,String mpwd) {
+		String sql="select mpwd from member where mno=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				if (rs.getString(1).equals(mpwd)) return true;
+			}
+					
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+		return false;
+		
+	}
 	
 	
 

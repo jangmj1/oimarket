@@ -20,15 +20,21 @@ public class findmember extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		boolean result=false; //type 1,2 를 쓸예정
 		String r=null;//type 3,4 를 쓸예정
-		//준비물들
+		//준비물들 지우면안됨
 		String type=request.getParameter("type");//1 ,2, 3, 4 있음
 		String mid= request.getParameter("mid");
 		String mphone= request.getParameter("mphone");
 		String mname= request.getParameter("mname");
 		
-		//비밀번호 찾기를했을때 난수비밀번호를 업데이트하고 알려주기위한 준비물!
+		//보안설정을 하기위한 준비물--연습용
+		String myid=(String)request.getSession().getAttribute("login");
+		int mno= MemberDao.getInstance().getmember(myid).getMno();
+		String mpwd=request.getParameter("mpwd");
+		
+		//비밀번호 찾기를했을때 난수비밀번호를 업데이트하고 알려주기위한 준비물!--연습용
 		Random random=new Random();
 		String ranstr="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 		
@@ -37,7 +43,7 @@ public class findmember extends HttpServlet {
 			int ran=random.nextInt(ranstr.length());
 			newpwd+=ranstr.charAt(ran);
 			
-		}System.out.println("새로운 비밀번호:"+newpwd);
+		}//System.out.println("새로운 비밀번호:"+newpwd);
 		
 		
 		
@@ -58,6 +64,9 @@ public class findmember extends HttpServlet {
 			 r=MemberDao.getInstance().findpwd(mid, mphone, newpwd);
 			response.getWriter().print(r);
 			return;		
+		}
+		else if(type.equals("5")){//비밀번호수정시 현재비밀번호 동일한지--연습용
+			 result=MemberDao.getInstance().findoldpwd(mno, mpwd);
 		}
 		
 		//type 1,2 사용됨

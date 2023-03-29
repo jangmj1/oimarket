@@ -71,7 +71,7 @@ public class MemberInfo extends HttpServlet {
 		int mno=MemberDao.getInstance().getmember(mid).getMno();
 		
 		//유효성
-		if(updatemimg==null||updatamname==null) { //아무것도 안하고 그냥 적용하면 기존꺼 사용
+		if(updatemimg==null||updatamname.equals("")) { //아무것도 안하고 그냥 적용하면 기존꺼 사용
 			updatemimg=MemberDao.getInstance().getmember(mid).getMimg();
 			updatamname=MemberDao.getInstance().getmember(mid).getMname();
 		}
