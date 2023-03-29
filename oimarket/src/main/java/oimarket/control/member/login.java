@@ -46,8 +46,9 @@ public class login extends HttpServlet {
 				int ran=random.nextInt(ranStr.length());
 				newpwd+=ranStr.charAt(ran);
 			}//for end
+			
 			System.out.println("newpwd:"+newpwd);
-			MemberDao.getInstance().findpwd(mid,mphone,newpwd);
+			result=MemberDao.getInstance().findpwd(mid,mphone,newpwd);
 		}
 		
 		response.getWriter().print(result);
