@@ -19,17 +19,15 @@
 		
 		@media (max-width: 600px) {
 		  .footerbox{
-		  	display: none !important;
-		  }
-		  .footerbox2{
 		  	display: flex !important;
 		  }
+
 		}
 	
 		.footerbox{
 			width : 600px; 
 			position : fixed;
-			top:0px;
+			bottom:0px;
 			border-top: 1px solid #e8e8e8;		
 			padding: 10px;
 			 display: flex;
@@ -38,17 +36,7 @@
     		z-index: 999;
 		}
 		
-		.footerbox2{
-			width : 600px; 
-			position : fixed;
-			bottom:0px;
-			border-top: 1px solid #e8e8e8;		
-			padding: 10px;
-			display: none;
-    		justify-content: space-around;
-    		background-color: white;
-    		z-index: 999;
-		}
+
 		
 		.menubox{
 			width: 19%;
@@ -74,54 +62,30 @@
 		<div class="footerbox">
 			<div class="menubox">
 				<div><i class="fas fa-home"></i> </div>
-				<div class="menuname">홈</div>
+				<div class="menuname">홈(물품출력)</div>
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-newspaper"></i>   </div>
-				<div class="menuname">커뮤니티</div>
+				<div class="menuname">게시판</div>
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-edit"></i>   </div>
-				<div class="menuname">제품등록</div>
+				<div class="menuname">물품등록</div>
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-comments"></i>   </div>
-				<div class="menuname">채팅</div>
+				<div class="menuname">쪽지함</div>
 			</div>
 			<div class="menubox">
-				<div><i class="fas fa-user"></i>   </div>
-				<div class="menuname">나의당근</div>
+				<div><i class="fas fa-carrot"></i>   </div>
+				<div class="menuname">마이페이지</div>
 			</div>
 			
 		</div>
 	</div>
 	
 	
-	<div class="wrap">
-		<div class="footerbox2">
-			<div class="menubox">
-				<div><i class="fas fa-home"></i> </div>
-				<div class="menuname">홈</div>
-			</div>
-			<div class="menubox">
-				<div><i class="fas fa-newspaper"></i>   </div>
-				<div class="menuname">커뮤니티</div>
-			</div>
-			<div class="menubox">
-				<div><i class="fas fa-edit"></i>   </div>
-				<div class="menuname">제품등록</div>
-			</div>
-			<div class="menubox">
-				<div><i class="fas fa-comments"></i>   </div>
-				<div class="menuname">채팅</div>
-			</div>
-			<div class="menubox">
-				<div><i class="fas fa-user"></i>   </div>
-				<div class="menuname">나의당근</div>
-			</div>
-			
-		</div>
-	</div>
+
 
 
 	<!-- jquery -->

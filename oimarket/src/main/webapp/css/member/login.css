@@ -25,6 +25,10 @@
     padding-bottom: 20px;
 }
 
+.id_pwd_loc img {
+	margin: 0 auto;
+}
+
 .idinput, .pwdinput{
 	display: flex;
     justify-content: center;
