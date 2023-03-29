@@ -48,11 +48,6 @@
 						<div> 새 비밀번호 </div>
 						<input type="text" class="newmpwd" name="newmpwd">
 					</div>
-					
-					<div>
-						<div> 새 비밀번호 확인 </div>
-						<input type="text" class="newmpwdconfirm">
-					</div>
 
 					
 
