@@ -54,7 +54,9 @@ public class MemberInfo extends HttpServlet {
 		String mphone = multi.getParameter("mphone");
 		String mimg = multi.getFilesystemName("mimg");	// 첨부된 파일명 호출
 		
-		System.out.println(mname + mid + mpwd + mresidence + mmw + mphone + mimg);
+		System.out.println(mname);		System.out.println(mid);
+		System.out.println(mpwd);		System.out.println(mresidence);
+		System.out.println(mmw);		System.out.println(mphone);		System.out.println(mimg);
 		
 		MemberDto dto = new MemberDto(0, mname, mid, mpwd, mresidence, mmw, mphone, mimg);
 			System.out.println("dto : " + dto);

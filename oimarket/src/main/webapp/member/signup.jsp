@@ -23,11 +23,14 @@
 				
 				<div class="title">아이디</div>
 				<input onkeyup="idcheck()" class="mid" name="mid" type="text">
-				<div class="midconfirm">
-				</div>
+				<div class="checkconfirm"></div>
 				
 				<div class="title">비밀번호</div>
 				<input onkeyup="pwdcheck()" class="mpwd" name="mpwd" type="text">
+				
+				<div class="title">비밀번호 확인</div>
+				<input onkeyup="pwdrecheck()" maxlength="20" type="password" name="mpwdconfirm" 	class="mpwdconfirm">	
+				<div class="checkconfirm"></div>
 				
 				<div class="title">사는장소</div>
 					<select name="mresidence">
@@ -51,10 +54,15 @@
 				<div class="title">핸드폰번호</div>
 				<span ><input class="phone1" type="text">-<input class="phone2" type="text">-<input class="phone3" type="text">
 				<button class="phone" onclick="phone()" type="button">인증하기</button></span>
+				<div class="checkconfirm"></div>
+				
+				<div class="authbox"> <!-- 인증코드자리 --> 
+				
+				</div>
 				
 				<div class="title">프로필</div>
-				<input type="file" name="mimg" class="mimg">
-				
+				<input onchange="premimg(this)" type="file" name="mimg" class="mimg">
+				<img class="premimg" alt="" src="/oimarket/img/default.webp">
 				<button class="signupbtn" onclick="signup()" type="button">가입하기</button>
 			</form>
 		</div>

@@ -21,15 +21,35 @@ public class MemberDao extends Dao{
 		return false;
 	}
 	
-	// 2. 아이디 체크
-	public boolean idcheck( String mid ) {
-		String sql = "select * from member where mid = ? ";
-		try {
-			ps = con.prepareStatement(sql);
-			ps.setString(1, mid);
-			rs=ps.executeQuery();
-			if(rs.next()) return true;
-		}catch (Exception e) {System.out.println(e);}
-		return false;
+	// 2. 중복 체크
+	public boolean membercheck( String mid , String type , String mphone) {
+		if(type.equals("1")) {	// 만약 타입이 1번이면
+			String sql = "select * from member where mid = ? "; // 아이디 같은놈 있나 찾아보기
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				rs=ps.executeQuery();
+				if(rs.next()) return false;
+			}catch (Exception e) {System.out.println(e);}
+		}else if(type.equals("2")){	// 만약 타입이 2번이면
+			String sql = "select * from member where mphone = ? ";	// 전번 같은놈 있나 찾아보기
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);	ps.setString(2, type);	ps.setString(3, mphone);
+				rs = ps.executeQuery();
+				if(rs.next()) return false;
+			}catch (Exception e) {System.out.println(e);}
+		}
+		return true;
 	}
+		
 }
+
+
+
+
+
+
+
+
+

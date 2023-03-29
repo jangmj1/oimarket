@@ -30,8 +30,11 @@ public class Mconfirm extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. signup.js에서 가져온 아이디로 검사
 			String mid = request.getParameter("mid");
+			String type = request.getParameter("type");
+			String mphone = request.getParameter("mphone");
+			
 			// 2. DAO에게 보내고 결과 받기
-			boolean result = MemberDao.getInstance().idcheck(mid);
+			boolean result = MemberDao.getInstance().membercheck(mid,type,mphone);
 			// 3. 결과 응답
 			response.getWriter().print(result);
 	}
