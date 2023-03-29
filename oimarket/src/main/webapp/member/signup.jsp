@@ -12,6 +12,7 @@
 	<link href="/oimarket/css/member/signup.css" rel="stylesheet">
 </head>
 <body>
+
 	<div class="wrap">
 		<img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png">
 		<form class="signupForm">

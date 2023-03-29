@@ -50,6 +50,7 @@ public class MemberInfo extends HttpServlet {
 		response.getWriter().print(result);
 		
 	}
+	
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
