@@ -13,11 +13,16 @@ function myinfo(){
 	
 	let html=
 		`<H3>내정보</H3>
+		
 		<img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}"
 		 style="width: 300px;   border: 1px solid #d1d1d1;   border-radius: 50%;">
 		<div>${r.mname}</div>
 		<button onclick="UpdateProfile()" type="button">내프로필</button>
 		<button onclick="UpdateMyinfo()" type="button">보안설정</button>
+		<button onclick="outmember()" type="button">회원탈퇴</button>
+		<form class="test">
+			<input type="hidden"  class="promptmpwd" name ="promptmpwd">
+		</form>
 		`
 		document.querySelector('.UpdateMypage').innerHTML=html;
 	
@@ -95,12 +100,12 @@ function UpdateMyinfo(){
 		<form  class="updateForm">
 			<div>
 				<div>현재비밀번호</div>
-				<input onkeyup="oldpwd()" class="mpwd" type="text">
+				<input onkeyup="oldpwd()" name="mpwd" class="mpwd" type="text">
 				<div class="okbox1"></div>
 			</div>
 			<div>
 				<div>새비밀번호</div>
-				<input onkeyup="pwdcheck()" class="upmpwd" type="text">
+				<input onkeyup="pwdcheck()" name="upmpwd" class="upmpwd" type="text">
 				<div class="okbox2"></div>
 			</div>
 			<div>
@@ -287,8 +292,59 @@ let okbox4= document.querySelector('.okbox4').innerHTML
 let testok='ok';
 if(testok==okbox1 && testok==okbox2 &&testok==okbox3&&testok==okbox4){
 	
+	let updateForm=document.querySelectorAll('.updateForm')[0];
+	let updateFormdata=new FormData(updateForm);
+	updateFormdata.set("type",2);
+	updateFormdata.set("mphone",mphone);
+	
+	$.ajax({
+		url:"/oimarket/member/info",
+		method:"put",
+		data:updateFormdata,
+		contentType:false,
+		processData:false,
+		success:(r)=>{
+			console.log(r)
+			if(r=='true'){
+				alert('보안설정이 변경되었습니다 재 로그인 해주세요')
+				location.href="/oimarket/index.jsp"
+			}
+		}
+	})
+	
 }
 	
+	
+	
+	
+}
+
+function outmember(){
+	//$('#promptmpwd').val(prompt('비밀번호를 입력해주세요'))
+	document.querySelector('.promptmpwd').value = prompt('비밀번호를 입력해주세요') // 이건 못넘기는것인가..??	
+	let test=document.querySelectorAll('.test')[0];
+	let testdata=new FormData(test);
+	
+	
+	console.log(test) 
+		$.ajax({
+		url:"/oimarket/member/info",
+		data:testdata,
+		method:"delete",
+		contentType:false,
+		processData:false,
+		success:(r)=>{
+			console.log(r)
+			if(r=='true'){
+				alert('정상 탈퇴 되었습니다')
+				location.href="/oimarket/index.jsp"
+			}else if(r=='null'){
+				alert('비밀번호가 틀렸습니다.')
+			}else{
+				alert('탈퇴 실패 관리자에게 문의하세요')
+			}
+		}
+	})	
 	
 	
 	

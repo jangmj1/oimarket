@@ -11,7 +11,7 @@
 	<!-- 프로필변경과 보안설정 페이지 삭제가능-->
 	<div class="UpdateMypage">
 		
-
+		
 	</div>
 	
 	<%@include file="/footer.jsp" %>

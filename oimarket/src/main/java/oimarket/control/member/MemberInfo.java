@@ -69,6 +69,10 @@ public class MemberInfo extends HttpServlet {
 		String updatamname=multi.getParameter("updatamname");System.out.println(updatamname);
 		String mid=(String)request.getSession().getAttribute("login") ; //실제사용하진않음 아이디로 번호와
 		int mno=MemberDao.getInstance().getmember(mid).getMno();
+		/*------------보안설정 준비물-------------*/
+		String mpwd=multi.getParameter("upmpwd");System.out.println(mpwd);
+		String mresidence=multi.getParameter("mresidence");System.out.println(mresidence);
+		String mphone=multi.getParameter("mphone");System.out.println(mphone);
 		
 		//유효성
 		if(updatemimg==null||updatamname.equals("")) { //아무것도 안하고 그냥 적용하면 기존꺼 사용
@@ -81,11 +85,40 @@ public class MemberInfo extends HttpServlet {
 			boolean result=MemberDao.getInstance().updateProfile(mno,updatemimg,updatamname);
 			response.getWriter().print(result);
 		}
+		else if(type.equals("2")) {
+			//dao
+			
+			boolean result=MemberDao.getInstance().updatesec(mpwd,mresidence,mphone,mno);
+			response.getWriter().print(result);
+		}
 		
 	}
 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		String path=request.getSession().getServletContext().getRealPath("/img");
+		
+		MultipartRequest multi=new MultipartRequest(
+				request,
+				path,
+				1024*1024*10,
+				"UTF-8",
+				new DefaultFileRenamePolicy()
+				);
+		String promptmpwd=multi.getParameter("promptmpwd");
+		System.out.println("받은값:"+promptmpwd);//prompt 로 받아서그런가? 왜 null??
+		String mid=(String)request.getSession().getAttribute("login") ; 
+		int mno=MemberDao.getInstance().getmember(mid).getMno();
+		String mpwd=MemberDao.getInstance().getmember(mid).getMpwd(); System.out.println(mpwd);
+		
+		if(mpwd.equals(promptmpwd)) {
+			boolean result=MemberDao.getInstance().outmember(mno);
+			response.getWriter().print(result);
+			
+		}else {
+			String result="null";
+			response.getWriter().print(result);
+			
+		}
 	}
 
 }

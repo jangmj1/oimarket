@@ -88,7 +88,7 @@ public class MemberDao extends Dao{
 			if (rs.next()) {
 				MemberDto dto=new MemberDto(
 						rs.getInt(1), rs.getString(2),  rs.getString(3),
-						 null,  rs.getString(5),  rs.getString(6),
+						rs.getString(4),  rs.getString(5),  rs.getString(6),
 						 rs.getString(7),  rs.getString(8));
 				return dto;
 			}
@@ -200,7 +200,42 @@ public class MemberDao extends Dao{
 		return false;
 		
 	}
+	//보안설정
+	public boolean updatesec(String mpwd,String mresidence,String mphone,int mno) {
+		
+		String sql="update member set mpwd=? ,mresidence= ?,mphone= ? where mno= ?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setString(1, mpwd);
+			ps.setString(2, mresidence);
+			ps.setString(3, mphone);
+			ps.setInt(4, mno);
+			int count=ps.executeUpdate();
+			if(count>0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return false;
+		
+	}
 	
-	
+	//탈퇴하기
+	public boolean outmember(int mno) {
+		String sql="delete from member where mno = ?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, mno);
+			int count=ps.executeUpdate();
+			if(count>0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return false;
+		
+	}
 
 }
