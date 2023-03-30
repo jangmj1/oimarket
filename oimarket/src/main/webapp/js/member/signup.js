@@ -89,7 +89,6 @@ function repwdcheck(){//비밀번호 재확인 유효성
 }
 
 
-
 let mphone=''; // 나중에 회원가입할때 따로 가져가야해서 전역변수로뺌
 function phone(){//핸드폰 번호 유효성 검사
 	//1.핸드폰 번호 받기

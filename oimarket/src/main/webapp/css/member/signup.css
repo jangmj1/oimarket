@@ -12,7 +12,6 @@
 .wrap{
 			width: 600px;
 			margin: 0 auto;
-			background-color : #f8fafc96;
 			display: flex;
 			justify-content: center;
 			flex-direction: column;
@@ -29,7 +28,7 @@
  }
  
 .logo{
-	width: 300px;
+	width: 130px;
 	height: 300px;
 	margin: 0 auto;
 }

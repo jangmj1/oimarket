@@ -94,4 +94,44 @@ public class MemberDao extends Dao{
 			
 		}
 
+		
+		//5.아이디 찾기
+		public String findid(String mname,String mphone) {
+			String sql="select mid from member where mname=? and mphone=?;";
+			try {
+				ps=con.prepareStatement(sql);
+				ps.setString(1, mname);
+				ps.setString(2, mphone);
+				rs=ps.executeQuery();
+				if(rs.next()) {return rs.getString(1);}//찾은 아이디 주기
+			} catch (Exception e) {
+				System.out.println(e);
+			}return "false";
+		}
+		
+	//비밀번호찾기
+		public String findpwd(String mid, String mphone,String newpwd) {
+			String sql="select mno from member where mid=? and mphone=?;";
+			try {
+				ps=con.prepareStatement(sql);
+				ps.setString(1, mid);
+				ps.setString(2, mphone);
+				rs=ps.executeQuery();
+				if(rs.next()) {
+					sql="update member set mpwd=? where mno=?";
+					ps=con.prepareStatement(sql);
+					ps.setString(1, newpwd);
+					ps.setInt(2, rs.getInt(1));//회원번호
+					int result=ps.executeUpdate();
+					if(result==1) {
+						return newpwd;
+					}
+					
+					}
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}return "false";
+			
+		}
 }
