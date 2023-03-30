@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import oimarket.model.dao.MemberDao;
+
 /**
  * Servlet implementation class Login
  */
@@ -34,7 +36,16 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mid = request.getParameter("mid");
+		String mpwd = request.getParameter("mpwd");
 		
+		boolean result = MemberDao.getInstance().login(mid , mpwd);
+		
+		if(result == true) {
+			request.getSession().setAttribute("login", mid);
+		}
+		
+		response.getWriter().print(result);
 	}
 
 	/**

@@ -24,6 +24,7 @@
 				
 				<div class="title">비밀번호</div>
 				<input class="mpwd" name="mpwd" type="password">
+				<div class="checkconfirm"></div>
 
 				<button class="signupbtn" onclick="login()" type="button">로그인</button>
 			</form>
