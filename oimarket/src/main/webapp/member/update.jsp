@@ -1,20 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style="width: 100%">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+
+	<link href="/oimarket/css/member/update.css" rel="stylesheet">
 </head>
-<body>
+<body style="width: 100%">
 	<%@ include file="/footer.jsp" %>
 	
-	<div class="wrap">
-		<div class="mainbox">
+	<div class="wrap Updatewrap">
+
+		<div class="mypageMainbox">
+			<div class="updateLogo" >
+				<img onclick="logo()" alt="" src="/oimarket/img/아이콘.png"> 
+			</div>			
 			
-			<h3> ------------------회원 정보 수정 창 --------------</h3>
 			<form class="updateForm">
-				<div>
+				<div class="updateMainbox">
 					
 					<div>
 						<div> 아이디 </div>
@@ -22,36 +26,36 @@
 					</div>
 					
 					<div>
-						<img class="mimg" style="width: 30%;" src="/oimarket/img/default.webp">
+						<img class="mimg" style="width: 30%;" src="/oimarket/img/default.webp"> <br>
 						프로필변경 : <input type="file" name="newmimg"> <br>
 						<input class="defaultimg" type="checkbox"> 기본프로필 사용
 					</div>					
 					
 					<div>
-						<div> 닉네임 </div> <input type="text" name="newmname">
+						<div> 닉네임 </div> <input class="mname" type="text" name="newmname">
 						
 					</div>
 
 					<div>
-						<div> 핸드폰 </div> <input type="text" name="newmphone">
+						<div> 핸드폰 </div> <input class="mphone"  type="text" name="newmname">
 					</div>
 					
 					<div>
-						<div> 거주지 </div> <input type="text" name="newmresidence">
+						<div> 거주지 </div> <input class="mresidence" type="text" name="newmname">
 					</div>
 					
 					<div>
 						<div> 현재비밀번호 </div>
-						<input type="text" class="mpwd" name="mpwd">
+						<input class="nowpwd" type="text"  name="mpwd">
 					</div>
 					<div>
 						<div> 새 비밀번호 </div>
-						<input type="text" class="newmpwd" name="newmpwd">
+						<input class="newPwd" type="text"  name="newmpwd">
 					</div>
 
 					
 
-					<button onclick="setUpdate()" type="button"> 회원 수정 </button>
+					<button class="updatebtn" onclick="setUpdate()" type="button"> 회원 수정 </button>
 				</div>
 			</form>		
 			

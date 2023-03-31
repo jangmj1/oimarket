@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.mypageWrap{
+    width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;	
+}
+
+.mypageWrap img {
+	width: 200px !important;
+    display: flex !important;
+}
+
+.mypageInfo{
+	display: flex;
+	margin: 5px;
+}
+
+.mypageH{
+	font-weight: bold;
+    margin-right: 20px;
+    font-size: 16px; 
+}
+
+.deletebtn , .updatebtn{
+	border: none;
+	background-color:   #60ac3f;
+	border-radius: 5px;
+	color: white;
+	font-family: 'GmarketSansMedium';	
+	padding: 3px 8px;
+}
+
+.deleteLine{
+	display: flex;
+    justify-content: space-between;	
+    align-items: baseline;
+}
+
+.updateLine{
+	display: flex;
+    align-items: center;
+    justify-content: space-between;	
+}
+
+.delete_input{
+	margin: 10px 70px 0px 0px;
+}
+
+.mypageInfobox , .mypageLikebox , .mypageBoardbox{
+	margin-top: 15%;
+}

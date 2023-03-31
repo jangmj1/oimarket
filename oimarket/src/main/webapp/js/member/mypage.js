@@ -1,4 +1,9 @@
 
+// index.jsp 로 이동 ( 홈으로 이동 )
+function logo(){
+	location.href="/oimarket/main.jsp"
+}
+
 console.log(memberInfo)
 // [최성아] 회원 탈퇴
 getLogin();
@@ -13,22 +18,36 @@ function getLogin() {
 			
 			if ( r.mid != null){
 				html += `
-					<div> 아이디 :  ${r.mid} </div>
-					<div> 프로필 :  <img style="width: 20%;" class="mimg">${r.mimg} </div>
-					<div> 닉네임 :  ${r.mname} </div>
-					<div> 핸드폰 :  ${r.mphone} </div>
-					<div> 거주지 :  ${r.mresidence} </div>
+					<div class="updateLine">
+						<h3> 회원 정보 출력 </h3>
+						<div>
+							<button class="updatebtn" onclick="modal_Update()" type="button"> 회원 정보 수정 </button>
+						</div>
+					</div>
+					<div class="mypageInfo"> <div class="mypageH">아이디</div>   ${r.mid} </div>
+					<div class="mypageInfo"> <div class="mypageH">프로필</div>   ${r.mimg} </div>
+					<div class="mypageInfo"> <div class="mypageH">닉네임</div>   ${r.mname} </div>
+					<div class="mypageInfo"> <div class="mypageH">핸드폰</div>   ${r.mphone} </div>
+					<div class="mypageInfo"> <div class="mypageH">거주지</div>   ${r.mresidence} </div>
 					
-					<button onclick="setDelete();" type="button"> 회원 탈퇴 </button>
-					<input type="text" class="deleteinput" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!">
+
 					
-					<button onclick="modal_Update()" type="button"> 회원 정보 수정 </button>
+					<div class="deleteLine">
+						<div class="delete_input">
+							<input type="text" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!"> 
+						</div>
+						<div>
+							<button class="deletebtn" onclick="setDelete();" type="button"> 회원 탈퇴 </button> 
+						</div>
+					</div>
+					
+					
 					`
 			}else if ( r.mid == null ){
 				alert('로그인 후 이용가능합니다.')
 				location.href = "/oimarket/member/login.jsp";
 			}	
-			document.querySelector('.asd').innerHTML = html;
+			document.querySelector('.mypageInfobox').innerHTML = html;
 			
 		} // success end
 	}) // ajax end
