@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import oimarket.model.dao.memberDao;
+import oimarket.model.dao.MemberDao;
 import oimarket.model.dto.MemberDto;
 
 @WebServlet("/login")
@@ -25,7 +25,7 @@ public class Login extends HttpServlet {
 		
 		String mid = (String)request.getSession().getAttribute("login");
 				
-		MemberDto result = memberDao.getInstance().getMember( mid );
+		MemberDto result = MemberDao.getInstance().getMember( mid );
 		ObjectMapper mapper = new ObjectMapper();
 		String json = mapper.writeValueAsString(result);
 		
@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
 		String mid = request.getParameter("mid");
 		String mpwd = request.getParameter("mpwd");
 				
-		boolean result = memberDao.getInstance().login( mid , mpwd );
+		boolean result = MemberDao.getInstance().login( mid , mpwd );
 		
 		System.out.println(result);
 		
@@ -67,14 +67,14 @@ public class Login extends HttpServlet {
 		
 		// 첨부파일 if
 		if ( newmimg == null ) { // 기존 이미지 파일 그대로 사용
-			newmimg = memberDao.getInstance().getMember( mid ).getMimg();
+			newmimg = MemberDao.getInstance().getMember( mid ).getMimg();
 		} 
 		// 3. 만약에 기본프로필 사용체크 했으면
 		if ( defaultimg.equals("true") ) { // 기본프로필 사용
 			newmimg = null;
 		}
 		
-		boolean result = memberDao.getInstance().update(mid, newmname, mpwd, newmpwd, newmresidence, newmphone, newmimg);
+		boolean result = MemberDao.getInstance().update(mid, newmname, mpwd, newmpwd, newmresidence, newmphone, newmimg);
 		
 		System.out.println(result);
 		
@@ -87,7 +87,7 @@ public class Login extends HttpServlet {
 		String mid = (String)request.getSession().getAttribute("login");
 		String mpwd = request.getParameter("mpwd");
 		
-		boolean result = memberDao.getInstance().delete(mid, mpwd);
+		boolean result = MemberDao.getInstance().delete(mid, mpwd);
 		response.getWriter().print(result);
 		
 	}

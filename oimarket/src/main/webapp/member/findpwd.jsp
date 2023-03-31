@@ -4,31 +4,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="/oimarket/css/member/login.css" rel="stylesheet">
 </head>
 <body>
-
-	<%@ include file="/header.jsp" %>
-	
+		
 	<div class="wrap">
-	
 		<div class="mainbox">
+			<div class="findid_mphone_loc">
+				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>
+		
+		
+		
 			
-		아이디 : <input type="text" class="mid"> <br>
-		핸드폰번호 : <input type="text" class="mphone">
-			
-			<button onclick="findpwd()" type="button"> 비밀번호 찾기 </button> <br>
-		
-		<div class="noinfo"></div>
-		
-		임시 비밀번호 : <div class="tempwd"></div>
-		
+				<div class="title">
+					<input  type="text" name="mid"class="mid" placeholder="아이디">	
+				</div>			
+				<div class="title">
+					<input  type="text" name="mphone"class="mphone" placeholder="휴대폰번호">				
+				</div>
+			</div>
+				<div class="findpwd_btn"> 
+					<button class="findpwd"onclick="openModal2()"type="button" >비밀번호 찾기</button>
+				</div>
 		</div>
-		
 	</div>
-
 	
+	
+	<div class="modal_wrap">
+		<div class="modal_box">
+			
+			<div class="modal_content">
+				
+				<div class="content">
+				</div>
+				
+			</div>
+			<div class="modal_btns">
+				<a href="/oimarket/member/login.jsp"><button onclick="closeModal()"class="modal_check" 	type="button">확인</button></a>
+				
+			</div>
+		</div>
+	</div>
+	
+	
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/oimarket/js/member/login.js" type="text/javascript"></script>
 
-	<script src="/oimarket/js/member/login.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -1,7 +1,6 @@
 
-let memberInfo = null;
-
-// [최성아] 회원 수정 , 탈퇴 위한 로그인 정보 호출 
+console.log(memberInfo)
+// [최성아] 회원 탈퇴
 getLogin();
 function getLogin() {
 	$.ajax({
@@ -10,7 +9,6 @@ function getLogin() {
 		async : false ,
 		success : (r) => {
 			memberInfo = r;
-			console.log(r);
 			let html = '';
 			
 			if ( r.mid != null){
@@ -20,12 +18,17 @@ function getLogin() {
 					<div> 닉네임 :  ${r.mname} </div>
 					<div> 핸드폰 :  ${r.mphone} </div>
 					<div> 거주지 :  ${r.mresidence} </div>
-		`
+					
+					<button onclick="setDelete();" type="button"> 회원 탈퇴 </button>
+					<input type="text" class="deleteinput" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!">
+					
+					<button onclick="modal_Update()" type="button"> 회원 정보 수정 </button>
+					`
 			}else if ( r.mid == null ){
 				alert('로그인 후 이용가능합니다.')
 				location.href = "/oimarket/member/login.jsp";
 			}	
-			document.querySelector('.mainbox').innerHTML = html;
+			document.querySelector('.container').innerHTML = html;
 			
 		} // success end
 	}) // ajax end
@@ -49,17 +52,7 @@ function setDelete() {
 		}
 	}) // ajax end
 }
-
-// [최성아] 회원 수정
+// [최성아] 수정창으로 이동
 function modal_Update() {
 	location.href = "/oimarket/member/update.jsp"
 }
-
-
-
-
-
-
-
-
-

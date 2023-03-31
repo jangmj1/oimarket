@@ -7,24 +7,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import oimarket.model.dao.memberDao;
+import oimarket.model.dao.MemberDao;
 
-@WebServlet("/member/mconfirm2")
-public class Mconfirm2 extends HttpServlet {
+/**
+ * Servlet implementation class findmember
+ */
+@WebServlet("/findmember")
+public class findmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public Mconfirm2() { super();}
+    public findmember() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String mphone = request.getParameter("mphone");		
-		boolean result = memberDao.getInstance().phonecheck(mphone);		
+		
+		String type=request.getParameter("type");
+		String mid= request.getParameter("mid");
+		String mphone= request.getParameter("mphone");
+		
+		boolean result=MemberDao.getInstance().findmember(mid,type,mphone);
 		response.getWriter().print(result);
+	
+		
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }

@@ -4,18 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 
 	<link href="/oimarket/css/member/login.css" rel="stylesheet">
 
 </head>
 <body>
 
-	<%@ include file="/header.jsp" %>
-
 	<div class="wrap">
 		<div class="mainbox">
 			<div class="id_pwd_loc">
+				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>
 				<div class="idinput">
 					<div> <input class="mid" type="text" placeholder="아이디"> </div>
 				</div>	
@@ -37,7 +35,9 @@
 			
 	</div>
 	
-
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
 	<script src="/oimarket/js/member/login.js" type="text/javascript"></script>
-</body>
+
+</head>
+
 </html>

@@ -4,28 +4,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="/oimarket/css/member/login.css" rel="stylesheet">
+
 </head>
 <body>
-
-	<%@ include file="/header.jsp" %>
 	
+		
 	<div class="wrap">
-	
 		<div class="mainbox">
-	
-		이름 : <input type="text" class="mname"> <br>
-		핸드폰번호 : <input type="text" class="mphone">
-	
-			<button onclick="findid()" type="button"> 아이디 찾기 </button> <br>
+			<div class="findid_mphone_loc">
+				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>
 		
-		찾은 아이디 : <div class="getid"> </div>
-		
-		</div>
-		
+				<div class="title">
+					<input  type="text" name="mname"class="mname" placeholder="이름">	
+				</div>			
+				<div class="title">
+					<input  type="text" name="mphone"class="mphone"  placeholder="휴대폰번호">				
+				</div>
+			</div>
+			 	<div class="findid_btn">
+					<button class="findid"onclick="openModal()"type="button" >아이디 찾기</button>
+				</div>
+		</div>				
 	</div>
-
-	<script src="/oimarket/js/member/login.js" type="text/javascript"></script>
 	
+	<div class="modal_wrap">
+		<div class="modal_box">
+			
+			<div class="modal_content">
+				
+				<div class="content">
+				</div>
+				
+			</div>
+			<div class="modal_btns">
+				<a href="/oimarket/member/login.jsp"><button onclick="closeModal()"class="modal_check" 	type="button">확인</button></a>
+				
+			</div>
+		</div>
+	</div>
+	
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/oimarket/js/member/login.js" type="text/javascript"></script>
+
 </body>
 </html>

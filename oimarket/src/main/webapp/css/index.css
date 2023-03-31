@@ -1,0 +1,59 @@
+@charset "EUC-KR";
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,body{
+	height: 100%
+}
+.wrap img{
+	width: 400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+
+.wrap{
+	width: 600px; 
+	margin: 0 auto;
+	border: 1px solid red;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.mainbox{
+	display: flex;
+	justify-content: center;
+	
+}
+a{
+	color: white;
+	text-decoration: none;
+	
+}
+
+.mainbox button{
+	 font-family: 'GmarketSansMedium';
+	 background-color :#60ac3f;
+	 margin: 30px;
+	 padding: 25px 60px;
+	border-radius: 10px;
+    border: none;
+        color: white;
+}
+.mainbox button:hover {
+	 background-color : #2c9200;
+}
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="/member/memberInfo.jsp" %>
+	<%@ include file="/footer.jsp" %>
 	
 	<div class="wrap">
 		<div class="mainbox">
