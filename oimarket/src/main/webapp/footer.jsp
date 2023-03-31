@@ -66,7 +66,7 @@
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-newspaper"></i>   </div>
-				<div class="menuname">게시판</div>
+				<div class="menuname"><a href="/oimarket/board/list.jsp">게시판</a></div>
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-edit"></i>   </div>

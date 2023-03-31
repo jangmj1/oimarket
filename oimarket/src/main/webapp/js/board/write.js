@@ -15,6 +15,22 @@ function bwrite(){
 		processData : false,
 		success:(r)=>{
 			console.log(r)
+			if(r=='true'){
+				alert('글쓰기성공')
+			}else{
+				alert('글쓰기 실패')
+			}
 		}
 	})
+}
+
+$(document).ready(function() {
+        $('#summernote').summernote(
+			{   height : 400 , 
+	  lang: 'ko-KR'   } 
+		);
+});
+
+function mainPage(){
+	location.href="/oimarket/main.jsp"
 }

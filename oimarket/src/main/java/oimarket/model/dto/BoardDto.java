@@ -11,11 +11,24 @@ public class BoardDto {
 	private int bdown;
 	private int mno;
 	private int bcno;
+	// 추가 필드
+	private String mid;
 	
 	public BoardDto() {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 글쓰기용 생성자 [ 게시물제목 , 내용 , 첨부파일 , 회원번호 , 카테고리번호 ]
+	public BoardDto(String btitle, String bcontent, String bfile, int mno, int bcno) {
+		super();
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.mno = mno;
+		this.bcno = bcno;
+	}
+	
+	
 	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int bup, int bdown,
 			int mno, int bcno) {
 		super();
@@ -31,12 +44,31 @@ public class BoardDto {
 		this.bcno = bcno;
 	}
 
+	// 게시글 출력용 생성자
+		public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int bup, int bdown,
+			int mno, int bcno, String mid) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bdate = bdate;
+		this.bview = bview;
+		this.bup = bup;
+		this.bdown = bdown;
+		this.mno = mno;
+		this.bcno = bcno;
+		this.mid = mid;
+	}
+
 	@Override
 	public String toString() {
 		return "BoardDto [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bfile=" + bfile
 				+ ", bdate=" + bdate + ", bview=" + bview + ", bup=" + bup + ", bdown=" + bdown + ", mno=" + mno
 				+ ", bcno=" + bcno + "]";
 	}
+
+
 
 	public int getBno() {
 		return bno;
@@ -116,6 +148,14 @@ public class BoardDto {
 
 	public void setBcno(int bcno) {
 		this.bcno = bcno;
+	}
+
+	public String getMid() {
+		return mid;
+	}
+
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 	
 

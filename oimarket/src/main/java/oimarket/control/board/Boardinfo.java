@@ -1,11 +1,21 @@
 package oimarket.control.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import oimarket.model.dao.BoardDao;
+import oimarket.model.dao.MemberDao;
+import oimarket.model.dto.BoardDto;
 
 
 @WebServlet("/boardinfo")
@@ -20,7 +30,19 @@ public class Boardinfo extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		int type = Integer.parseInt(request.getParameter("type"));
+		if(type==1) {
+		ArrayList<BoardDto> result = BoardDao.getInstance().getBoardList();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonArray = mapper.writeValueAsString(result);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.getWriter().print(jsonArray);
+		}else if(type==2) {
+			int bno = Integer.parseInt("bno");
+			
+		}
 	}
 
 
@@ -28,8 +50,26 @@ public class Boardinfo extends HttpServlet {
 		// 업로드 한 파일 저장할 서버의 경로 찾기
 		String path = request.getSession().getServletContext().getRealPath("/board/bfile");
 			System.out.println("path : " +path);
-		// 파일 복사 [ 대용량 바이트 복사하기 ]
+
+		MultipartRequest multi = new MultipartRequest(
+				request, path , 1024*1024*10 , "UTF-8" , new DefaultFileRenamePolicy());
+			System.out.println("파일복사 : " + multi);
 			
+		int bcno = Integer.parseInt(multi.getParameter("bcno"));	System.out.println("카테고리번호 : " +bcno);
+		String btitle = multi.getParameter("btitle");				System.out.println("게시물제목 : " +btitle);
+		String bcontent = multi.getParameter("bcontent");			System.out.println("게시물내용 : " +bcontent);
+		String bfile = multi.getFilesystemName("bfile");			System.out.println("파일이름 : " +bfile);
+		
+		String mid = (String)request.getSession().getAttribute("login"); // 로그인세션에서 로그인중인 아이디 가져와서
+		int mno = MemberDao.getInstance().getMno(mid);					 // MemberDao에 있는 getMno에 아이디를 넣어서 회원번호 꺼내고
+		if(mno<1) {response.getWriter().print("false");}				 // 회원번호가 1보다 작으면(모든 회원번호는 1이상) 글쓰기 불가
+		
+		BoardDto dto = new BoardDto(btitle, bcontent, bfile, mno, bcno);
+			System.out.println("Dto : " +dto);
+			
+		boolean result = BoardDao.getInstance().bwrite(dto);
+		
+		response.getWriter().print(result);
 	}
 
 

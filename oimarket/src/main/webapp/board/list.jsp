@@ -9,9 +9,18 @@
 <body>
 
 	<%@include file="/footer.jsp" %>
-	<div>
-		<h3> 글목록 </h3>
-		<a href="write.jsp"> 글쓰기 </a>
+	<div class="wrap">
+		<div class="container">
+			<h3> 글목록 </h3>
+			
+			
+			<table class="boardTable table">
+
+			</table>
+			<button onclick="boardUpload()" type="button">글쓰기</button> 
+		</div>
 	</div>
+	
+	<script src="/oimarket/js/board/list.js" type="text/javascript"></script>
 </body>
 </html>
