@@ -76,9 +76,9 @@
 				<div><i class="fas fa-comments"></i>   </div>
 				<div class="menuname">쪽지함</div>
 			</div>
-			<div class="menubox">
+			<div  onclick="mypageGo()" class="menubox">
 				<div><i class="fas fa-carrot"></i>   </div>
-				<div class="menuname">마이페이지</div>
+				<div class="menuname"> 마이페이지 </div>
 			</div>
 			
 		</div>
@@ -90,6 +90,6 @@
 
 	<!-- jquery -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
-
+	<script src="/oimarket/js/footer.js" type="text/javascript"></script>
 </body>
 </html>
