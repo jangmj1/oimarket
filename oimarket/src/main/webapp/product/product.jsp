@@ -24,7 +24,9 @@
 				</div>
 				위치:
 				<div id="map" style="width:100%;height:350px;"></div>
-			
+				<div>
+					<input type="file" name="pfiles" multiple="multiple" accept="image/*">
+				</div> 
 				<div>
 					<button onclick="productbtn()" type="button">물품 등록</button>
 				</div>
