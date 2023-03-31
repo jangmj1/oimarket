@@ -16,11 +16,9 @@ html,body{
     margin-bottom: 30px;
 }
 
-
 .wrap{
 	width: 600px; 
 	margin: 0 auto;
-	border: 1px solid red;
 	display: flex;
     flex-direction: column;
     justify-content: center;
