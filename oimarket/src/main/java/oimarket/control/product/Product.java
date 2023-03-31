@@ -2,7 +2,11 @@ package oimarket.control.product;
 
 import java.io.File;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.List;
+=======
+import java.util.ArrayList;
+>>>>>>> branch '장민정3' of https://github.com/jangmj1/oimarket
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import oimarket.model.dao.ProductDao;
+import oimarket.model.dto.ProductDto;
 
 @WebServlet("/product")
 public class Product extends HttpServlet {
@@ -25,6 +32,10 @@ public class Product extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	
+		//ArrayList<ProductDto> result= ProductDao.getInstance().getproduct();
+	
 	}
 
 	//제품등록
