@@ -43,6 +43,19 @@ public class ProductDto {
 		this.pcno = pcno;
 		this.pimglist = pimglist;
 	}
+    
+ 
+
+	public ProductDto(int pno, String ptitle, String pcontent, int pprice, String pdate, List<String> pimglist) {
+		super();
+		this.pno = pno;
+		this.ptitle = ptitle;
+		this.pcontent = pcontent;
+		this.pprice = pprice;
+		this.pdate = pdate;
+		this.pimglist = pimglist;
+	}
+
 	public int getPno() {
 		return pno;
 	}

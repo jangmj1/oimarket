@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import oimarket.model.dao.ProductDao;
 import oimarket.model.dto.ProductDto;
 
@@ -27,8 +29,13 @@ public class Product extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	
-		//ArrayList<ProductDto> result= ProductDao.getInstance().getproduct();
+		
+		ArrayList<ProductDto> result= ProductDao.getInstance().getproduct();
+		ObjectMapper mapper=new ObjectMapper();
+		String jsonArray=mapper.writeValueAsString(result);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.getWriter().print(jsonArray);
 	
 	}
 
