@@ -12,6 +12,7 @@ function login() {
 
 			if ( r == 'true' ){
 				alert('로그인 성공')
+				location.href = "/oimarket/member/memberInfo.jsp"	
 				location.href="/oimarket/main.jsp";
 			} else { 
 				alert('아이디나 비밀번호가 옳지 않습니다.')
@@ -66,7 +67,6 @@ function openModal2(){
 		 }
 	 })	
 }
-
 
 function closeModal(){
 	document.querySelector('.modal_wrap').style.display='none';//닫기

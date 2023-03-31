@@ -110,6 +110,19 @@ public class MemberDto {
 		this.mimg = mimg;
 	}
 
+	
+	// 4. 회원정보호출용 생성자
+	public MemberDto(int mno, String mname, String mid, String mresidence, String mmw, String mphone, String mimg) {
+		super();
+		this.mno = mno;
+		this.mname = mname;
+		this.mid = mid;
+		this.mresidence = mresidence;
+		this.mmw = mmw;
+		this.mphone = mphone;
+		this.mimg = mimg;
+	}	
+	
 
 	@Override
 	public String toString() {

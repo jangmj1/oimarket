@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
 
     // [최성아] 로그인 성공 후 정보 호출
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
+		
 		String mid = (String)request.getSession().getAttribute("login");
 				
 		MemberDto result = MemberDao.getInstance().getMember( mid );
@@ -32,12 +32,11 @@ public class Login extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.getWriter().print(json);
-		*/
+		
 		
 	}
 	// [최성아] 로그인 성공 여부 체크
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		String mid = request.getParameter("mid");
 		String mpwd = request.getParameter("mpwd");
 				
@@ -48,15 +47,11 @@ public class Login extends HttpServlet {
 		if (result == true) {
 			request.getSession().setAttribute("login", mid);
 		}
-		response.getWriter().print(result);
-		
-	}
-		
+		response.getWriter().print(result);}
 
 	// [최성아] 회원 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/*
 		String path = request.getSession().getServletContext().getRealPath("/img");
 		MultipartRequest multi = new MultipartRequest(
 				request, path , 1024 * 1024 * 10 , "UTF-8" , new DefaultFileRenamePolicy() );
@@ -84,19 +79,16 @@ public class Login extends HttpServlet {
 		System.out.println(result);
 		
 		response.getWriter().print(result);		
-		*/
 		
 	}
 
 	// [최성아] 회원 탈퇴
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
 		String mid = (String)request.getSession().getAttribute("login");
 		String mpwd = request.getParameter("mpwd");
 		
-		boolean result = memberDao.getInstance().delete(mid, mpwd);
+		boolean result = MemberDao.getInstance().delete(mid, mpwd);
 		response.getWriter().print(result);
-		*/
 		
 	}
 

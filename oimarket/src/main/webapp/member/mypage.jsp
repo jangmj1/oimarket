@@ -10,6 +10,17 @@
 	<%@include file="/footer.jsp" %>
 	
 	
+	
+	<div class="wrap">
+		<div class="container asd">
+		<h3>회원정보 호출 </h3>
+		
+		
+		</div>
+	
+	</div>	
 
+
+	<script src="/oimarket/js/member/mypage.js" type="text/javascript"></script>
 </body>
 </html>

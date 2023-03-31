@@ -15,14 +15,18 @@ html,body{
     margin: 0 auto;
     margin-bottom: 30px;
 }
-
-.wrap{
+.indexwrap{ /* index.jsp */ 
 	width: 600px; 
 	margin: 0 auto;
 	display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
+}
+.wrap{ /*  main.jsp */
+	width: 600px; 
+	margin: 0 auto;
+	display: flex;
 }
 
 .mainbox{
