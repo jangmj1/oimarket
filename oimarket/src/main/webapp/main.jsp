@@ -33,8 +33,8 @@
 	<%@include file="/footer.jsp" %>
 	<div class="wrap">
 		<div class="container">
-			<h3>[로그인시 들어오는 메인페이지] 제품 출력 예정 </h3>
-			줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트줄 테스트 <br>
+			<h3>물품출력구역</h3>
+			<input type="text">
 			줄 테스트 <br>
 			줄 테스트 <br>
 			
