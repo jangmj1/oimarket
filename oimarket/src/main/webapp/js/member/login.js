@@ -12,6 +12,7 @@ function login() {
 
 			if ( r == 'true' ){
 				alert('로그인 성공')
+				location.href = "/oimarket/member/memberInfo.jsp"	
 				location.href="/oimarket/main.jsp";
 			} else { 
 				alert('아이디나 비밀번호가 옳지 않습니다.')
@@ -31,7 +32,7 @@ function openModal(){//입력받은값 가져오기
 	let mphone=document.querySelector('.mphone').value;
 	
 	$.ajax({
-		url:"/oimarket/login",
+		url:"/oimarket/find",
 		method:"get",
 		data:{"mname":mname,"mphone":mphone,"type":1},
 		success:(r)=>{
@@ -40,7 +41,7 @@ function openModal(){//입력받은값 가져오기
 				dalert('회원정보가 없습니다')
 			}else{
 				document.querySelector('.modal_wrap').style.display='flex';//열기
-				document.querySelector('.content').innerHTML=`회원님의 아이디는 ${r} 입니다.로그인페이지로 이동합니다.`
+				document.querySelector('.content').innerHTML =`회원님의 아이디는 ${r} 입니다.로그인페이지로 이동합니다.`
 					//location.href="/oimarket/member/login.jsp";			
 			}//
 		}//success e
@@ -53,7 +54,7 @@ function openModal2(){
 	let mid=document.querySelector('.mid').value;
 	let mphone=document.querySelector('.mphone').value;
 	 $.ajax({
-		 url:"/oimarket/login",
+		 url:"/oimarket/find",
 		 method:"get",
 		 data:{"mid":mid,"mphone":mphone,"type":2},
 		 success:(r)=>{
@@ -66,7 +67,6 @@ function openModal2(){
 		 }
 	 })	
 }
-
 
 function closeModal(){
 	document.querySelector('.modal_wrap').style.display='none';//닫기

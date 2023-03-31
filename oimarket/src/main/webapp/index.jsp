@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<div class="wrap">
+	<div class="indexwrap">
 		
 		<img alt="" src="/oimarket/img/오이마켓.png" width="100%">
 		<div class="mainbox">

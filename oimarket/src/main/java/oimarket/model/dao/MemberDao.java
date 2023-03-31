@@ -134,4 +134,58 @@ public class MemberDao extends Dao{
 			}return "false";
 			
 		}
+	
+	 	
+		// 	[ 최성아 ]  회원 정보 호출
+		public MemberDto getMember( String mid ) {
+			String sql = "select m.mno , m.mname , m.mid , m.mresidence , m.mmw , m.mphone , m.mimg from member m where m.mid = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				rs = ps.executeQuery();
+				if ( rs.next() ) {
+					MemberDto dto = new MemberDto(
+							rs.getInt(1), rs.getString(2), rs.getString(3),
+							rs.getString(4), rs.getString(5), rs.getString(6),
+							rs.getString(7)); 
+							return dto;
+				}
+			}catch (Exception e) {System.out.println("회원정보호출" + e);}
+			return null;
+		}	
+		
+		// [ 최성아 ] 회원 정보 탈퇴
+		public boolean delete ( String mid , String mpwd ) {
+			String sql = "delete from member where mid = ? and mpwd = ? ";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				ps.setString(2, mpwd);
+				int count = ps.executeUpdate();
+				if ( count == 1 ) { return true; }
+			}catch (Exception e) {System.out.println(e);}
+			return false;
+		}
+		
+		// [ 최성아 ] 회원수정
+		public boolean update(String mid , String newmname , String mpwd , String newmpwd , String newmresidence ,  String newmphone , String newmimg ) {
+			String sql = "update member set mname = ? , mpwd = ? , mresidence = ? , mphone = ? , mimg = ? where mid = ? and mpwd = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, newmname);
+				ps.setString(2, newmpwd);
+				ps.setString(3, newmresidence);
+				ps.setString(4, newmphone);
+				ps.setString(5, newmimg);
+				ps.setString(6, mid);
+				ps.setString(7, mpwd);
+				
+				int count = ps.executeUpdate();
+				if ( count == 1 ) { return true; }
+			}catch (Exception e) {System.out.println(e);}
+			return false;
+		}		
+		
+		
+		
 }

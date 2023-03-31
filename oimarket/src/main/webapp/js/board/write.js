@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 console.log('글쓰기 열림여')
 
 function bwrite(){
@@ -18,3 +19,8 @@ function bwrite(){
 		}
 	})
 }
+=======
+/**
+ * 
+ */
+>>>>>>> branch 'main' of https://github.com/jangmj1/oimarket

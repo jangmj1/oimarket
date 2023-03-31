@@ -14,10 +14,10 @@ import oimarket.model.dao.MemberDao;
 import oimarket.model.dto.MemberDto;
 
 @WebServlet("/member/info")
-public class MemberInfo extends HttpServlet {
+public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MemberInfo() {
+    public Signup() {
         super();
     }
 

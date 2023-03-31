@@ -1,6 +1,7 @@
 package oimarket.model.dto;
 
 public class BoardDto {
+<<<<<<< HEAD
 	private int bno;
 	private String btitle;
 	private String bcontent;
@@ -118,4 +119,7 @@ public class BoardDto {
 		this.bcno = bcno;
 	}
 	
+=======
+
+>>>>>>> branch 'main' of https://github.com/jangmj1/oimarket
 }
