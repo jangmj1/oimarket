@@ -20,6 +20,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import oimarket.model.dao.MemberDao;
 import oimarket.model.dao.ProductDao;
 import oimarket.model.dto.ProductDto;
 
@@ -63,22 +64,37 @@ public class Product extends HttpServlet {
 		try {//5.매개변수 요청해서 리스트에 담기 [무조건 예외처리 발생]
 			List<FileItem> fileList = fileupload.parseRequest(request);
 			//*DB에 저장할 데이터를 분류
-			List<String> 일반필드목록= new ArrayList<>();
-			List<String> 파일필드목록= new ArrayList<>();
+			List<String> fieldlist= new ArrayList<>();//일반필드 첨부파일 없는거
+			List<String> filefieldlist= new ArrayList<>();//첨부파일 목록필드
 			
 			for(FileItem item:fileList) {//요청된 모든 매개변수들을 반복문 돌려서 확인
 				if(item.isFormField()) {
-					
-					
+					System.out.println("[첨부파일 아닌 필드명:]"+item.getFieldName());
+					System.out.println("[첨부파일 아닌 필드명의 값]:"+item.getString());//필드의 입력값
+					fieldlist.add(item.getString());//첨부파일이 아니면 여기에다가 저장
 					
 				}else {
-					String filename=UUID.randomUUID()+" "+( item.getName().replaceAll(" ", "-"));
-					
-					File 업로드할파일= new File(path+"/"+filename);
-					item.write(업로드할파일);
+					System.out.println("첨부파일 인 필드명:"+item.getFieldName());
+					System.out.println("첨부파일 인 필드의 파일명:"+item.getName());
+				
+					String filename=UUID.randomUUID()+" "+( item.getName().replaceAll(" ", "-"));//첨부파일 식별이름
+					filefieldlist.add(filename);//식별되어진 첨부파일을 리스트에서 저장
+					File upload= new File(path+"/"+filename);
+					item.write(upload);
 				}
 			}
-
+			String mid=(String)request.getSession().getAttribute("login");//mid 를 로그인세션으로 했는데 mno가필요함..
+			
+			int mno=MemberDao.getInstance().getMno(mid);
+			
+			//dto 구성하기: 입력한것을 담아서 dao에 보낸다
+			ProductDto dto=new ProductDto(fieldlist.get(0), fieldlist.get(1), Integer.parseInt(fieldlist.get(2)),
+					fieldlist.get(3), fieldlist.get(4), mno, filefieldlist);
+					
+			//dao 구성
+			boolean result=ProductDao.getInstance().productPrint(dto);
+			response.getWriter().print(result);
+			
 		} catch (Exception e) {
 		System.out.println("파일저장 실패");
 		}

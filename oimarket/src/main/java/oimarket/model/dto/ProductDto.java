@@ -45,6 +45,23 @@ public class ProductDto {
 	}
     
  
+    
+    
+    //제품 등록용
+    public ProductDto(String ptitle, String pcontent, int pprice, String plat, String plng, int rmno,
+    		List<String> pimglist) {
+    	super();
+    	this.ptitle = ptitle;
+    	this.pcontent = pcontent;
+    	this.pprice = pprice;
+    	this.plat = plat;
+    	this.plng = plng;
+    	this.rmno = rmno;
+    	this.pimglist = pimglist;
+    }
+    
+    
+    
 
 	public ProductDto(int pno, String ptitle, String pcontent, int pprice, String pdate, List<String> pimglist) {
 		super();

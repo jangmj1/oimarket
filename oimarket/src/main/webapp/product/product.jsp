@@ -11,6 +11,15 @@
 		<div class="container">
 		
 			<form class="productform">
+				<div>카테고리:
+					<select name="pcno">
+						<option value="1">생활가전</option>
+						<option value="2">의류</option>
+						<option value="3">뷰티미용</option>
+						<option value="4">가공식품</option>
+						<option value="5">식물</option>
+					</select>
+				</div>
 				<div>제목:
 					<input type="text" name="ptitle">
 				</div>
