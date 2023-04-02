@@ -1,5 +1,23 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+.contentbox a{
+	color: black;
+	text-decoration: none;
+}
+
+.contentbox a:hover{
+	color: black;
+}
+
 .topcontent{
 	display: flex;
     justify-content: space-between;
@@ -20,6 +38,7 @@
 
 .content img{
 	width: 150px !important;
+	height: 150px !important;
 	margin: 0px !important;
 }
 
@@ -31,4 +50,75 @@
 }
 .form-select{
 	width: 120px !important;
+}
+
+.contentbox{
+	overflow: auto;
+}
+
+.ptitle{
+	 font-family: 'GmarketSansMedium';
+	 font-size: 20px;
+}
+
+.pprice{
+	 font-family: 'GmarketSansMedium';
+	 font-size: 25px;
+	 font-weight: bold;
+}
+
+.pinfo{
+	display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+ }
+
+.carousel-control-prev{
+	color: black;
+}
+ 
+.carousel-inner img{
+    width: 300px !important;
+    }
+ 
+ 
+    
+    
+.pdate{
+	font-size: 10px;
+    color: gray;}    
+    
+    
+ .carousel-indicators button{
+     background-color: #00000069;}   
+    
+    
+    
+ .rmnoinfo img{
+ 	width: 50px !important;
+ 	border-radius: 50%;
+ 	border:1px solid #eeeeee;
+ 	margin: 20px !important;
+ }
+
+.rmnoinfo{
+	display: flex;
+	align-items: center;
+}
+
+.rmnobox{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}   
+
+.residence{
+	font-size: 10px;
+	color: gray;
+}  
+
+.rmnocontent{
+	border-top: 1px solid #eeeeee;
+	padding-top: 30px;
+	margin-top: 20px;
 }

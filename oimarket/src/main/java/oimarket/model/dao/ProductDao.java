@@ -23,7 +23,7 @@ public class ProductDao extends Dao{
 	
 	
 	//물품출력
-	  public ArrayList<ProductDto> getproduct(){
+	  public ArrayList<ProductDto> getproductlist(){
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
 		  String sql="select pno,ptitle,pcontent,pprice,pdate from product";
 		  try {
@@ -49,6 +49,24 @@ public class ProductDao extends Dao{
 		}return list;
 	 }
 	 
+	 //개별출력
+	  	//sql 네츄럴 조인으로 다시 가져오자 판매자 이름,카테고리,위치,뷰 가져와야함	  
+	  public boolean getproduct(int pno) {
+		  String sql="select * from product where pno=?";
+		  try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+		  
+	  }
 	
 	
 	

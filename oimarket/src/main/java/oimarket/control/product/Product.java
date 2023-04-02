@@ -28,15 +28,29 @@ public class Product extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//제품 출력 [type 1 : 전체출력 / type 2 : 개별출력]
 		
 		
-		ArrayList<ProductDto> result= ProductDao.getInstance().getproduct();
+		String type=request.getParameter("type");
 		ObjectMapper mapper=new ObjectMapper();
-		String jsonArray=mapper.writeValueAsString(result);
+		String jsonArray=null;
+		if(type.equals("1")) {
+			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(); 
+			 jsonArray=mapper.writeValueAsString(result);
+			
+			 
+			
+		}else if (type.equals("2")) {
+			int pno=Integer.parseInt(request.getParameter("pno")) ;
+			Boolean result= ProductDao.getInstance().getproduct(pno);
+			jsonArray=mapper.writeValueAsString(result);
+			
+			
+		}
+		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.getWriter().print(jsonArray);
-	
 	}
 
 	//제품등록

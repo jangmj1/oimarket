@@ -48,27 +48,16 @@ rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGL
 					<option>가공식품</option>
 					<option>식물</option>
 				</select>
-				<div>
+				<div >
 					<input type="text">
 					<i class="fas fa-search"></i>
 				</div>
 			</div>
-			<div class="content">
-				<img alt="" src="/oimarket/img/기본.png">
-				<div>
-					<h3>나이키후드팝니다</h3>
-					<h5>2023-03-30</h5>
-					<h3>5,000원</h3>
-				</div>
-			</div>
-			
-			<div class="content">
-				<img alt="" src="/oimarket/img/기본.png">
-				<div>
-					<h3>나이키후드팝니다</h3>
-					<h5>2023-03-30</h5>
-					<h3>5,000원</h3>
-				</div>
+			<div class="contentbox">
+				
+				
+				
+				
 			</div>
 			
 		
