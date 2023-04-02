@@ -20,7 +20,7 @@ function productbtn(){
 		contentType:false,
 		processData:false,
 		success:(r)=>{
-			console.log('제품등록 통신완료');
+			console.log(' 통신완료');
 			console.log(r);
 			if(r=='true'){
 				alert('제품을 등록하였습니다')

@@ -24,7 +24,7 @@ public class ProductDao extends Dao{
 	
 	//물픔등록
 	public  boolean productPrint(ProductDto dto) {//제품 우선등록하고 이미지는 나중에 추가
-		String sql="insert into product(ptitle,pcontent,pprice,plat,plng,rmno) values(?,?,?,?,?,?)";
+		String sql="insert into product(ptitle,pcontent,pprice,plat,plng,rmno,pcno) values(?,?,?,?,?,?,?)";
 		try {
 			ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, dto.getPtitle());
@@ -33,6 +33,7 @@ public class ProductDao extends Dao{
 			ps.setString(4, dto.getPlat());
 			ps.setString(5, dto.getPlng());
 			ps.setInt(6, dto.getRmno());
+			ps.setInt(7, dto.getPcno());
 			ps.executeUpdate();
 			//제품우선 등록한 후에 pk번호를 받음
 			rs=ps.getGeneratedKeys();

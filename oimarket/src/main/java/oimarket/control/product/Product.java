@@ -81,16 +81,23 @@ public class Product extends HttpServlet {
 					filefieldlist.add(filename);//식별되어진 첨부파일을 리스트에서 저장
 					File upload= new File(path+"/"+filename);
 					item.write(upload);
+					
+				
 				}
 			}
-			String mid=(String)request.getSession().getAttribute("login");//mid 를 로그인세션으로 했는데 mno가필요함..
+			System.out.println(fieldlist.toString());
+			System.out.println(filefieldlist.toString());
 			
-			int mno=MemberDao.getInstance().getMno(mid);
+			int mno=MemberDao.getInstance().getMno((String)request.getParameter("login")) ;
+			//int pcno=Integer.parseInt(request.getParameter("pcno")) ;
 			
 			//dto 구성하기: 입력한것을 담아서 dao에 보낸다
-			ProductDto dto=new ProductDto(fieldlist.get(0), fieldlist.get(1), Integer.parseInt(fieldlist.get(2)),
-					fieldlist.get(3), fieldlist.get(4), mno, filefieldlist);
+			ProductDto dto=new ProductDto(fieldlist.get(1), fieldlist.get(2), Integer.parseInt(fieldlist.get(3)) ,
+					fieldlist.get(4), fieldlist.get(5), mno, Integer.parseInt(fieldlist.get(0)) ,filefieldlist);
+					System.out.println("dto!!!!!!!!!!!:"+dto);
+				
 					
+			
 			//dao 구성
 			boolean result=ProductDao.getInstance().productPrint(dto);
 			response.getWriter().print(result);

@@ -48,7 +48,7 @@ public class ProductDto {
     
     
     //제품 등록용
-    public ProductDto(String ptitle, String pcontent, int pprice, String plat, String plng, int rmno,
+    public ProductDto(String ptitle, String pcontent, int pprice, String plat, String plng, int rmno, int pcno,
     		List<String> pimglist) {
     	super();
     	this.ptitle = ptitle;
@@ -57,9 +57,10 @@ public class ProductDto {
     	this.plat = plat;
     	this.plng = plng;
     	this.rmno = rmno;
+    	this.pcno = pcno;
     	this.pimglist = pimglist;
     }
-    
+ 
     
     
 
@@ -72,6 +73,7 @@ public class ProductDto {
 		this.pdate = pdate;
 		this.pimglist = pimglist;
 	}
+
 
 	public int getPno() {
 		return pno;
