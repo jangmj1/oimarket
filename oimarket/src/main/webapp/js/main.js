@@ -44,26 +44,26 @@ function oneproduct(i,pno){
 	
 		let html='';
 		let pimglistbox='';
-		
-		
-	
-		 html+=
-		 	`<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+		let btn='';	
+		html=
+			`<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 				  <div class="carousel-indicators">
-				    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-				  </div>
-				  <div class="carousel-inner pimgarea">
 				  
-				 	
-				 	
+				  
+				  </div>
 				 
-				 </div>
+				 
+				  <div class="carousel-inner">
+				  
+				    
+				    
+				  </div>
+				  <!-- 왼쪽버튼 -->
 				  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
 				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				    <span class="visually-hidden">Previous</span>
-				  </button>
+				  </button> 
+				  <!-- 오른쪽버튼 -->
 				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
 				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 				    <span class="visually-hidden">Next</span>
@@ -89,31 +89,52 @@ function oneproduct(i,pno){
 					<h5>카테고리</h5>
 					<h3>${(productInfo[i]).toLocaleString()}</h3>
 					<p>${productInfo[i].pcontent}</p>
-				</div>`
+				</div>
 				
-				
-				
-				
-			/*사진첩 포문돌려서 꺼내기*/
-			productInfo[i].pimglist.forEach((o)=>{
-					console.log(o)
-			 pimglistbox+=
-					 	`
-					 <div class="carousel-item active" data-bs-interval="5000">
-						<img src="/oimarket/img/${o}" class="d-block w-100" alt="...">
-					</div>`
-					 	
-				} )
-				console.log(pimglistbox)// 잘 나오는데 왜 이너가 안되는거지?
-				document.querySelector('.pimgarea').innerHTML=pimglistbox; // 왜 널인지 당췌몰겟네
-					
+				`
 		
-		
+	
 		document.querySelector('.contentbox').innerHTML=html;
 	 
+	 	/*사진첩 포문돌려서 꺼내기*/
+	 	
+	 	productInfo[i].pimglist.forEach( (o,j)=>{
+			 console.log(j)
+			 console.log(o)
+			 if(j==0){
+			pimglistbox+=`
+					 <div class="carousel-item active" data-bs-interval="10000">
+				      <img src="/oimarket/img/${o}" class="d-block w-100" alt="...">
+				    </div>`
+			
+			btn+=`
+			 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				`	    
+				    
+			 }else{
+			 pimglistbox+=`
+				  <div class="carousel-item" data-bs-interval="2000">
+				      <img src="/oimarket/img/${o}" class="d-block w-100" alt="...">
+				    </div>`
+				    
+			
+			btn+=`
+			 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="${j}" aria-label="Slide ${j+1}"></button>
+			`	    
+				
+			 }
+		
+		
+		 })
+	 	
+	 	
+	 	document.querySelector('.carousel-inner').innerHTML=pimglistbox;
+	 	document.querySelector('.carousel-indicators').innerHTML=btn;
+	 
+	 
 	
-	
-}
+	}
+
 
 
 
