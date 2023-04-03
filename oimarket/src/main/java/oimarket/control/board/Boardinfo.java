@@ -31,17 +31,23 @@ public class Boardinfo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int type = Integer.parseInt(request.getParameter("type"));
-		if(type==1) {
+		if(type==1) { // 게시물 전체 출력
 		ArrayList<BoardDto> result = BoardDao.getInstance().getBoardList();
-		
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonArray = mapper.writeValueAsString(result);
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.getWriter().print(jsonArray);
-		}else if(type==2) {
-			int bno = Integer.parseInt("bno");
-			
+		}else if(type==2) { // 게시물 개별 출력
+			int bno = Integer.parseInt(request.getParameter("bno"));	System.out.println("bno : " + bno); // bno 입력받은 값 가져오기
+			BoardDto result = BoardDao.getInstance().getBoard(bno);					// Dao에 bno넣어서 응답 값 가져오기
+			// 형변환
+			ObjectMapper mapper = new ObjectMapper();
+			String json = mapper.writeValueAsString(result);
+			// js로 반환
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/json");
+			response.getWriter().print(json);
 		}
 	}
 

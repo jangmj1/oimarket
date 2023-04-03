@@ -4,6 +4,7 @@ function getBoardList(){
 	$.ajax({
 		url:"/oimarket/boardinfo",
 		method:"get",
+		data:{"type" : 1},
 		success:(r)=>{
 			console.log(r)
 			
