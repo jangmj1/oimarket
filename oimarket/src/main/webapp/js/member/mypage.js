@@ -1,4 +1,3 @@
-
 console.log(memberInfo)
 // [최성아] 회원 탈퇴
 getLogin();

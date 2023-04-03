@@ -2,6 +2,7 @@ package oimarket.model.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import oimarket.model.dto.ProductDto;
@@ -20,6 +21,47 @@ public class ProductDao extends Dao{
 	public static ProductDao getInstance() {
 		return dao;
 	}
+	
+	//물픔등록
+	public  boolean productPrint(ProductDto dto) {//제품 우선등록하고 이미지는 나중에 추가
+		String sql="insert into product(ptitle,pcontent,pprice,plat,plng,rmno,pcno) values(?,?,?,?,?,?,?)";
+		try {
+			ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, dto.getPtitle());
+			ps.setString(2, dto.getPcontent());
+			ps.setInt(3, dto.getPprice());
+			ps.setString(4, dto.getPlat());
+			ps.setString(5, dto.getPlng());
+			ps.setInt(6, dto.getRmno());
+			ps.setInt(7, dto.getPcno());
+			ps.executeUpdate();
+			//제품우선 등록한 후에 pk번호를 받음
+			rs=ps.getGeneratedKeys();
+			if(rs.next()) {//존재하면 productdto내에 리스트에서 하나씩 ?//물어보기 
+				for(String pimgname: dto.getPimglist()) {
+					
+					sql="insert into product_img(pimgname,pno) values(?,?) ";
+					ps=con.prepareStatement(sql);
+					ps.setString(1, pimgname);
+					ps.setInt(2, rs.getInt(1));
+					ps.executeUpdate();
+				}
+			}return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	//물품출력

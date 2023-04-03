@@ -68,7 +68,7 @@
 				<div><i class="fas fa-newspaper"></i>   </div>
 				<div class="menuname">게시판</div>
 			</div>
-			<div class="menubox">
+			<div onclick="productrigster()" class="menubox">
 				<div><i class="fas fa-edit"></i>   </div>
 				<div class="menuname">물품등록</div>
 			</div>

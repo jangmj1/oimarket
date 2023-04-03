@@ -4,13 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="/oimarket/css/product/product.css" rel="stylesheet">
 </head>
 <body>
 	<%@include file="/footer.jsp" %>
 	<div class="wrap">
-		<div class="container">
+		<div class="container main">
 		
 			<form class="productform">
+				<div>카테고리:
+					<select name="pcno">
+						<option value="1">생활가전</option>
+						<option value="2">의류</option>
+						<option value="3">뷰티미용</option>
+						<option value="4">가공식품</option>
+						<option value="5">식물</option>
+					</select>
+				</div>
 				<div>제목:
 					<input type="text" name="ptitle">
 				</div>
@@ -24,7 +34,9 @@
 				</div>
 				위치:
 				<div id="map" style="width:100%;height:350px;"></div>
-			
+				<div>
+					<input type="file" name="pfiles" multiple="multiple" accept="image/*">
+				</div> 
 				<div>
 					<button onclick="productbtn()" type="button">물품 등록</button>
 				</div>
