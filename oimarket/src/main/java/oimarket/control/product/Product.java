@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import oimarket.model.dao.MemberDao;
 import oimarket.model.dao.ProductDao;
+import oimarket.model.dto.MemberDto;
 import oimarket.model.dto.ProductDto;
 
 
@@ -42,15 +43,15 @@ public class Product extends HttpServlet {
 		String type=request.getParameter("type");
 		ObjectMapper mapper=new ObjectMapper();
 		String jsonArray=null;
-		if(type.equals("1")) {
+		if(type.equals("1")) { //판매등록된 모든 상품을 출력한다
 			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(); 
 			 jsonArray=mapper.writeValueAsString(result);
 			
 			 
 			
-		}else if (type.equals("2")) {
+		}else if (type.equals("2")) { //pno를 가지고 판매한 맴버를 출력하기
 			int pno=Integer.parseInt(request.getParameter("pno")) ;
-			Boolean result= ProductDao.getInstance().getproduct(pno);
+			MemberDto result= ProductDao.getInstance().getproduct(pno);
 			jsonArray=mapper.writeValueAsString(result);
 			
 			
@@ -58,10 +59,10 @@ public class Product extends HttpServlet {
 		
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		response.getWriter().print(jsonArray);
+		response.getWriter().print(jsonArray); 
 	}
 
-	//제품등록
+	//제품등록 // 은자야 이게뭐야?
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//첨부파일 여러개 하기위해 commons.jar 사용
 		request.setCharacterEncoding("UTF-8");
@@ -69,7 +70,7 @@ public class Product extends HttpServlet {
 		System.out.println("경로:"+path);
 		//해당 파일을 객체화시키기
 		File setpath=new File(path);
-		DiskFileItemFactory fileset= new DiskFileItemFactory();
+		DiskFileItemFactory fileset= new DiskFileItemFactory(); 
 		fileset.setRepository(setpath);	//파일저장소 위치 대입
 		fileset.setSizeThreshold(1024*1024*10);	//파일저장소에 저장할수 있는 최대용량 범위
 		fileset.setDefaultCharset("UTF-8"); //파일저장소 한글 인코딩 타입

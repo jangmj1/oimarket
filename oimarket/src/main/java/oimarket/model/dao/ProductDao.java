@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import oimarket.model.dto.MemberDto;
 import oimarket.model.dto.ProductDto;
 
 public class ProductDao extends Dao{
@@ -64,10 +65,10 @@ public class ProductDao extends Dao{
 	
 	
 	
-	//물품출력
+	//등록된 물품전체출력
 	  public ArrayList<ProductDto> getproductlist(){
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
-		  String sql="select pno,ptitle,pcontent,pprice,pdate from product";
+		  String sql="select pno,ptitle,pcontent,pprice,pdate,pcname from product natural join product_category ";
 		  try {
 			ps=con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -81,9 +82,9 @@ public class ProductDao extends Dao{
 					pimglist.add(rs2.getString(2));
 				}
 			ProductDto dto=new ProductDto(
-					rs.getInt(1), rs.getString(2), rs.getString(3),
-					rs.getInt(4), rs.getString(5), pimglist);
-				list.add(dto);
+					rs.getInt(1), rs.getString(2), rs.getString(3)
+					, rs.getInt(4), rs.getString(5), pimglist, rs.getString(6) );
+				list.add(dto); 
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -91,22 +92,26 @@ public class ProductDao extends Dao{
 		}return list;
 	 }
 	 
-	 //개별출력
-	  	//sql 네츄럴 조인으로 다시 가져오자 판매자 이름,카테고리,위치,뷰 가져와야함	  
-	  public boolean getproduct(int pno) {
-		  String sql="select * from product where pno=?";
+	 //개별출력:판매상품 pk번호로 판매자의 정보를 호출하는 함수
+	  public MemberDto getproduct(int pno) {
+		 
+		  String sql="select m.*  from product p natural join member m  where pno=?  and p.rmno=m.mno;";
 		  try {
 			ps=con.prepareStatement(sql);
 			ps.setInt(1, pno);
 			rs=ps.executeQuery();
 			if(rs.next()) {
-				
+				MemberDto dto=new MemberDto(
+						rs.getInt(1), rs.getString(2), rs.getString(3),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
+				return dto;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return null;
+		
 		  
 	  }
 	
