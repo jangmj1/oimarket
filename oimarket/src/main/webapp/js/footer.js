@@ -5,6 +5,9 @@ function mypageGo() {
 function homeGo() {
 	location.href="/oimarket/main.jsp"
 }
+function productrigster(){
+	location.href="/oimarket/product/product.jsp"
+}
 
 let memberInfo = null;
 

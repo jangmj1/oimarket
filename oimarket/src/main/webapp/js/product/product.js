@@ -1,16 +1,21 @@
 console.log('열림라라라라');
 
+
 let plat=0;
 let plng=0;
 //1.물품등록
 function productbtn(){
 	console.log('함수실행')
+	//let mno=memberInfo.mno
+	//console.log(mno)
 	//1. 폼전송
 	let productform =document.querySelectorAll('.productform')[0];
 	let productformDate= new FormData(productform);//2.폼데이터 객체선언하기
 	console.log(productformDate);//확인용
 	productformDate.set("plat",plat);//위도,경도 추가
 	productformDate.set("plng",plng);
+	//productformDate.set("mno",mno);
+	//productformDate.set("mno",);
 	//서블릿으로 보내기
 		
 	$.ajax({

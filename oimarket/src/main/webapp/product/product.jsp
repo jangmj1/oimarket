@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="/oimarket/css/product/product.css" rel="stylesheet">
 </head>
 <body>
 	<%@include file="/footer.jsp" %>
 	<div class="wrap">
-		<div class="container">
+		<div class="container main">
 		
 			<form class="productform">
 				<div>카테고리:

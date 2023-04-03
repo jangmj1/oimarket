@@ -88,8 +88,10 @@ public class Product extends HttpServlet {
 			System.out.println(fieldlist.toString());
 			System.out.println(filefieldlist.toString());
 			
-			int mno=MemberDao.getInstance().getMno((String)request.getParameter("login")) ;
+			int mno=MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
+			//int mno= Integer.parseInt(request.getParameter("mno"));
 			//int pcno=Integer.parseInt(request.getParameter("pcno")) ;
+			System.out.println("mno!!!!!:"+mno);
 			
 			//dto 구성하기: 입력한것을 담아서 dao에 보낸다
 			ProductDto dto=new ProductDto(fieldlist.get(1), fieldlist.get(2), Integer.parseInt(fieldlist.get(3)) ,

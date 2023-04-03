@@ -194,9 +194,14 @@ public class MemberDao extends Dao{
 				ps=con.prepareStatement(sql);
 				ps.setString(1, mid);
 				rs=ps.executeQuery();
-				if(rs.next()) {return rs.getInt(1);}
-			} catch (SQLException e) {System.out.println(e);
-			}return 0;
+				if(rs.next()) {
+					return rs.getInt(1);
+					
+				}
 			
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}return 0;
 		}
 }
