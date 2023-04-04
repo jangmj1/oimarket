@@ -128,6 +128,47 @@ public class ProductDao extends Dao{
 		}return false;
 	  }
 	
-	
+	//[김은영]제품 찜하기
+	  public boolean setlike(int pno, int mno) {
+		  String sql="select *from product_like where pno=? and mno=? ";
+		  try {
+			  ps=con.prepareStatement(sql);
+			  ps.setInt(1,pno);
+			  ps.setInt(2,mno);
+			  rs=ps.executeQuery();
+			  if(rs.next()) {//레코드행 있으면 취소해야함
+				  sql="delete from product_like  where pno=? and mno=? ";
+				  ps=con.prepareStatement(sql);
+				  ps.setInt(1,pno);
+				  ps.setInt(2,mno);
+				  ps.executeUpdate();return false;//취소되었을때 
+				  }else {//레코드행 없으면 ! 등록해야함
+					  sql="insert into product_like(pno,mno) values(?,?) ";
+					  ps=con.prepareStatement(sql);
+					  ps.setInt(1,pno);
+					  ps.setInt(2,mno);
+					  ps.executeUpdate();return true;
+				  }
+		} catch (Exception e) {System.out.println(e);}return false;
+	  }
+	  
+	  
+	//김은영[찜하기 상태] 
+	public boolean getlike(int pno, int mno) {
+		 String sql="select *from product_like where pno=? and mno=? ";
+		  try {
+			  ps=con.prepareStatement(sql);
+			  ps.setInt(1,pno);
+			  ps.setInt(2,mno);
+			  rs=ps.executeQuery();
+			  if(rs.next()) {//레코드행 있으면 등록을해서 나온 상태니깐 true
+				  return true;}
+		  }catch (SQLException e) {
+			  System.out.println(e);
+		  }return false;
+		}
+	  
+	  
+	  
+	  
 }
-;
