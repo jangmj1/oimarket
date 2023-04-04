@@ -14,11 +14,12 @@ function getBoardList(){
 		data:boardObject,
 		success:(r)=>{
 			console.log(r)
-			// 	<img alt="" class="premimg" src="/oimarket/img/${o.mimg == null ? 'default.webp' : o.mimg}"> 게시물 프로필 이미지 나중에 화긴
+			// 	 게시물 프로필 이미지 나중에 화긴
 			let html = ``
 			r.forEach( ( o , i ) => {
 				html += `<div>
 							<div> 
+								<img alt="" class="premimg" src="/oimarket/img/${o.mimg == null ? 'default.webp' : o.mimg}">
 								<span> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></span>
 								<span> ${ o.mid } </span>
 								<span> ${ o.bdate } </span>
