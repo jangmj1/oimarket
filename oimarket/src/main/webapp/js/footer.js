@@ -8,6 +8,9 @@ function homeGo() {
 function productrigster(){
 	location.href="/oimarket/product/product.jsp"
 }
+function boardGo(){
+	location.href="/oimarket/board/list.jsp"
+}
 
 let memberInfo = null;
 

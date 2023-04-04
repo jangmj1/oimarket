@@ -37,11 +37,11 @@
 					</div>
 
 					<div>
-						<div> 핸드폰 </div> <input class="mphone"  type="text" name="newmname">
+						<div> 핸드폰 </div> <input class="mphone"  type="text" name="newmphone">
 					</div>
 					
 					<div>
-						<div> 거주지 </div> <input class="mresidence" type="text" name="newmname">
+						<div> 거주지 </div> <input class="mresidence" type="text" name="newmresidence">
 					</div>
 					
 					<div>

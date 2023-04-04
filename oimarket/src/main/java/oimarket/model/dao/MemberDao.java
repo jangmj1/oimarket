@@ -171,6 +171,7 @@ public class MemberDao extends Dao{
 		public boolean update(String mid , String newmname , String mpwd , String newmpwd , String newmresidence ,  String newmphone , String newmimg ) {
 			String sql = "update member set mname = ? , mpwd = ? , mresidence = ? , mphone = ? , mimg = ? where mid = ? and mpwd = ?";
 			try {
+				System.out.println("newmresidence:"+newmresidence);
 				ps = con.prepareStatement(sql);
 				ps.setString(1, newmname);
 				ps.setString(2, newmpwd);
@@ -186,6 +187,7 @@ public class MemberDao extends Dao{
 			return false;
 		}		
 		
+
 		//[김은영]mid 에서 mno필요// mno가 안넘어옴..왜?
 		public int getMno(String mid) {
 			String sql="select mno from member where mid=?";
@@ -204,4 +206,5 @@ public class MemberDao extends Dao{
 				System.out.println(e);
 			}return 0;
 		}
+
 }

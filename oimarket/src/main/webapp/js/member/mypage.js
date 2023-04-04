@@ -33,7 +33,7 @@ function getLogin() {
 					
 					<div class="deleteLine">
 						<div class="delete_input">
-							<input type="text" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!"> 
+							<input class="deleteinput" type="text" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!"> 
 						</div>
 						<div>
 							<button class="deletebtn" onclick="setDelete();" type="button"> 회원 탈퇴 </button> 
@@ -62,7 +62,7 @@ function setDelete() {
 		success : (r) => {
 			if( r == 'true'){
 				alert('회원 탈퇴 성공')
-				location.href="/oimarket/member/index.jsp"
+				location.href="/oimarket/index.jsp"
 			}else{
 				alert('입력 비밀번호가 옳지 않습니다.')
 			}
