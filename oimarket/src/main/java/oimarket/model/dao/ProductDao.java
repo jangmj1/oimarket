@@ -115,8 +115,18 @@ public class ProductDao extends Dao{
 		
 		  
 	  }
-	
-	
+	//[김은영] 제품삭제
+	  public boolean Deleteproduct(int pno) {
+		  String sql="delete  from product where pno=?;";
+		  try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			int count=ps.executeUpdate();
+			if(count==1) {return true;}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	  }
 	
 	
 }

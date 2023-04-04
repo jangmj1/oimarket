@@ -84,7 +84,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 				
 				<div class="rmnobox">
 					<div class="rmnoinfo">
-						<img alt="" src="/oimarket/img/${r.mimg==null?기본.png:r.mimg}">
+						<img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">
 						<div>
 							<h5>${r.mname}</h5>
 							<h5 class="residence">${r.mresidence}</h5>
@@ -103,6 +103,16 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 					<p>${productInfo[i].pcontent}</p>
 				</div>
 				
+			
+			
+			<!-- 김은영//수정버튼,상태수정버튼,삭제버튼 -->
+		
+			<div>
+				<button type="button">상태수정[판매유무]</button>
+				<button type="button">수정</button>
+				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
+			</div>
+	
 				`
 		
 	
@@ -147,10 +157,26 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			
 	})
 	
+	
+	
+	
 }
 
 
-
+//김은영//삭제버튼 
+function Deleteproduct(pno){
+	console.log(pno);
+	console.log('삭제함수열라아')
+	$.ajax({
+		url:"/oimarket/product",
+		method:"delete",
+		data:{"pno":pno},
+		success:(r)=>{
+			console.log('삭제통신');
+			console.log(r);
+		}//success e
+	})//ajax e
+}//m e
 
 
 

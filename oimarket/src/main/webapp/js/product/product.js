@@ -29,6 +29,7 @@ function productbtn(){
 			console.log(r);
 			if(r=='true'){
 				alert('제품을 등록하였습니다')
+				location.href="/oimarket/main.jsp"
 			}else{
 				alert('제품등록이 실패했습니다')
 			}
@@ -71,3 +72,5 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
   	  console.log("경도:"+latlng.getLng())
     
 });
+
+
