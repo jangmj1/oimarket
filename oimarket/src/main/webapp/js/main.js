@@ -84,7 +84,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 				
 				<div class="rmnobox">
 					<div class="rmnoinfo">
-						<img alt="" src="/oimarket/img/${r.mimg==null?기본.png:r.mimg}">
+						<img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">
 						<div>
 							<h5>${r.mname}</h5>
 							<h5 class="residence">${r.mresidence}</h5>
