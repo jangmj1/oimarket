@@ -65,8 +65,8 @@
 				<div class="menuname">홈(물품출력)</div>
 			</div>
 			<div class="menubox">
-				<div><i class="fas fa-newspaper"></i>   </div>
-				<div class="menuname"><a href="/oimarket/board/list.jsp">게시판</a></div>
+				<div onclick="boardGo()"><i class="fas fa-newspaper"></i>   </div>
+				<div class="menuname">게시판</div>
 			</div>
 			<div class="menubox">
 				<div><i class="fas fa-edit"></i>   </div>

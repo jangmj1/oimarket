@@ -5,6 +5,9 @@ function mypageGo() {
 function homeGo() {
 	location.href="/oimarket/main.jsp"
 }
+function boardGo(){
+	location.href="/oimarket/board/list.jsp"
+}
 
 let memberInfo = null;
 
