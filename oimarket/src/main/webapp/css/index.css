@@ -6,15 +6,14 @@
     font-weight: normal;
     font-style: normal;
 }
-
+.mainimg{
+	width: 300px;
+    margin: 0 auto;
+}
 html,body{
 	height: 100%
 }
-.wrap img{
-	width: 400px;
-    margin: 0 auto;
-    margin-bottom: 30px;
-}
+
 .indexwrap{ /* index.jsp */ 
 	width: 600px; 
 	margin: 0 auto;

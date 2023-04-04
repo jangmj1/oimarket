@@ -12,7 +12,7 @@
 
 	<div class="indexwrap">
 		
-		<img alt="" src="/oimarket/img/오이마켓.png" width="100%">
+		<img class="mainimg" alt="" src="/oimarket/img/오이마켓.png" width="100%">
 		<div class="mainbox">
 			<button type="button"  onclick="signupPage()">회원가입</button> 
 			<button type="button"  onclick="loginpage()">로그인</button>

@@ -38,8 +38,8 @@ function getproduct(){//전체 출력
 }
 
 function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 전환
-	
-	console.log(i) //사진수 만큼 돌릴려고
+	document.getElementById('map').style.display='flex';
+	console.log(i) //인덱스
 	console.log(pno) //pno로 네츄럴 조인을 해서 글쓴 사람과 카테고리를 뽑아내야함
 		let html='';
 		let pimglistbox='';
@@ -104,6 +104,36 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 				</div>
 				
 				`
+		//카카오지도 
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(productInfo[i].plat, productInfo[i].plng), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		var imageSrc = '/oimarket/img/maker.png', // 마커이미지의 주소입니다    
+		    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+		    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+		      
+		// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+		    markerPosition = new kakao.maps.LatLng(productInfo[i].plat, productInfo[i].plng); // 마커가 표시될 위치입니다
+		
+	
+		
+		// 마커를 생성합니다
+		var marker = new kakao.maps.Marker({
+		    position: markerPosition,
+		    image: markerImage // 마커이미지 설정
+		});
+		
+		
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+				
+		
 		
 	
 		document.querySelector('.contentbox').innerHTML=html;

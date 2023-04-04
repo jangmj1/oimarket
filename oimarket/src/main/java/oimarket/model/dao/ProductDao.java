@@ -68,7 +68,7 @@ public class ProductDao extends Dao{
 	//등록된 물품전체출력
 	  public ArrayList<ProductDto> getproductlist(){
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
-		  String sql="select pno,ptitle,pcontent,pprice,pdate,c.* from product natural join product_category c ";
+		  String sql="select p.*,c.pcname from product p natural join product_category c ";
 		  try {
 			ps=con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -82,9 +82,11 @@ public class ProductDao extends Dao{
 					pimglist.add(rs2.getString(2));
 				}
 			ProductDto dto=new ProductDto(
-					rs.getInt(1), rs.getString(2), rs.getString(3),
-					rs.getInt(4), rs.getString(5), rs.getInt(6), pimglist, rs.getString(7));
-					
+					rs.getInt(1), rs.getString(2), rs.getString(3)
+					, rs.getInt(4), rs.getInt(5), rs.getString(6),
+					rs.getString(7), rs.getString(8), rs.getInt(9),
+					rs.getString(10), rs.getInt(11), rs.getInt(12),
+					rs.getInt(13), pimglist, rs.getString(14));
 				list.add(dto); 
 			}
 		} catch (SQLException e) {

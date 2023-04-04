@@ -43,17 +43,17 @@
 					<div class="mresidence">
 						<h5>사는지역</h5>
 						<select name="mresidence">
-							<option value="1">서울</option>
-							<option value="2">경기</option>
-							<option value="3">강원도</option>
-							<option value="4">인천</option>
-							<option value="5">충청도</option>
-							<option value="6">경상도</option>
-							<option value="7">전라도</option>
-							<option value="8">부산</option>
-							<option value="9">울산</option>
-							<option value="10">제주</option>
-							<option value="11">그외</option>
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="강원도">강원도</option>
+							<option value="인천">인천</option>
+							<option value="충청도">충청도</option>
+							<option value="경상도">경상도</option>
+							<option value="전라도">전라도</option>
+							<option value="부산">부산</option>
+							<option value="울산">울산</option>
+							<option value="제주">제주</option>
+							<option value="그외">그외</option>
 						</select>
 					</div>
 					<div>
