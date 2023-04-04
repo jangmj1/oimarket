@@ -40,13 +40,13 @@ rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGL
 		<div class="container">
 			
 			<div class="topcontent">
-				<select class="form-select " aria-label="Default select example">
-					<option>전체보기</option>
-					<option>생활가전</option>
-					<option>의류</option>
-					<option>뷰티미용</option>
-					<option>가공식품</option>
-					<option>식물</option>
+				<select class="form-select " aria-label="Default select example" onchange="category(this.value)">
+					<option value="0" >전체보기</option>
+					<option value="1">생활가전</option>
+					<option value="2">의류</option>
+					<option value="3">뷰티미용</option>
+					<option value="4">가공식품</option>
+					<option value="5">식물</option>
 				</select>
 				<div >
 					<input type="text">

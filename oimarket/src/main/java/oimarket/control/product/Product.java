@@ -39,12 +39,12 @@ public class Product extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//제품 출력 [type 1 : 전체출력 / type 2 : 개별출력]
 		
-		
+		int pcno=Integer.parseInt(request.getParameter("cno") );
 		String type=request.getParameter("type");
 		ObjectMapper mapper=new ObjectMapper();
 		String jsonArray=null;
 		if(type.equals("1")) { //판매등록된 모든 상품을 출력한다
-			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(); 
+			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(pcno); 
 			 jsonArray=mapper.writeValueAsString(result);
 			
 			 

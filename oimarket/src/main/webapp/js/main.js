@@ -1,12 +1,13 @@
-getproduct();
+getproduct();//기본 메인페이지에 전체출력부터 시작
 
 let productInfo=""; //전체 물품들의 리스트들이 들어있음
 
-function getproduct(){//전체 출력
+function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 !기본은 전체출력
 	let html='';
+	let pcno=document.querySelector('.form-select').value
 	$.ajax({
 		url:"/oimarket/product",
-		data:{type:1},
+		data:{type:1,pcno:pcno},
 		method:"get",
 		success:(r)=>{
 			console.log('성공')
@@ -177,6 +178,10 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			
 	})
 	
+}
+
+function category(pcno){ //카테고리선택 변경했을때 
+	getproduct(); //카테고리별 출력
 }
 
 
