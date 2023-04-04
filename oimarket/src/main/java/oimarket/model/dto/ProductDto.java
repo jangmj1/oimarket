@@ -69,25 +69,19 @@ public class ProductDto {
     
  
     //제품 전체 출력용
-	
-	public ProductDto(int pno, String ptitle, String pcontent, int pprice, String pdate, List<String> pimglist,
-			String pcname) {
+
+	public ProductDto(int pno, String ptitle, String pcontent, int pprice, String pdate, int pcno,
+			List<String> pimglist, String pcname) {
 		super();
 		this.pno = pno;
 		this.ptitle = ptitle;
 		this.pcontent = pcontent;
 		this.pprice = pprice;
 		this.pdate = pdate;
+		this.pcno = pcno;
 		this.pimglist = pimglist;
 		this.pcname = pcname;
 	}
-
-
-
-
-
-
-
 
 
 
