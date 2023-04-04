@@ -13,7 +13,7 @@
 		
 			<form class="productform">
 				<div>카테고리:
-					<select name="pcno">
+					<select name="pcno" class="pcno">
 						<option value="1">생활가전</option>
 						<option value="2">의류</option>
 						<option value="3">뷰티미용</option>
@@ -22,23 +22,25 @@
 					</select>
 				</div>
 				<div>제목:
-					<input type="text" name="ptitle">
+					<input type="text" name="ptitle" class="ptitle">
 				</div>
 				
 				<div>내용:
-					<input type="text" name="pcontent">
+					<input type="text" name="pcontent" class="pcontent" >
 				</div>
 				
 				<div>가격:
-					<input type="text" name="pprice">
+					<input type="text" name="pprice" class="pprice">
 				</div>
-				위치:
-				<div id="map" style="width:100%;height:350px;"></div>
+				장소:
+				<div id="map" style="width:100%;height:450px;"></div>
 				<div>
-					<input type="file" name="pfiles" multiple="multiple" accept="image/*">
+					<input type="file" name="pfiles" class="pfiles"  multiple="multiple" accept="image/*">
+					
 				</div> 
 				<div>
-					<button onclick="productbtn()" type="button">물품 등록</button>
+					<button class="btn" onclick="productbtn()" type="button">물품 등록</button>
+				
 				</div>
 			</form>	
 		
