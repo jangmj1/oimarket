@@ -32,7 +32,12 @@ public class Boardinfo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int type = Integer.parseInt(request.getParameter("type"));
 		if(type==1) { // 게시물 전체 출력
-		ArrayList<BoardDto> result = BoardDao.getInstance().getBoardList();
+			
+		// 검색에 필요한 매개변수 가져오기
+		String key = request.getParameter("key");			System.out.println("검색 키(제목 등) :" +key);
+		String keyword = request.getParameter("keyword");	System.out.println("검색 내용 : " +keyword);
+		// ------------------------------------------------------ //
+		ArrayList<BoardDto> result = BoardDao.getInstance().getBoardList(key , keyword);
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonArray = mapper.writeValueAsString(result);
 		response.setCharacterEncoding("UTF-8");

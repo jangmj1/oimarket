@@ -23,9 +23,14 @@ public class BoardDao extends Dao{
 	}
 	
 	// [김동혁] 전체게시글 출력
-	public ArrayList<BoardDto> getBoardList(){
+	public ArrayList<BoardDto> getBoardList(String key , String keyword){
 		ArrayList<BoardDto> list = new ArrayList<>();
-		String sql = "select board.* , member.mid from member natural join board";
+		String sql = "";
+		if( key.equals("") && keyword.equals("")) {
+			sql = "select board.* , member.mid from member natural join board";
+		}else {
+			sql = "select board.* , member.mid from member natural join board where "+key+" like '%"+keyword+"%' order by board.bdate desc";
+		}
 		try {
 			ps=con.prepareStatement(sql);
 			rs=ps.executeQuery();
