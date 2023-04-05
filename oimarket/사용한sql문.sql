@@ -32,7 +32,7 @@ create table product(
     plat		varchar(30) ,						-- 위도
     plng		varchar(30) ,						-- 경도
     pdate		datetime default now() ,			-- 등록일
-    pstate		int ,								-- 물품상태	[ 1 : 판매 가능 / 2 : 판매 완료 ]
+    pstate		int default 1,						-- 물품상태	[ 1 : 판매 가능 / 2 : 판매 완료 ]
     buydate		varchar(30) ,						-- 구매일
     rmno		int ,								-- 판매등록한 회원번호
     buymno		int ,								-- 구매한 회원번호

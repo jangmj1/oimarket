@@ -68,7 +68,7 @@ public class Product extends HttpServlet {
 		response.getWriter().print(jsonArray); 
 	}
 
-	//제품등록 // 은자야 이게뭐야?
+	//제품등록 //
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//첨부파일 여러개 하기위해 commons.jar 사용
 		request.setCharacterEncoding("UTF-8");
@@ -137,8 +137,14 @@ public class Product extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
-	
+	//제품삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int pno=Integer.parseInt(request.getParameter("pno")); System.out.println("pno:"+pno);
+		//dao에게 보내서 결과값 받기
+		boolean result=ProductDao.getInstance().Deleteproduct(pno);
+		//응답
+		response.getWriter().print(result);
+		
 		
 	}
 

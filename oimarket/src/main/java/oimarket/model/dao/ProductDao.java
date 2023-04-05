@@ -56,7 +56,7 @@ public class ProductDao extends Dao{
 	
 	
 	
-	//등록된 물품전체출력 and 카테고리별 출력
+	//[장민정]등록된 물품전체출력 and 카테고리별 출력
 	  public ArrayList<ProductDto> getproductlist(int pcno){
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
 		 String sql=null;
@@ -92,7 +92,7 @@ public class ProductDao extends Dao{
 		}return list;
 	 }
 	 
-	 //개별출력:판매상품 pk번호로 판매자의 정보를 호출하는 함수
+	 //[장민정]개별출력:판매상품 pk번호로 판매자의 정보를 호출하는 함수
 	  public MemberDto getproduct(int pno) {
 		 
 		  String sql="select m.*  from product p natural join member m  where pno=?  and p.rmno=m.mno;";
@@ -115,7 +115,7 @@ public class ProductDao extends Dao{
 		  
 	  }
 	  
-	 //검색해서 제목에 키워드가 존재하는 물품만 출력하기
+	 //[장민정]검색해서 제목에 키워드가 존재하는 물품만 출력하기
 	  public ArrayList<ProductDto>search(String keyword){
 		  ArrayList<ProductDto>list=new ArrayList<>();
 		  String sql="select p.*,c.pcname from product p natural join product_category c where ptitle like '%"+keyword+"%'";
@@ -143,9 +143,71 @@ public class ProductDao extends Dao{
 			System.out.println(e);
 		}return list;
 	  }
+	//[김은영] 제품삭제
+	  public boolean Deleteproduct(int pno) {
+		  String sql="delete  from product where pno=?;";
+		  try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			int count=ps.executeUpdate();
+			if(count==1) {return true;}
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	  }
 	
+	//[김은영]제품 찜하기
+	  public boolean setlike(int pno, int mno) {
+		  String sql="select *from product_like where pno=? and mno=? ";
+		  try {
+			  ps=con.prepareStatement(sql);
+			  ps.setInt(1,pno);
+			  ps.setInt(2,mno);
+			  rs=ps.executeQuery();
+			  if(rs.next()) {//레코드행 있으면 취소해야함
+				  sql="delete from product_like  where pno=? and mno=? ";
+				  ps=con.prepareStatement(sql);
+				  ps.setInt(1,pno);
+				  ps.setInt(2,mno);
+				  ps.executeUpdate();return false;//취소되었을때 
+				  }else {//레코드행 없으면 ! 등록해야함
+					  sql="insert into product_like(pno,mno) values(?,?) ";
+					  ps=con.prepareStatement(sql);
+					  ps.setInt(1,pno);
+					  ps.setInt(2,mno);
+					  ps.executeUpdate();return true;
+				  }
+		} catch (Exception e) {System.out.println(e);}return false;
+	  }
+	  
+	  
+	//김은영[찜하기 상태] 
+	public boolean getlike(int pno, int mno) {
+		 String sql="select *from product_like where pno=? and mno=? ";
+		  try {
+			  ps=con.prepareStatement(sql);
+			  ps.setInt(1,pno);
+			  ps.setInt(2,mno);
+			  rs=ps.executeQuery();
+			  if(rs.next()) {//레코드행 있으면 등록을해서 나온 상태니깐 true
+				  return true;}
+		  }catch (SQLException e) {
+			  System.out.println(e);
+		  }return false;
+		}
+	  
+	  //김은영[조회수]
+	public boolean view(int pno) {
+		String sql="update product set pview=pview+1 where pno=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	}
 	
-	
-	
+	  
 }
-;
