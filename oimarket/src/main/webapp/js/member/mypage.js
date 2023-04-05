@@ -4,7 +4,7 @@ function logo(){
 }
 
 console.log(memberInfo)
-// [최성아] 회원 탈퇴
+// [최성아] 회원 정보 호출
 getLogin();
 function getLogin() {
 	$.ajax({
@@ -74,3 +74,128 @@ function setDelete() {
 function modal_Update() {
 	location.href = "/oimarket/member/update.jsp"
 }
+
+// [최성아] mypage 내용 출력
+let type = 0;
+
+
+// 5. 내가 게시한 물품 출력
+
+getBoard();
+function getBoard(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 5 , "mno" : memberInfo.mno } ,
+		async : false ,
+		success : (r) => { console.log('게시물통신성공'); console.log(r);
+
+			let html = `<tr>
+							<th>게시물 카테고리</th> <th>게시물 제목</th> <th>게시물 등록일</th>
+							<th>게시물 조회수</th> <th>좋아요</th> <th>싫어요</th>
+						</tr>`;
+			
+			r.forEach( (b) => {
+					html += `<tr>
+								<td>${b.bcno == 1 ? '공지사항' : b.bcno == 2 ? '자유게시판' : 'QnA'  } </td>
+								<td>${b.btitle}</td><td>${b.bdate}</td>
+								<td>${b.bview}</td><td>${b.bup}</td><td>${b.bdown}</td>
+							</tr>`
+			})
+			document.querySelector('.mypageBoardbox').innerHTML = html;
+		}
+	})
+}
+
+// 2. 내가 판매중인 물품 출력
+getSellProduct();
+function getSellProduct(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 , "pno" : 5} ,
+		async : false ,
+		success : (r) => { console.log('판매중통신성공'); console.log(r);
+/*			let html = `<tr>
+							<th> 게시물 대표 이미지 </th> 
+							<th> 게시물 카테고리 </th> 
+							<th> 게시물 제목 </th>
+							<th> 게시물 가격 </th> 
+							<th> 게시물 등록일 </th>
+						<tr>`;
+			
+			r.forEach( (p) => {
+				html += `<tr>
+							<td> 게시물 대표 이미지 </td> 
+							<td> 
+								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
+							</td> 
+							<td> ${p.ptitle} </td>
+							<td> ${p.pprice} </td> 
+							<td> ${p.pdate} </td>
+						<tr>`
+			})
+			
+			document.querySelector('.mypageSellbox').innerHTML = html;*/
+		}
+	})	
+}
+
+// 1. 내가 등록한 물품 출력
+
+
+
+
+
+
+// 3. 내가 구매한 물품 출력
+
+
+
+// 4. 내가 찜한 물품 출력
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
