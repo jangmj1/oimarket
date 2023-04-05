@@ -31,13 +31,9 @@
 			</div>
 				
 			<!-- 2. 판매제품 출력 창  -->	
-			<div class="mypageSellbox">
-				<div> 내가 판매중인 물품 출력 창 </div>
-				<div> 내가 판매중인 물품 출력 창 </div>
-				<div> 내가 판매중인 물품 출력 창 </div>
-				<div> 내가 판매중인 물품 출력 창 </div>
-				<div> 내가 판매중인 물품 출력 창 </div>
-			</div>
+			<table border="1" class="mypageSellbox">
+
+			</table>
 			
 			<!-- 3. 구매제품 출력 창  -->
 			<div class="mypageBuybox">

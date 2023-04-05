@@ -114,7 +114,7 @@ function getSellProduct(){
 		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 , "pno" : 5} ,
 		async : false ,
 		success : (r) => { console.log('판매중통신성공'); console.log(r);
-/*			let html = `<tr>
+			let html = `<tr>
 							<th> 게시물 대표 이미지 </th> 
 							<th> 게시물 카테고리 </th> 
 							<th> 게시물 제목 </th>
@@ -124,7 +124,7 @@ function getSellProduct(){
 			
 			r.forEach( (p) => {
 				html += `<tr>
-							<td> 게시물 대표 이미지 </td> 
+							<td> ${p.mainImg} </td> 
 							<td> 
 								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
 							</td> 
@@ -134,7 +134,7 @@ function getSellProduct(){
 						<tr>`
 			})
 			
-			document.querySelector('.mypageSellbox').innerHTML = html;*/
+			document.querySelector('.mypageSellbox').innerHTML = html;
 		}
 	})	
 }

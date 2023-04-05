@@ -21,6 +21,7 @@ public class MypageDao extends Dao{
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, rmno);
 				ps.setInt(2, pstate);
+				rs = ps.executeQuery();
 				while ( rs.next() ) {
 					ProductDto dto = new ProductDto(
 							rs.getInt(1), rs.getInt(2), 
@@ -28,7 +29,7 @@ public class MypageDao extends Dao{
 					
 					sql = "select * from product_img where pno = ? limit 1";
 					ps = con.prepareStatement(sql);
-					ps.setInt(1, pno);
+					ps.setInt(1, rs.getInt(1));
 					ResultSet rs2 = ps.executeQuery();
 					if ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
 					list.add(dto);
