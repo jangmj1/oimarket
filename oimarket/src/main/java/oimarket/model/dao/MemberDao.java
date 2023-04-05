@@ -188,7 +188,7 @@ public class MemberDao extends Dao{
 		}		
 		
 
-		//[김은영]mid 에서 mno필요// mno가 안넘어옴..왜?
+		//[김은영] mid 에서 mno 추출
 		public int getMno(String mid) {
 			String sql="select mno from member where mid=?";
 			

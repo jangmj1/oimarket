@@ -77,12 +77,25 @@ public class BoardDto {
 		this.mid = mid;
 	}
 
+	// [최성아] mypage 게시물 출력용 생성자
+		public BoardDto( int bcno , String btitle, String bdate, int bview, int bup, int bdown) {
+			super();
+			this.bcno = bcno;
+			this.btitle = btitle;
+			this.bdate = bdate;
+			this.bview = bview;
+			this.bup = bup;
+			this.bdown = bdown;
+		}		
+		
 	@Override
 	public String toString() {
 		return "BoardDto [bno=" + bno + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bfile=" + bfile
 				+ ", bdate=" + bdate + ", bview=" + bview + ", bup=" + bup + ", bdown=" + bdown + ", mno=" + mno
 				+ ", bcno=" + bcno + "]";
 	}
+
+
 
 
 

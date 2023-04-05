@@ -22,9 +22,18 @@ public class ProductDto {
     private List<String>pimglist;	//등록한 사진목록들
     private String pcname;			//등록한 카테고리의 이름
     
-    public ProductDto() {
+    // [최성아 추가필드]
+    private String divideDate;		// 판매현황 상태로 date 구분하기
+    private String mainImg;			// 모든 물품 출력 관한 대표 img 
+
+
+
+	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}//깡통생성자
+
+
+
 
 
 	public ProductDto(int pno, String ptitle, String pcontent, int pprice, int pview, String plat, String plng,
@@ -83,6 +92,24 @@ public class ProductDto {
 		this.pcname = pcname;
 	}
 
+	// [최성아] 1. mypage 등록한 제품 출력용 
+	
+	
+	// [최성아] 2. mypage 판매 제품 출력용 
+	public ProductDto(int pno , int pcno ,String ptitle, int pprice, String pdate ) {
+		super();
+		this.pno = pno;
+		this.pcno = pcno;
+		this.ptitle = ptitle;
+		this.pprice = pprice;
+		this.pdate = pdate;
+		
+	}	
+	
+	// [최성아] 3. mypage 구매한 제품 출력용 
+	
+	
+	// [최성아] 4. mypage 찜한 제품 출력용 
 
 
 	public int getPno() {
@@ -234,7 +261,23 @@ public class ProductDto {
 		this.pcname = pcname;
 	}
 
+	public String getDivideDate() {
+		return divideDate;
+	}
 
+
+	public void setDivideDate(String divideDate) {
+		this.divideDate = divideDate;
+	}
+	
+    public String getMainImg() {
+		return mainImg;
+	}
+
+	public void setMainImg(String mainImg) {
+		this.mainImg = mainImg;
+	}
+	
 	@Override
 	public String toString() {
 		return "ProductDto [pno=" + pno + ", ptitle=" + ptitle + ", pcontent=" + pcontent + ", pprice=" + pprice

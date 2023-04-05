@@ -20,22 +20,47 @@
 			
 			<!-- 개인정보 호출 -->
 			<div class="container mypageInfobox"></div>
-
+			
+			<!-- 1. 등록제품 출력 창  -->
+			<div class="mypageRegistbox">
+				<div> 내가 등록한 물품 출력 창 </div>
+				<div> 내가 등록한 물품 출력 창 </div>
+				<div> 내가 등록한 물품 출력 창 </div>
+				<div> 내가 등록한 물품 출력 창 </div>
+				<div> 내가 등록한 물품 출력 창 </div>
+			</div>
+				
+			<!-- 2. 판매제품 출력 창  -->	
+			<div class="mypageSellbox">
+				<div> 내가 판매중인 물품 출력 창 </div>
+				<div> 내가 판매중인 물품 출력 창 </div>
+				<div> 내가 판매중인 물품 출력 창 </div>
+				<div> 내가 판매중인 물품 출력 창 </div>
+				<div> 내가 판매중인 물품 출력 창 </div>
+			</div>
+			
+			<!-- 3. 구매제품 출력 창  -->
+			<div class="mypageBuybox">
+				<div> 내가 구매한 물품 출력 창 </div>
+				<div> 내가 구매한 물품 출력 창 </div>
+				<div> 내가 구매한 물품 출력 창 </div>
+				<div> 내가 구매한 물품 출력 창 </div>
+				<div> 내가 구매한 물품 출력 창 </div>
+			</div>
+			
+			<!-- 4. 찜한 제품 출력 창  -->
 			<div class="mypageLikebox">
 				<div> 내가 찜한 물품 출력 창 </div>
 				<div> 내가 찜한 물품 출력 창 </div>
 				<div> 내가 찜한 물품 출력 창 </div>
 				<div> 내가 찜한 물품 출력 창 </div>
 				<div> 내가 찜한 물품 출력 창 </div>
-			</div>
-			
-			<div class="mypageBoardbox">
-				<div> 내가 게시한 글 출력 창 </div>
-				<div> 내가 게시한 글 출력 창 </div>
-				<div> 내가 게시한 글 출력 창 </div>
-				<div> 내가 게시한 글 출력 창 </div>
-				<div> 내가 게시한 글 출력 창 </div>
-			</div>
+			</div>						
+
+			<!-- 5. 게시물 출력 창  -->
+			<table border="1" class="mypageBoardbox">
+
+			</table>
 			
 		</div>
 		

@@ -51,3 +51,7 @@
 .mypageInfobox , .mypageLikebox , .mypageBoardbox{
 	margin-top: 15%;
 }
+
+.mypageMainbox{
+	padding-bottom: 50%;
+}
