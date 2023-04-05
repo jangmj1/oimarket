@@ -12,7 +12,8 @@ create table member(
     mmw			varchar(10) ,						-- 회원 성별
     mphone		varchar(20) not null unique ,		-- 회원 핸드폰번호
     mimg		longtext 							-- 회원 프로필
-);
+
+    );
 
 -- 물품 카테고리 
 drop table if exists product_category;
