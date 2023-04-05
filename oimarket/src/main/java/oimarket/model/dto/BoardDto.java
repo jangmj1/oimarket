@@ -16,7 +16,16 @@ public class BoardDto {
 	private int bcno;
 	// 추가 필드
 	private String mid;
+	private String mimg;
 	
+	public String getMimg() {
+		return mimg;
+	}
+
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
+	}
+
 	public BoardDto() {
 		// TODO Auto-generated constructor stub
 	}
