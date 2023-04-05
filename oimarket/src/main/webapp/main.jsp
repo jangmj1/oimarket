@@ -49,8 +49,8 @@ rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGL
 					<option value="5">식물</option>
 				</select>
 				<div >
-					<input type="text">
-					<i class="fas fa-search"></i>
+					<input class="keyword" type="text">
+					<i onclick="search()" class="fas fa-search"></i>
 				</div>
 			</div>
 			<div class="contentbox">

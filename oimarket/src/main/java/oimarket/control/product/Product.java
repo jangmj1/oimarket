@@ -39,11 +39,11 @@ public class Product extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//제품 출력 [type 1 : 전체출력 / type 2 : 개별출력]
 		
-		int pcno=Integer.parseInt(request.getParameter("cno") );
 		String type=request.getParameter("type");
 		ObjectMapper mapper=new ObjectMapper();
 		String jsonArray=null;
 		if(type.equals("1")) { //판매등록된 모든 상품을 출력한다
+			int pcno=Integer.parseInt(request.getParameter("pcno") );
 			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(pcno); 
 			 jsonArray=mapper.writeValueAsString(result);
 			
@@ -52,6 +52,12 @@ public class Product extends HttpServlet {
 		}else if (type.equals("2")) { //pno를 가지고 판매한 맴버를 출력하기
 			int pno=Integer.parseInt(request.getParameter("pno")) ;
 			MemberDto result= ProductDao.getInstance().getproduct(pno);
+			jsonArray=mapper.writeValueAsString(result);
+			
+			
+		}else if (type.equals("3")) { //pno를 가지고 판매한 맴버를 출력하기
+			String keyword=request.getParameter("keyword") ;System.out.println(keyword);
+			ArrayList<ProductDto> result= ProductDao.getInstance().search(keyword);
 			jsonArray=mapper.writeValueAsString(result);
 			
 			

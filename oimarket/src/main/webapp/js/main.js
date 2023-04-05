@@ -5,6 +5,9 @@ let productInfo=""; //전체 물품들의 리스트들이 들어있음
 function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 !기본은 전체출력
 	let html='';
 	let pcno=document.querySelector('.form-select').value
+	if(pcno==0){
+		document.getElementById('map').style.display='none';
+	}
 	$.ajax({
 		url:"/oimarket/product",
 		data:{type:1,pcno:pcno},
@@ -182,6 +185,52 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 
 function category(pcno){ //카테고리선택 변경했을때 
 	getproduct(); //카테고리별 출력
+}
+
+function search(){//제목검색했을때
+	let keyword = document.querySelector('.keyword').value;
+	console.log("keyword:"+keyword)
+	if(keyword==""){
+		alert("검색창에 찾으실 제목을 써주세요!")
+	}else{//키워드가 있을경우에 아작트실행
+		let html='';
+		
+		$.ajax({
+			url:"/oimarket/product",
+			method:"get",
+			data:{keyword:keyword,type:3},
+			success:(r)=>{
+				console.log(r)
+				if(r.length>0){
+					
+					r.forEach( (o,i)=>{
+				
+				html+=
+				`
+					<div class="content" onclick="oneproduct(${i},${o.pno})">
+						<img  src="/oimarket/img/${o.pimglist[0]==null?'기본.png':o.pimglist[0]}">
+						<div class="pinfo">
+							<h3 class="ptitle">${o.ptitle}</h3>
+							<h5 class="pdate">${o.pdate}</h5>
+							<h3 class="pprice">${(o.pprice).toLocaleString()} 원</h3>
+						</div>
+					</div>
+				
+					`	
+					})
+			
+				}else{
+					html+='<h3>검색결과가 없습니다.</h3>'
+				}
+				
+			
+			document.querySelector('.keyword').value="";
+			document.querySelector('.contentbox').innerHTML=html;
+			}
+			
+		})
+	}
+	
 }
 
 

@@ -114,6 +114,35 @@ public class ProductDao extends Dao{
 		
 		  
 	  }
+	  
+	 //검색해서 제목에 키워드가 존재하는 물품만 출력하기
+	  public ArrayList<ProductDto>search(String keyword){
+		  ArrayList<ProductDto>list=new ArrayList<>();
+		  String sql="select p.*,c.pcname from product p natural join product_category c where ptitle like '%"+keyword+"%'";
+		  try {
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while (rs.next()) {
+				ArrayList<String>pimglist=new ArrayList<>();
+				sql="select * from product_img where pno=?";
+				ps=con.prepareStatement(sql);
+				ps.setInt(1, rs.getInt(1));
+				ResultSet rs2=ps.executeQuery();
+				while (rs2.next()){
+					pimglist.add(rs2.getString(2));
+				}
+			ProductDto dto=new ProductDto(
+					rs.getInt(1), rs.getString(2), rs.getString(3)
+					, rs.getInt(4), rs.getInt(5), rs.getString(6),
+					rs.getString(7), rs.getString(8), rs.getInt(9),
+					rs.getString(10), rs.getInt(11), rs.getInt(12),
+					rs.getInt(13), pimglist, rs.getString(14));
+				list.add(dto); 
+			}
+		} catch (SQLException e) {
+			System.out.println(e);
+		}return list;
+	  }
 	
 	
 	
