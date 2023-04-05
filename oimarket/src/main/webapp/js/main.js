@@ -16,7 +16,7 @@ function getproduct(){//전체 출력
 			r.forEach( (o,i)=>{
 				
 				html+=
-				`
+				` 
 					<div class="content" onclick="oneproduct(${i},${o.pno})">
 						<img  src="/oimarket/img/${o.pimglist[0]==null?'기본.png':o.pimglist[0]}">
 						<div class="pinfo">
@@ -24,8 +24,9 @@ function getproduct(){//전체 출력
 							<h5 class="pdate">${o.pdate}</h5>
 							<h3 class="pprice">${(o.pprice).toLocaleString()} 원</h3>
 						</div>
+						
 					</div>
-				
+					
 					`	
 				
 			})
@@ -51,7 +52,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			method:"get",
 			success:(r)=>{
 				console.log(r)
-				
+				view(pno);
 				
 		
 	
@@ -59,6 +60,8 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 	
 		html=
 			`<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+				
+				  
 				  <div class="carousel-indicators">
 				  
 				  
@@ -92,7 +95,8 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 					</div>
 					<div>
 						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:25px;height:25px; margin-top: 25px;"></button>
-						<button type="button"  onclick="">채팅하기</button>
+						<!-- 김은영//조회수!!!!!!!!!!!!!!! -->
+				  		<span  class="view">조회:${productInfo[i].pview}</span>
 					</div>
 				</div>																						
 					
@@ -111,6 +115,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 				<button type="button">상태수정[판매유무]</button>
 				<button type="button">수정</button>
 				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
+				<button type="button"  onclick="">채팅하기</button>
 			</div>
 	
 				`
@@ -206,7 +211,7 @@ function setlike(pno){
 		}
 	})
 }
-//김은영 찜하기 상태
+//김은영 //찜하기 상태
 function getlike(pno){
 	
 	$.ajax({
@@ -230,6 +235,19 @@ function getlike(pno){
 
 
 
+//김은영// 조회수
+
+function view(pno){
+	$.ajax({
+		url:"/oimarket/productview",
+		method:"get",
+		data:{"pno":pno},
+		success:(r)=>{
+			console.log('조회수 통신');
+			console.log(r);
+		}
+	})
+}
 
 
 

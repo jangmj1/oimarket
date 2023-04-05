@@ -168,7 +168,18 @@ public class ProductDao extends Dao{
 		  }return false;
 		}
 	  
-	  
-	  
+	  //김은영[조회수]
+	public boolean view(int pno) {
+		String sql="update product set pview=pview+1 where pno=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+		}return false;
+	}
+	
 	  
 }
