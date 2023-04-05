@@ -29,7 +29,7 @@ create table product(
     ptitle		varchar(30) ,						-- 물품 제목
     pcontent	longtext ,							-- 물품 내용
     pprice		int , 								-- 물품 가격
-    pview		int , 								-- 조회수
+    pview		int default 1, 						-- 조회수
     plat		varchar(30) ,						-- 위도
     plng		varchar(30) ,						-- 경도
     pdate		datetime default now() ,			-- 등록일
