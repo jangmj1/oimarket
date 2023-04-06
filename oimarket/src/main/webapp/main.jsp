@@ -32,6 +32,7 @@
 			<div class="contentbox">
 				
 				
+				
 			</div>
 			
 			<div id="map" style="width:350px;height:300px;"></div>
