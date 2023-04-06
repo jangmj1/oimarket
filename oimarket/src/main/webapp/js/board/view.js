@@ -63,7 +63,7 @@ function bdelete(bno,bcno){
 			console.log(r)
 			if(r=='true'){
 				alert('삭제성공');
-				location.href="/oimarket/board/list.jsp?cno="+cno;
+				location.href="/oimarket/board/list.jsp?bcno="+bcno;
 			}else{
 				alert('삭제실패');
 			}
