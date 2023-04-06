@@ -1,4 +1,29 @@
 @charset "UTF-8";
+/* 
+특정 부분 스크롤바 없애기
+body{
+ -ms-overflow-style: none;
+ }
+ 
+::-webkit-scrollbar {
+  display: none;
+}
+
+.box{
+   -ms-overflow-style: none;
+}
+.box::-webkit-scrollbar{
+  display:none;
+}
+*/
+
+.wrap{ /*  main.jsp */
+	width: 412px; 
+	margin: 0 auto;
+	display: flex;
+}
+
+
 
 @font-face {
     font-family: 'GmarketSansMedium';
@@ -12,7 +37,7 @@
 	margin-bottom: 30px;
 }
 
-.container{
+.contentbox{
 	padding :0px 0px 60px 0px!important;
 }
 .contentbox a{
@@ -33,7 +58,6 @@
 	
 }
 .main{
-	border: 1px solid red;
 	flex-direction: column;
 	padding: 40px 20px;
 }

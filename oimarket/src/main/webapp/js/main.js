@@ -1,3 +1,20 @@
+
+// ----------------- 스크롤막대가 바닥이면 --------------- //
+
+let pcount = 5;
+
+$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+	   pcount +=5;
+	   alert( pcount )
+      getproduct()
+   }
+});
+
+
+// ------------------------------------------------
+
+
 getproduct();//기본 메인페이지에 전체출력부터 시작
 
 let productInfo=""; //전체 물품들의 리스트들이 들어있음
@@ -10,12 +27,11 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 	}
 	$.ajax({
 		url:"/oimarket/product",
-		data:{type:1,pcno:pcno},
+		data:{type:1,pcno:pcno , pcount : pcount },
 		method:"get",
 		success:(r)=>{
 			console.log('성공')
 			console.log(r);	productInfo=r;
-			
 			
 			r.forEach( (o,i)=>{
 				

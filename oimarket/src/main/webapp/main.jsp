@@ -5,40 +5,16 @@
 <head>
 <meta charset="UTF-8">
 
-	<style type="text/css">
-	
-		body{
-		 -ms-overflow-style: none;
-		 }
-		 
-		::-webkit-scrollbar {
-		  display: none;
-		}
-		
-		/*특정 부분 스크롤바 없애기*/
-		
-		.box{
-		   -ms-overflow-style: none;
-		}
-		.box::-webkit-scrollbar{
-		  display:none;
-		}
-	
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="/oimarket/css/main.css" rel="stylesheet"> 
-
-<!-- css 부트스트립 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<!-- css 부트스트립 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/oimarket/css/main.css" rel="stylesheet"> 
+	
 </head>
 <body>
-
-
-	<%@include file="/footer.jsp" %>
 	<div class="wrap main">
-		<div class="container">
-			
+		<div>
 			<div class="topcontent">
 				<select class="form-select " aria-label="Default select example" onchange="category(this.value)">
 					<option value="0" >전체보기</option>
@@ -56,17 +32,13 @@ rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGL
 			<div class="contentbox">
 				
 				
-			
-				
-				
 			</div>
 			
 			<div id="map" style="width:500px;height:400px;"></div>
 		
-		
-		
 		</div>
 	</div>
+	<%@include file="/footer.jsp" %>
 	
 <!-- 카카오지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=302a2d5c43d29cb22e0d5d10d6434665"></script>

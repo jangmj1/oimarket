@@ -61,10 +61,10 @@ public class ProductDao extends Dao{
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
 		 String sql=null;
 		 if(pcno==0) { //전체출력 db에 없는아무런 값으로 지정
-			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 "; //상태가 1(판매중)인것만 출력
+			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 limit 5 "; //상태가 1(판매중)인것만 출력
 			 
 		 }else {//카테고리 선택시 마다 0이상의 값들이 넘어옴
-			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 and pcno= " + pcno;//카테고리별 출력
+			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 and pcno= " + pcno+" limit 5";//카테고리별 출력
 		 }
 		  try {
 			ps=con.prepareStatement(sql);

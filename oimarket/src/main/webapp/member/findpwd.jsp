@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/oimarket/css/member/login.css" rel="stylesheet">
 </head>
 <body>
 		
-	<div class="wrap">
+	<div class="indexwrap">
 		<div class="mainbox">
 			<div class="findid_mphone_loc">
 				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>

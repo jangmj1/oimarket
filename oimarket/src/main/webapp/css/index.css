@@ -1,5 +1,22 @@
 @charset "EUC-KR";
 
+*{ padding: 0px; margin: 0px;}
+
+.menubox{
+	width: 19%;
+	padding: 10px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+.menuname{
+
+	margin-top : 5px;
+	font-size: 12px;
+}
+		
+
 @font-face {
     font-family: 'GmarketSansMedium';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
@@ -7,7 +24,7 @@
     font-style: normal;
 }
 .mainimg{
-	width: 300px;
+	width: 350px;
     margin: 0 auto;
 }
 html,body{
@@ -15,7 +32,7 @@ html,body{
 }
 
 .indexwrap{ /* index.jsp */ 
-	width: 600px; 
+	width: 412px; 
 	margin: 0 auto;
 	display: flex;
     flex-direction: column;
@@ -23,25 +40,23 @@ html,body{
     height: 100%;
 }
 .wrap{ /*  main.jsp */
-	width: 600px; 
+	width: 412px; 
 	margin: 0 auto;
 	display: flex;
 }
 
 .mainbox{
-	display: flex;
-	justify-content: center;
-	
+	margin: 0 auto;
 }
 
 
 .mainbox button{
 	 font-family: 'GmarketSansMedium';
 	 background-color :#60ac3f;
-	 margin: 30px;
+	 margin: 10px;
 	 padding: 25px 60px;
-	border-radius: 10px;
-    border: none;
+		border-radius: 10px;
+    	border: none;
         color: white;
 }
 .mainbox button:hover {
