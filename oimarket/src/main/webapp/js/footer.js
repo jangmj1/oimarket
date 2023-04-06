@@ -9,7 +9,8 @@ function productrigster(){
 	location.href="/oimarket/product/product.jsp"
 }
 function boardGo(){
-	location.href="/oimarket/board/list.jsp"
+	location.href="/oimarket/board/list.jsp";
+	getBoardListAll()
 }
 
 let memberInfo = null;

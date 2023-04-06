@@ -9,55 +9,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<!-- 개인 css -->
-	<link href="/oimarket/css/member/header.css" rel="stylesheet">
-	<link href="/oimarket/css/member/login.css" rel="stylesheet">
-	<link href="/oimarket/css/index.css" rel="stylesheet">
-	
+	<link href="/oimarket/css/footer.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	
-	<style type="text/css">
-		
-		@media (max-width: 600px) {
-		  .footerbox{
-		  	display: flex !important;
-		  }
-
-		}
-	
-		.footerbox{
-			width : 600px; 
-			position : fixed;
-			bottom:0px;
-			border-top: 1px solid #e8e8e8;		
-			padding: 10px;
-			 display: flex;
-    		justify-content: space-around;
-    		background-color: white;
-    		z-index: 999;
-		}
-		
-
-		
-		.menubox{
-			width: 19%;
-			padding: 10px;
-			display: flex;
-		    flex-direction: column;
-		    align-items: center;
-		    font-size: 25px;
-		}
-		.menuname{
-		
-			margin-top : 5px;
-			font-size: 12px;
-		}
-
-	</style>
 
 </head>
 <body>
-
-
 	<div class="wrap">
 		<div class="footerbox">
 			<div class="menubox">

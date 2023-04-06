@@ -44,7 +44,8 @@ public class Product extends HttpServlet {
 		String jsonArray=null;
 		if(type.equals("1")) { //판매등록된 모든 상품을 출력한다
 			int pcno=Integer.parseInt(request.getParameter("pcno") );
-			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(pcno); 
+			int pcount=Integer.parseInt(request.getParameter("pcount") );
+			ArrayList<ProductDto> result= ProductDao.getInstance().getproductlist(pcno,pcount); 
 			 jsonArray=mapper.writeValueAsString(result);
 			
 			 

@@ -11,16 +11,47 @@ public class MypageDao extends Dao{
 	private static MypageDao dao = new MypageDao();
 	public MypageDao() {};
 	public static MypageDao getInstance() { return dao; }
+
+	// [최성아] 1. 로그인 된 회원의 구매한 물품 7개 출력
+	public ArrayList<ProductDto> MypageRegisterProductList( int rmno ){
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = "select p.pno , p.pcno, p.ptitle , p.pprice , "
+				+ " if ( p.pstate = '1' , p.pdate , if ( p.pstate ='2' , p.buydate , '' ) ) as 등록혹은판매날짜, "
+				+ " p.pstate "
+				+ " from product p where rmno =? order by p.pdate desc limit 7 ";
+			
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, rmno);
+				rs = ps.executeQuery();
+				while ( rs.next() ) {
+					ProductDto dto = new ProductDto(
+							rs.getInt(1), rs.getInt(2), rs.getString(3) ,
+							rs.getInt(4), rs.getString(5) , rs.getInt(6)  );
+					
+					sql = "select * from product_img where pno = ? limit 1";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, rs.getInt(1));
+					ResultSet rs2 = ps.executeQuery();
+					while ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
+					list.add(dto);
+				}
+			}
+		}catch (Exception e) {System.out.println("등록물품오류 : " + e);}
+		return list;
+		
+	} // 등록한 물품 end
 	
 	// [최성아] 2. 로그인 된 회원의 판매중 물품 5개 출력
-	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate , int pno ){
+	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate ){
 		ArrayList<ProductDto> list = new ArrayList<>();
-		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc limit 5 ";
+		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc ";
 			
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, rmno);
 				ps.setInt(2, pstate);
+				rs = ps.executeQuery();
 				while ( rs.next() ) {
 					ProductDto dto = new ProductDto(
 							rs.getInt(1), rs.getInt(2), 
@@ -28,17 +59,72 @@ public class MypageDao extends Dao{
 					
 					sql = "select * from product_img where pno = ? limit 1";
 					ps = con.prepareStatement(sql);
-					ps.setInt(1, pno);
+					ps.setInt(1, rs.getInt(1));
 					ResultSet rs2 = ps.executeQuery();
-					if ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
+					while ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
 					list.add(dto);
 				}
 			}
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) {System.out.println("판매물품오류 : " + e);}
 		return list;
 		
 	} // 판매중 물품 end
+
+	// [최성아] 3. 로그인 된 회원의 구매한 물품 5개 출력
+	public ArrayList<ProductDto> MypageBuyProductList( int buymno  ){
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = " select p.pno , p.pcno , p.ptitle , p.pprice , p.buydate  "
+				+ " from product p where buymno = ? order by p.buydate desc limit 5;";
+			
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, buymno);
+				rs = ps.executeQuery();
+				while ( rs.next() ) {
+					ProductDto dto = new ProductDto(
+							rs.getInt(1), rs.getInt(2), 
+							rs.getString(3), rs.getInt(4), rs.getString(5) );
+					
+					sql = "select * from product_img where pno = ? limit 1";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, rs.getInt(1));
+					ResultSet rs2 = ps.executeQuery();
+					while ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
+					list.add(dto);
+				}
+			}
+		}catch (Exception e) {System.out.println("구매물품오류 : " + e);}
+		return list;
+		
+	} // 구매한 물품 end
 	
+	// [최성아] 4. 로그인 된 회원이 찜한 물품 5개 출력
+	public ArrayList<ProductDto> MypageLikeProductList( int mno ){
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = " select p.pno, p.pcno, p.ptitle , p.pprice , p.pdate , p.pstate "
+				+ " from product_like pl natural join product p  where pl.mno = ? order by p.pdate desc";
+			
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, mno);
+				rs = ps.executeQuery();
+				while ( rs.next() ) {
+					ProductDto dto = new ProductDto(
+							rs.getInt(1), rs.getInt(2), rs.getString(3) ,
+							rs.getInt(4), rs.getString(5) , rs.getInt(6)  );
+					
+					sql = "select * from product_img where pno = ? limit 1";
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, rs.getInt(1));
+					ResultSet rs2 = ps.executeQuery();
+					while ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
+					list.add(dto);
+				}
+			}
+		}catch (Exception e) {System.out.println("찜한물품오류 : " + e);}
+		return list;
+		
+	} // 찜한 물품 end
 	
 	// [최성아] 5. 로그인 된 회원의 게시물 5개까지 출력
 	public ArrayList<BoardDto> MypageBoardList(int mno){
@@ -56,7 +142,7 @@ public class MypageDao extends Dao{
 				list.add(dto);						
 			}
 			return list;
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) {System.out.println("게시물오류 : " + e);}
 		return null;
 	}// 게시물 출력 end
 	

@@ -5,12 +5,10 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
-.wrap {
-   
-    border: 1px solid #eeeeee;
+#map{
+	display: flex !important;
 }
+
 html,body{
 	height: 100%
 }

@@ -29,42 +29,53 @@ public class Mypage extends HttpServlet {
 		// mypage 출력부 전부 mno 필요해서 따로 빼놓음
 		int mno=MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
 		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonArray = null;
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		
 		// String result = null;
 		
 		// mypage 등록한 물품 출력
-		if ( type == 1 ) { }
+		if ( type == 1 ) {
+			int rmno = mno ;
+						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageRegisterProductList( rmno );						
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+		}
 		
 		// mypage 판매한 물품 출력
 		else if ( type == 2 ) {
-			int rmno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
+			int rmno = mno;
 			int pstate = Integer.parseInt(request.getParameter("pstate") );
-			int pno = Integer.parseInt(request.getParameter("pno") );
 						
-			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate , pno );			
-			
-			System.out.println("판매 dto 결과 " + result);
-			
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );						
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
 		
 		// mypage 구매한 물품 출력
-		else if ( type == 3 ) { }
+		else if ( type == 3 ) {
+			int buymno = mno;
+						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageBuyProductList( buymno );						
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+		}
 		
 		// mypage 찜한 물품 출력
-		else if ( type == 4 ) { }
+		else if ( type == 4 ) { 			
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageLikeProductList( mno );						
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);	
+		}
 		
 		// mypage 게시물 출력
 		else if ( type == 5 ) { // 게시물 출력 start
 			
 			ArrayList<BoardDto> result = MypageDao.getInstance().MypageBoardList( mno );			
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 			
 		} // type : 5 , 게시물 출력 end

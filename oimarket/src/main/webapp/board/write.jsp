@@ -19,10 +19,9 @@
 			<img onclick="mainPage()" class="logo" style="width:100px; height:100px; margin: 0 auto;" src="/oimarket/img/아이콘.png">
 			<form class="writeForm">
 				카테고리 : <select name="bcno">
-							<option value="1"> 공지사항 </option>
-							<option value="2"> 자유게시판 </option>
-							<option value="3"> QnA </option>
-							<option value="4"> 나만의 팁 </option>
+							<option value="1"> 커뮤니티 </option>
+							<option value="2"> QnA </option>
+							<option value="3"> 노하우 </option>
 						</select>
 				제목 : <input name="btitle" type="text">
 				<textarea id="summernote" name="bcontent"></textarea>

@@ -55,6 +55,9 @@
 				<div class="bfile"></div>
 			
 			</div>
+			<div class="bbtnbox">
+			
+			</div>
 			
 		</div>
 	</div>

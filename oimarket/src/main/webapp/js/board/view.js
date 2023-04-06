@@ -1,9 +1,9 @@
 
-
+// 게시물 개별 출력 함수
 getBoard();
 function getBoard(){
 	
-	let bno = document.querySelector('.bno').innerHTML;
+	let bno = document.querySelector('.bno').innerHTML;	// 게시물번호 가져오기
 	console.log("bno:" +bno)
 	
 	$.ajax({
@@ -28,6 +28,13 @@ function getBoard(){
 				html = ` ${ r.bfile } <button onclick="bdownload( '${ r.bfile }' )" type="button"> 다운로드 </button>`
 				document.querySelector('.bfile').innerHTML = html;
 			}
+			if(memberInfo.mid==r.mid){
+				html =`
+					<button onclick="bdelete(${bno} , ${r.bcno})" type="button" class="bbtn">삭제</button>
+					<button onclick="bupdate(${bno})" type="button" class="bbtn">수정</button>
+					`;
+				document.querySelector('.bbtnbox').innerHTML=html;
+			}
 		}
 	})
 }// function end
@@ -45,3 +52,47 @@ function bdownload(bfile){
 	})*/
 	location.href="/oimarket/filedownload?bfile="+bfile;
 }
+
+// 3. 삭제
+function bdelete(bno,bcno){
+	$.ajax({
+		url:"/oimarket/boardinfo",
+		method : "delete",
+		data:{"bno" : bno , "type" : 1},
+		success:(r)=>{
+			console.log(r)
+			if(r=='true'){
+				alert('삭제성공');
+				location.href="/oimarket/board/list.jsp?bcno="+bcno;
+			}else{
+				alert('삭제실패');
+			}
+		}
+	})
+}
+
+// 4. 수정페이지로 이동
+function bupdate(bno){
+	location.href="/oimarket/board/update.jsp?bno="+bno;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

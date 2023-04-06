@@ -16,7 +16,16 @@ public class BoardDto {
 	private int bcno;
 	// 추가 필드
 	private String mid;
+	private String mimg;
 	
+	public String getMimg() {
+		return mimg;
+	}
+
+	public void setMimg(String mimg) {
+		this.mimg = mimg;
+	}
+
 	public BoardDto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -75,6 +84,16 @@ public class BoardDto {
 		this.mno = mno;
 		this.bcno = bcno;
 		this.mid = mid;
+	}
+	
+	// [김동혁] 업데이트용 생성자
+		public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bcno = bcno;
 	}
 
 	// [최성아] mypage 게시물 출력용 생성자
