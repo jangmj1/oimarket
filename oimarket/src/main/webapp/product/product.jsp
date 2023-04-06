@@ -35,7 +35,7 @@
 					<input type="text" name="pprice" class="pprice">
 				</div>
 				장소:
-				<div id="map" style="width:100%;height:450px;"></div>
+				<div id="map" style="width:300px;height:300px;"></div>
 				<div>
 					<input type="file" name="pfiles" class="pfiles"  multiple="multiple" accept="image/*">
 					
