@@ -24,8 +24,8 @@ public class Productstate extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int pno=Integer.parseInt(request.getParameter("pno")) ;
-		int state=Integer.parseInt(request.getParameter("state")) ;
+		int pno=Integer.parseInt(request.getParameter("pno")) ;System.out.println("pno:"+pno);
+		
 		
 			int result=ProductDao.getInstance().productstate(pno) ;
 			response.getWriter().print(result);

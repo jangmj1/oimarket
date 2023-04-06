@@ -128,10 +128,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			let html='';
 			html+=`		
 				<div>
-					<select onchange="finish()" class="state">
-						<option value="1">판매중</option>
-						<option value="2">판매완료</option>
-					</select>
+					<button onclick="state(${pno})" type="button">판매완료 하셨나요? 클릭!</button>
 					<button type="button">수정</button>
 					<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
 					
@@ -358,14 +355,14 @@ function view(pno){
 
 
 //김은영//판매상태
-function finish(){
+function state(pno){
 	console.log('상태변경')
-	let state=document.querySelector('.state').value;
-	console.log("state:"+state)//확인용
+	
+	
 	$.ajax({
 		url:"/oimarket/productstate",
 		method:"get",
-		data:{"state":state,"pno":pno,},
+		data:{"pno":pno},
 		success:(r)=>{
 			console.log('통신됐나영');
 			console.log(r);
