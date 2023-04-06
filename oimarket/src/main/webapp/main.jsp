@@ -35,6 +35,10 @@
 			</div>
 			
 			<div id="map" style="width:350px;height:300px;"></div>
+			
+			<!-- 김은영 버튼-->
+			<div class="btns"></div>
+			
 		
 		</div>
 	</div>

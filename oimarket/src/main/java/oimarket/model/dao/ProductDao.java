@@ -209,6 +209,24 @@ public class ProductDao extends Dao{
 		}return false;
 	}
 	
+	
+	  //김은영[제품상태변경]
+		public int productstate(int pno) {
+			String sql="update product set pstate= 2 where pno=?";
+			try {
+				ps=con.prepareStatement(sql);
+				ps.setInt(1, pno);
+				ps.executeUpdate();
+				return 2;
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}return 1;
+			
+			
+			
+			
+		}
 
 		
 	
