@@ -23,6 +23,7 @@
 					<option value="3">뷰티미용</option>
 					<option value="4">가공식품</option>
 					<option value="5">식물</option>
+					
 				</select>
 				<div >
 					<input class="keyword" type="text">
