@@ -29,6 +29,11 @@ public class Mypage extends HttpServlet {
 		// mypage 출력부 전부 mno 필요해서 따로 빼놓음
 		int mno=MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
 		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonArray = null;
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		
 		// String result = null;
 		
 		// mypage 등록한 물품 출력
@@ -36,10 +41,7 @@ public class Mypage extends HttpServlet {
 			int rmno = mno ;
 						
 			ArrayList<ProductDto> result = MypageDao.getInstance().MypageRegisterProductList( rmno );						
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
 		
@@ -49,10 +51,7 @@ public class Mypage extends HttpServlet {
 			int pstate = Integer.parseInt(request.getParameter("pstate") );
 						
 			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );						
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
 		
@@ -61,20 +60,14 @@ public class Mypage extends HttpServlet {
 			int buymno = mno;
 						
 			ArrayList<ProductDto> result = MypageDao.getInstance().MypageBuyProductList( buymno );						
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
 		
 		// mypage 찜한 물품 출력
 		else if ( type == 4 ) { 			
 			ArrayList<ProductDto> result = MypageDao.getInstance().MypageLikeProductList( mno );						
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);	
 		}
 		
@@ -82,10 +75,7 @@ public class Mypage extends HttpServlet {
 		else if ( type == 5 ) { // 게시물 출력 start
 			
 			ArrayList<BoardDto> result = MypageDao.getInstance().MypageBoardList( mno );			
-			ObjectMapper mapper = new ObjectMapper();
-			String jsonArray = mapper.writeValueAsString(result);
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json");
+			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 			
 		} // type : 5 , 게시물 출력 end
