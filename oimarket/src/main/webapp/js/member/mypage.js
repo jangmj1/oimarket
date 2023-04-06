@@ -111,20 +111,20 @@ getSellProduct();
 function getSellProduct(){
 	$.ajax({
 		url : "/oimarket/member/mypage" ,
-		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 , "pno" : 5} ,
+		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 } ,
 		async : false ,
 		success : (r) => { console.log('판매중통신성공'); console.log(r);
-/*			let html = `<tr>
-							<th> 게시물 대표 이미지 </th> 
-							<th> 게시물 카테고리 </th> 
-							<th> 게시물 제목 </th>
-							<th> 게시물 가격 </th> 
-							<th> 게시물 등록일 </th>
+			let html = `<tr>
+							<th> 물품 대표 이미지 </th> 
+							<th> 물품 카테고리 </th> 
+							<th> 물품 제목 </th>
+							<th> 물품 가격 </th> 
+							<th> 물품 등록일 </th>
 						<tr>`;
 			
 			r.forEach( (p) => {
 				html += `<tr>
-							<td> 게시물 대표 이미지 </td> 
+							<td> ${p.mainImg} </td> 
 							<td> 
 								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
 							</td> 
@@ -134,24 +134,116 @@ function getSellProduct(){
 						<tr>`
 			})
 			
-			document.querySelector('.mypageSellbox').innerHTML = html;*/
+			document.querySelector('.mypageSellbox').innerHTML = html;
+		}
+	})	
+}
+
+// 3. 내가 구매한 물품 출력
+getBuyProduct();
+function getBuyProduct(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 3 , "mno" : memberInfo.mno  } ,
+		async : false ,
+		success : (r) => { console.log('구매한제품통신성공'); console.log(r);
+			let html = `<tr>
+							<th> 물품 대표 이미지 </th> 
+							<th> 물품 카테고리 </th> 
+							<th> 물품 제목 </th>
+							<th> 물품 가격 </th> 
+							<th> 물품 구입일 </th>
+						<tr>`;
+			
+			r.forEach( (p) => {
+				console.log(p);
+				html += `<tr>
+							<td> ${p.mainImg} </td> 
+							<td> 
+								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
+							</td> 
+							<td> ${p.ptitle} </td>
+							<td> ${p.pprice} </td> 
+							<td> ${p.pdate} </td>
+						<tr>`
+			})
+			
+			document.querySelector('.mypageBuybox').innerHTML = html;
 		}
 	})	
 }
 
 // 1. 내가 등록한 물품 출력
-
-
-
-
-
-
-// 3. 내가 구매한 물품 출력
-
-
+getRegistProduct();
+function getRegistProduct(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 1 , "mno" : memberInfo.mno  } ,
+		async : false ,
+		success : (r) => { console.log('등록한제품통신성공'); console.log(r);
+			let html = `<tr>
+							<th> 물품 대표 이미지 </th> 
+							<th> 물품 카테고리 </th> 
+							<th> 물품 제목 </th>
+							<th> 물품 가격 </th> 
+							<th> 물품 구입일 </th>
+							<th> 물품 현황  </th>
+						<tr>`;
+			
+			r.forEach( (p) => {
+				console.log(p);
+				html += `<tr>
+							<td> ${p.mainImg} </td> 
+							<td> 
+								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
+							</td> 
+							<td> ${p.ptitle} </td>
+							<td> ${p.pprice} </td> 
+							<td> ${p.divideDate} </td>
+							<td> ${p.pstate == 1 ? '판매중' : '판매완료'  }  </td>
+						<tr>`
+			})
+			
+			document.querySelector('.mypageRegistbox').innerHTML = html;
+		}
+	})	
+}
 
 // 4. 내가 찜한 물품 출력
-
+getLikeProduct();
+function getLikeProduct(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 4 , "mno" : memberInfo.mno  } ,
+		async : false ,
+		success : (r) => { console.log('찜한제품통신성공'); console.log(r);
+			let html = `<tr>
+							<th> 물품 대표 이미지 </th> 
+							<th> 물품 카테고리 </th> 
+							<th> 물품 제목 </th>
+							<th> 물품 가격 </th> 
+							<th> 물품 등록일 </th>
+							<th> 물품 현황  </th>
+						<tr>`;
+			
+			r.forEach( (p) => {
+				console.log(p);
+				html += `<tr>
+							<td> ${p.mainImg} </td> 
+							<td> 
+								${p.pcno == 1 ? '생활가전' : p.pcno == 2 ? '의류' : p.pcno == 3 ? '뷰티미용' : p.pcno == 4 ? '가공식품' : '식물'}
+							</td> 
+							<td> ${p.ptitle} </td>
+							<td> ${p.pprice} </td> 
+							<td> ${p.divideDate} </td>
+							<td> ${p.pstate == 1 ? '판매중' : '판매완료'  }  </td>
+						<tr>`
+			})
+			
+			document.querySelector('.mypageLikebox').innerHTML = html;
+		}
+	})	
+}
 
 
 

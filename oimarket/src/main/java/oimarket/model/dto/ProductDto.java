@@ -77,25 +77,28 @@ public class ProductDto {
  
     
 
-	// [최성아] 1. mypage 등록한 제품 출력용 
+	// [최성아] 1. mypage 등록한 제품 출력용 + 4. mypage 찜한 제품 출력용 
+	public ProductDto(int pno, int pcno , String ptitle, int pprice, String divideDate , int pstate) {
+		super();
+		this.pno = pno;
+		this.pcno = pcno;
+		this.ptitle = ptitle;
+		this.pprice = pprice;
+		this.divideDate = divideDate;
+		this.pstate = pstate;
+	}		
+    
 	
-	
-	// [최성아] 2. mypage 판매 제품 출력용 
+	// [최성아] 2. mypage 판매 제품 출력용 + 3. mypage 구매 제품 출력용
 	public ProductDto(int pno , int pcno ,String ptitle, int pprice, String pdate ) {
 		super();
 		this.pno = pno;
 		this.pcno = pcno;
 		this.ptitle = ptitle;
 		this.pprice = pprice;
-		this.pdate = pdate;
-		
-	}	
+		this.pdate = pdate;	
+	}		
 	
-	// [최성아] 3. mypage 구매한 제품 출력용 
-	
-	
-	// [최성아] 4. mypage 찜한 제품 출력용 
-
 
 	public int getPno() {
 		return pno;
