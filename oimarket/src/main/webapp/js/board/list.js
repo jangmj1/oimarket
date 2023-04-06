@@ -90,10 +90,10 @@ function boardUpload(){
 // 검색
 function getsearch(){
 	console.log("검색 실행")
-	boardObject.key = document.querySelector('.key').value;
-	boardObject.keyword = document.querySelector('.keyword').value;
-	getBoardList();
-	console.log(boardObject)
+	boardObject2.key = document.querySelector('.key').value;
+	boardObject2.keyword = document.querySelector('.keyword').value;
+	getBoardListAll();
+	console.log(boardObject2)
 }
 
 // 각 카테고리별 출력 리모콘(전체보기 포함)

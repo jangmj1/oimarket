@@ -27,7 +27,7 @@ public class BoardDao extends Dao{
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "";
 		if( key.equals("") && keyword.equals("")) {
-			sql = "select board.* , member.mid , member.mimg from member natural join board where board.bcno = " +bcno;
+			sql = "select board.* , member.mid , member.mimg from member natural join board where board.bcno ="+bcno+" order by board.bdate desc";
 		}else {
 			sql = "select board.* , member.mid , member.mimg from member natural join board where "+key+" like '%"+keyword+"%' order by board.bdate desc and board.bcno ="  +bcno;
 		}
@@ -52,7 +52,7 @@ public class BoardDao extends Dao{
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "";
 		if( key.equals("") && keyword.equals("")) {
-			sql = "select board.* , member.mid , member.mimg from member natural join board";
+			sql = "select board.* , member.mid , member.mimg from member natural join board order by board.bdate desc";
 		}else {
 			sql = "select board.* , member.mid , member.mimg from member natural join board where "+key+" like '%"+keyword+"%' order by board.bdate desc";
 		}

@@ -17,6 +17,7 @@ function bwrite(){
 			console.log(r)
 			if(r=='true'){
 				alert('글쓰기성공')
+				location.href="/oimarket/board/list.jsp";
 			}else{
 				alert('글쓰기 실패')
 			}

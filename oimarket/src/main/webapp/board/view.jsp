@@ -5,8 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/oimarket/css/main.css" rel="stylesheet">
 </head>
 <body>
+	<%
+		Object o = request.getSession().getAttribute("login");
+		if(o==null){
+			response.sendRedirect("/oimarket/member/login.jsp");
+		}
+	%>
 	<%@include file="/footer.jsp" %>
 	<%
 		String bno = request.getParameter("bno");

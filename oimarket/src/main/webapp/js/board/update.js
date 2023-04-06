@@ -20,6 +20,7 @@ function bupdate(){
 			console.log(r)
 			if(r=='true'){
 				alert('수정완료');
+				location.href="/oimarket/board/view.jsp?bno="+bno;
 			}else{
 				alert('수정실패');
 			}
@@ -84,9 +85,10 @@ function bfiledelete(){
 		}
 	})
 }
-
-
-
+// 수정 취소버튼
+function bupdatecancel(){
+	location.href="/oimarket/board/view.jsp?bno="+bno;
+}
 
 
 

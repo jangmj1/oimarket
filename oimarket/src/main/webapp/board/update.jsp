@@ -5,18 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/oimarket/css/main.css" rel="stylesheet">
 </head>
 <body>
 
 	<%@include file="/footer.jsp" %>
 	<div class="wrap">
 	<%
-		// 1. jsp로그인 여부 제어
 		Object o = request.getSession().getAttribute("login");
 		if(o==null){
-			response.sendRedirect("/oimarket/member.login.jsp");
+			response.sendRedirect("/oimarket/member/login.jsp");
 		}
-		// 2. HTTP URL 안에있는 매개변수 bno 호출
 		String bno = request.getParameter("bno");
 	%>
 	<input type="hidden" class="bno" value="<%=bno %>">
@@ -40,6 +39,7 @@
 			
 			</div>
 			<button onclick="bupdate()" type="button">수정</button>
+			<button onclick="bupdatecancel()" type="button">취소</button>
 		</form>
 	</div>
 	</div>

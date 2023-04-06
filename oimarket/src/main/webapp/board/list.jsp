@@ -9,6 +9,12 @@
 </head>
 <body>
 
+	<%
+		Object o = request.getSession().getAttribute("login");
+		if(o==null){
+			response.sendRedirect("/oimarket/member/login.jsp");
+		}
+	%>
 	<%@include file="/footer.jsp" %>
 	<div class="wrap">
 	 <%
