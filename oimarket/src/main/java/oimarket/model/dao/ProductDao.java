@@ -218,6 +218,7 @@ public class ProductDao extends Dao{
 				ps.setInt(1, pno);
 				ps.executeUpdate();
 				return 2;
+				
 			} catch (Exception e) {
 				System.out.println(e);
 			}return 1;

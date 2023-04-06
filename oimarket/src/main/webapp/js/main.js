@@ -128,7 +128,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			let html='';
 			html+=`		
 				<div>
-					<button onclick="state(${pno})" type="button">판매완료 하셨나요? 클릭!</button>
+					<button onclick="state(${pno})" type="button">구매하기</button>
 					<button type="button">수정</button>
 					<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
 					
@@ -367,7 +367,7 @@ function state(pno){
 			console.log('통신됐나영');
 			console.log(r);
 			if(r==2){
-				alert('판매완료 되었습니다');
+				alert('구매완료 되었습니다');
 				location.href="/oimarket/main.jsp"
 				
 			}
