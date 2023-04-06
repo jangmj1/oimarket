@@ -335,6 +335,27 @@ function view(pno){
 
 
 
+//김은영//판매상태
+function finish(){
+	console.log('상태변경')
+	let state=document.querySelector('.state').value;
+	console.log("state:"+state)//확인용
+	$.ajax({
+		url:"/oimarket/productstate",
+		method:"get",
+		data:{"state":state},
+		success:(r)=>{
+			console.log('통신됐나영');
+			console.log(r);
+			if(r==2){
+				alert('판매완료 되었습니다');
+				location.href="/oimarket/main.jsp"
+				
+			}
+		}
+	})
+}
+
 
 
 
