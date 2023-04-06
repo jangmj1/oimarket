@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <link href="/oimarket/css/product/product.css" rel="stylesheet">
+<link href="/oimarket/css/main.css" rel="stylesheet"> 
+
 </head>
 <body>
 	<%@include file="/footer.jsp" %>

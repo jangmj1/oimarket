@@ -6,8 +6,7 @@ let pcount = 5;
 $(window).scroll(function() {
    if($(window).scrollTop() + $(window).height() == $(document).height()) {
 	   pcount +=5;
-	   alert( pcount )
-      getproduct()
+      getproduct();
    }
 });
 
@@ -149,7 +148,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 		
 		var imageSrc = '/oimarket/img/maker.png', // 마커이미지의 주소입니다    
-		    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+		    imageSize = new kakao.maps.Size(40, 43), // 마커이미지의 크기입니다
 		    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 		      
 		// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다

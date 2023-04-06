@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/oimarket/css/member/login.css" rel="stylesheet">
+<link href="/oimarket/css/index.css" rel="stylesheet">
 
 </head>
 <body>
@@ -14,7 +15,7 @@
 	<div class="indexwrap">
 		<div class="mainbox">
 			<div class="findid_mphone_loc">
-				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png"></a>
+				<a href="/oimarket/index.jsp"><img onclick="logo()" class="logo" alt="" src="/oimarket/img/오이마켓.png"></a>
 		
 				<div class="title">
 					<input  type="text" name="mname"class="mname" placeholder="이름">	

@@ -15,7 +15,7 @@
 <body>
 
 	<div class="indexwrap">
-		<img onclick="logo()" class="logo" alt="" src="/oimarket/img/아이콘.png">
+		<img onclick="logo()" class="logo" alt="" src="/oimarket/img/오이마켓.png">
 		<form class="signupForm">
 			<div class="signtext">
 				<h3>회원가입</h3>
