@@ -38,9 +38,8 @@ public class Mypage extends HttpServlet {
 		else if ( type == 2 ) {
 			int rmno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
 			int pstate = Integer.parseInt(request.getParameter("pstate") );
-			int pno = Integer.parseInt(request.getParameter("pno") );
 						
-			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate , pno );			
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );			
 			
 			System.out.println("판매 dto 결과 " + result);
 			

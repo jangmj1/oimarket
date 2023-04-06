@@ -13,9 +13,9 @@ public class MypageDao extends Dao{
 	public static MypageDao getInstance() { return dao; }
 	
 	// [최성아] 2. 로그인 된 회원의 판매중 물품 5개 출력
-	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate , int pno ){
+	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate ){
 		ArrayList<ProductDto> list = new ArrayList<>();
-		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc limit 5 ";
+		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc ";
 			
 			try {
 				ps = con.prepareStatement(sql);
@@ -31,11 +31,11 @@ public class MypageDao extends Dao{
 					ps = con.prepareStatement(sql);
 					ps.setInt(1, rs.getInt(1));
 					ResultSet rs2 = ps.executeQuery();
-					if ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
+					while ( rs2.next() ) { dto.setMainImg(rs2.getString(2) );
 					list.add(dto);
 				}
 			}
-		}catch (Exception e) {System.out.println(e);}
+		}catch (Exception e) {System.out.println("판매물품오류 : " + e);}
 		return list;
 		
 	} // 판매중 물품 end

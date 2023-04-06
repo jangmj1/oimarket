@@ -111,7 +111,7 @@ getSellProduct();
 function getSellProduct(){
 	$.ajax({
 		url : "/oimarket/member/mypage" ,
-		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 , "pno" : 5} ,
+		data : { "type" : 2 , "mno" : memberInfo.mno , "pstate" : 1 } ,
 		async : false ,
 		success : (r) => { console.log('판매중통신성공'); console.log(r);
 			let html = `<tr>
