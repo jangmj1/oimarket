@@ -32,17 +32,23 @@ public class Mypage extends HttpServlet {
 		// String result = null;
 		
 		// mypage 등록한 물품 출력
-		if ( type == 1 ) { }
+		if ( type == 1 ) {
+			int rmno = mno ;
+						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageRegisterProductList( rmno );						
+			ObjectMapper mapper = new ObjectMapper();
+			String jsonArray = mapper.writeValueAsString(result);
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/json");
+			response.getWriter().print(jsonArray);
+		}
 		
 		// mypage 판매한 물품 출력
 		else if ( type == 2 ) {
-			int rmno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
+			int rmno = mno;
 			int pstate = Integer.parseInt(request.getParameter("pstate") );
 						
-			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );			
-			
-			System.out.println("판매 dto 결과 " + result);
-			
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );						
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonArray = mapper.writeValueAsString(result);
 			response.setCharacterEncoding("UTF-8");
@@ -51,10 +57,26 @@ public class Mypage extends HttpServlet {
 		}
 		
 		// mypage 구매한 물품 출력
-		else if ( type == 3 ) { }
+		else if ( type == 3 ) {
+			int buymno = mno;
+						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageBuyProductList( buymno );						
+			ObjectMapper mapper = new ObjectMapper();
+			String jsonArray = mapper.writeValueAsString(result);
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/json");
+			response.getWriter().print(jsonArray);
+		}
 		
 		// mypage 찜한 물품 출력
-		else if ( type == 4 ) { }
+		else if ( type == 4 ) { 			
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageLikeProductList( mno );						
+			ObjectMapper mapper = new ObjectMapper();
+			String jsonArray = mapper.writeValueAsString(result);
+			response.setCharacterEncoding("UTF-8");
+			response.setContentType("application/json");
+			response.getWriter().print(jsonArray);	
+		}
 		
 		// mypage 게시물 출력
 		else if ( type == 5 ) { // 게시물 출력 start

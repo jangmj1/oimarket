@@ -20,39 +20,33 @@
 			
 			<!-- 개인정보 호출 -->
 			<div class="container mypageInfobox"></div>
+
+			<h3> ------------------ 등록제품 출력 창 ------------------ </h3>				
+			<!-- 1. 등록제품 출력 창  -->	
+			<table border="1" class="mypageRegistbox">
+
+			</table>
 			
-			<!-- 1. 등록제품 출력 창  -->
-			<div class="mypageRegistbox">
-				<div> 내가 등록한 물품 출력 창 </div>
-				<div> 내가 등록한 물품 출력 창 </div>
-				<div> 내가 등록한 물품 출력 창 </div>
-				<div> 내가 등록한 물품 출력 창 </div>
-				<div> 내가 등록한 물품 출력 창 </div>
-			</div>
-				
+			<h3> ------------------ 판매제품 출력 창 ------------------ </h3>				
 			<!-- 2. 판매제품 출력 창  -->	
 			<table border="1" class="mypageSellbox">
 
 			</table>
 			
+			<h3> ------------------ 구매제품 출력 창 ------------------ </h3>			
 			<!-- 3. 구매제품 출력 창  -->
-			<div class="mypageBuybox">
-				<div> 내가 구매한 물품 출력 창 </div>
-				<div> 내가 구매한 물품 출력 창 </div>
-				<div> 내가 구매한 물품 출력 창 </div>
-				<div> 내가 구매한 물품 출력 창 </div>
-				<div> 내가 구매한 물품 출력 창 </div>
-			</div>
+			<table border="1" class="mypageBuybox">
+
+			</table>
 			
 			<!-- 4. 찜한 제품 출력 창  -->
-			<div class="mypageLikebox">
-				<div> 내가 찜한 물품 출력 창 </div>
-				<div> 내가 찜한 물품 출력 창 </div>
-				<div> 내가 찜한 물품 출력 창 </div>
-				<div> 내가 찜한 물품 출력 창 </div>
-				<div> 내가 찜한 물품 출력 창 </div>
-			</div>						
+			<h3> ------------------ 찜한제품 출력 창 ------------------ </h3>
+			<table border="1" class="mypageLikebox">
 
+			</table>
+					
+
+			<h3> ------------------ 게시물 출력 창 ------------------ </h3>
 			<!-- 5. 게시물 출력 창  -->
 			<table border="1" class="mypageBoardbox">
 
