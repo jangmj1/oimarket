@@ -62,7 +62,7 @@ rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGL
 			</div>
 			
 			<div id="map" style="width:500px;height:400px;"></div>
-			<div class="btns"></div>
+		
 		
 		
 		</div>

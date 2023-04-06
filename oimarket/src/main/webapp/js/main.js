@@ -41,7 +41,7 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 		
 	})
 }
-let mid="";//[김은영]로그인된 사람만 가져올려고 전역변수했음
+
 function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 전환
 	document.getElementById('map').style.display='flex';
 	console.log(i) //인덱스
@@ -56,7 +56,6 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			method:"get",
 			success:(r)=>{
 				console.log(r)
-				mid=r;
 				view(pno);
 				
 		
@@ -99,10 +98,9 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 						</div>
 					</div>
 					<div>
-						<!-- 김은영//찜하기,조회수,채팅하기!!!!!!!!!!!!!!! -->
 						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:25px;height:25px; margin-top: 25px;"></button>
+						<!-- 김은영//조회수!!!!!!!!!!!!!!! -->
 				  		<span  class="view">조회:${productInfo[i].pview}</span>
-				  		<button type="button"  onclick="">채팅하기</button>
 					</div>
 				</div>																						
 					
@@ -111,25 +109,20 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 					<h5>${productInfo[i].pcname}</h5>
 					<h3>${(productInfo[i].pprice).toLocaleString()} 원</h3>
 					<p>${productInfo[i].pcontent}</p>
-				</div>`
+				</div>
 				
-				//<!--[김은영]//수정버튼,상태수정버튼,삭제버튼  -->
-				if(memberInfo.mid==mid.mid){
-			let html='';
-			html+=`		
-				<div>
-					<select onchange="finish()" class="state">
-						<option value="1">판매중</option>
-						<option value="2">판매완료</option>
-					</select>
-					<button type="button">수정</button>
-					<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
-					
-				</div>`
-				document.querySelector('.btns').innerHTML=html;
-			}
+			
+			
+			<!-- 김은영//수정버튼,상태수정버튼,삭제버튼 -->
+		
+			<div>
+				<button type="button">상태수정[판매유무]</button>
+				<button type="button">수정</button>
+				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
+				<button type="button"  onclick="">채팅하기</button>
+			</div>
 	
-				
+				`
 		//카카오지도 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
@@ -158,12 +151,12 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 		
 		// 마커가 지도 위에 표시되도록 설정합니다
 		marker.setMap(map);
+				
 		
+		
+	
 		document.querySelector('.contentbox').innerHTML=html;
 	 	getlike(pno);
-				
-	
-	
 	 	/*사진첩 포문돌려서 꺼내기*/
 	 	
 	 	productInfo[i].pimglist.forEach( (o,j)=>{
@@ -342,26 +335,7 @@ function view(pno){
 
 
 
-//김은영//판매상태
-function finish(){
-	console.log('상태변경')
-	let state=document.querySelector('.state').value;
-	console.log("state:"+state)//확인용
-	$.ajax({
-		url:"/oimarket/productstate",
-		method:"get",
-		data:{"state":state},
-		success:(r)=>{
-			console.log('통신됐나영');
-			console.log(r);
-			if(r==2){
-				alert('판매완료 되었습니다');
-				location.href="/oimarket/main.jsp"
-				
-			}
-		}
-	})
-}
+
 
 
 

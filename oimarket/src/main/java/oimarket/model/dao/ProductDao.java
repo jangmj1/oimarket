@@ -209,20 +209,7 @@ public class ProductDao extends Dao{
 		}return false;
 	}
 	
-	  //김은영[제품상태변경]
-	public int productstate(int state) {
-		String sql="select pstate from product where pstate= pstate";
-		try {
-			ps=con.prepareStatement(sql);
-			ps.setInt(1, state);
-			rs=ps.executeQuery();
-			if(rs.next()) {return 1;}
-		} catch (Exception e) {
-			System.out.println(e);
-		}return 2;
-		
-		
-		
+
 		
 	}
 }
