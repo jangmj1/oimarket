@@ -102,14 +102,36 @@ public class Boardinfo extends HttpServlet {
 
 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		String path = request.getSession().getServletContext().getRealPath("/board/bfile");
+		MultipartRequest multi = new MultipartRequest(request, path , 1024*1024*10 , "UTF-8" , new DefaultFileRenamePolicy());
+		
+		int bno = Integer.parseInt(multi.getParameter("bno"));
+		int bcno = Integer.parseInt(multi.getParameter("bcno"));
+		String btitle = multi.getParameter("btitle");
+		String bcontent = multi.getParameter("bcontent");
+		String bfile = multi.getFilesystemName("bfile");
+		
+		String oldfile = BoardDao.getInstance().getBoard(bno).getBfile();
+		
+		if(bfile==null) {
+			bfile = oldfile;
+		}else {
+			String filepath = request.getSession().getServletContext().getRealPath("/board/bfile/"+oldfile);
+			File file = new File(path); if(file.exists())file.delete();			
+		}
+		
+		BoardDto updatedto = new BoardDto(bno, btitle, bcontent, bfile, bcno);
+			System.out.println("update dto : " +updatedto);
+		boolean result = BoardDao.getInstance().bupdate(updatedto);
+		
+		response.getWriter().print(result);
 	}
 
 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int type = Integer.parseInt(request.getParameter("type"));	System.out.println("type : " +type);
-		int bno = Integer.parseInt(request.getParameter("bno"));	System.out.println("bno : " +bno);
 		
+		int bno = Integer.parseInt(request.getParameter("bno"));	System.out.println("bno : " +bno);
+		int type = Integer.parseInt(request.getParameter("type"));	System.out.println("type : " +type);
 		// 게시글만 삭제하면 서버에 올려둔 파일은 그대로 남아있기 때문에 해당게시물에 파일 있는지 화긴
 		String bfile = BoardDao.getInstance().getBoard(bno).getBfile();
 		

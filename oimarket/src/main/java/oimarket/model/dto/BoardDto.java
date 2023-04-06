@@ -85,6 +85,16 @@ public class BoardDto {
 		this.bcno = bcno;
 		this.mid = mid;
 	}
+	
+	// [김동혁] 업데이트용 생성자
+		public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+		super();
+		this.bno = bno;
+		this.btitle = btitle;
+		this.bcontent = bcontent;
+		this.bfile = bfile;
+		this.bcno = bcno;
+	}
 
 	@Override
 	public String toString() {
@@ -92,6 +102,8 @@ public class BoardDto {
 				+ ", bdate=" + bdate + ", bview=" + bview + ", bup=" + bup + ", bdown=" + bdown + ", mno=" + mno
 				+ ", bcno=" + bcno + "]";
 	}
+
+
 
 
 

@@ -31,7 +31,7 @@ function getBoard(){
 			if(memberInfo.mid==r.mid){
 				html =`
 					<button onclick="bdelete(${bno} , ${r.bcno})" type="button" class="bbtn">삭제</button>
-					<button onclick="bdelete(${bno})" type="button" class="bbtn">수정</button>
+					<button onclick="bupdate(${bno})" type="button" class="bbtn">수정</button>
 					`;
 				document.querySelector('.bbtnbox').innerHTML=html;
 			}
@@ -71,7 +71,10 @@ function bdelete(bno,bcno){
 	})
 }
 
-
+// 4. 수정페이지로 이동
+function bupdate(bno){
+	location.href="/oimarket/board/update.jsp?bno="+bno;
+}
 
 
 
