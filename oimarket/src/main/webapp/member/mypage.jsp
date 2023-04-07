@@ -62,5 +62,6 @@
 
 
 	<script src="/oimarket/js/member/mypage.js" type="text/javascript"></script>
+	
 </body>
 </html>

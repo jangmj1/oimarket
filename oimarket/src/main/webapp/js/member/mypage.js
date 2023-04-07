@@ -1,4 +1,5 @@
 // index.jsp 로 이동 ( 홈으로 이동 )
+
 function logo(){
 	location.href="/oimarket/main.jsp"
 }
