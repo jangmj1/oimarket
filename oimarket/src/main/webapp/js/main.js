@@ -140,14 +140,14 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 		
 				//<!--[김은영]//수정버튼,상태수정버튼,삭제버튼  -->
 			let html1='';
-		if(memberInfo.mno!=r.mno){
+		if(memberInfo.mno!=r.mno){//제품등록한 사람과 사는사람이 같지 않으면 구매하기버튼 보이기
 			html1+=`		
 				<div>
 					<button onclick="state(${pno})" type="button">구매하기</button>
 					
 					
 				</div>`
-			}else if(memberInfo.mno==r.mno){
+			}else if(memberInfo.mno==r.mno){//제품등록한 사람과 제품사는 사람이 같으면 수정/삭제 보이기 
 				html1+=`
 				<button type="button">수정</button>
 				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>`
