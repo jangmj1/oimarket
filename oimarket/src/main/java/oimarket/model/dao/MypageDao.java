@@ -12,7 +12,7 @@ public class MypageDao extends Dao{
 	public MypageDao() {};
 	public static MypageDao getInstance() { return dao; }
 
-	// [최성아] 1. 로그인 된 회원의 구매한 물품 7개 출력
+	// [최성아] 1. 로그인 된 회원의 등록한 물품 7개 출력
 	public ArrayList<ProductDto> MypageRegisterProductList( int rmno ){
 		ArrayList<ProductDto> list = new ArrayList<>();
 		String sql = "select p.pno , p.pcno, p.ptitle , p.pprice , "
@@ -43,19 +43,18 @@ public class MypageDao extends Dao{
 	} // 등록한 물품 end
 	
 	// [최성아] 2. 로그인 된 회원의 판매중 물품 5개 출력
-	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate ){
+	public ArrayList<ProductDto> MypageSellProductList( int rmno  ){
 		ArrayList<ProductDto> list = new ArrayList<>();
-		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc ";
+		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate , p.pstate from product p  where rmno = ?   order by pdate desc ";
 			
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, rmno);
-				ps.setInt(2, pstate);
 				rs = ps.executeQuery();
 				while ( rs.next() ) {
 					ProductDto dto = new ProductDto(
 							rs.getInt(1), rs.getInt(2), 
-							rs.getString(3), rs.getInt(4), rs.getString(5) );
+							rs.getString(3), rs.getInt(4), rs.getString(5) , rs.getInt(6) );
 					
 					sql = "select * from product_img where pno = ? limit 1";
 					ps = con.prepareStatement(sql);

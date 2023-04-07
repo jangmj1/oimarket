@@ -48,9 +48,8 @@ public class Mypage extends HttpServlet {
 		// mypage 판매한 물품 출력
 		else if ( type == 2 ) {
 			int rmno = mno;
-			int pstate = Integer.parseInt(request.getParameter("pstate") );
 						
-			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno  );						
 			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
