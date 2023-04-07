@@ -136,7 +136,9 @@ public class Product extends HttpServlet {
 
 	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
+	
 
 	//제품삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

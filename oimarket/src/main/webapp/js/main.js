@@ -149,17 +149,11 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 				</div>`
 			}else if(memberInfo.mno==r.mno){//제품등록한 사람과 제품사는 사람이 같으면 수정/삭제 보이기 
 				html1+=`
-				<button type="button">수정</button>
+				<button onclick="UpdateProduct(${pno})" type="button">수정</button>
 				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>`
 			}
 				document.querySelector('.btns').innerHTML=html1;
 
-
-			
-			
-			
-	
-				
 		//카카오지도 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
@@ -258,6 +252,49 @@ function Deleteproduct(pno){
 		}//success e
 	})//ajax e
 }//m e
+
+//[김은영]//수정
+function UpdateProduct(pno){
+	console.log('함수확인')//확인용
+	let productform=document.querySelectorAll('.productform')[0];
+	let productformDate=new FormData(productform);
+	productformDate.set("pno",pno)
+	$.ajax({
+		url:"/oimarket/product",
+		method:"put",
+		data:productformDate,
+		contentType:false,
+		processData:false,
+		success:(r)=>{
+			console.log('통신완료??');
+			console.log(r);
+		
+		}
+		
+	})
+}
+
+
+/*
+먼저 수정버튼을 만든다.
+수정버튼을 눌렀을때 onclick 를만들고 pno을 통해서 수정하기위새 인수넣는자리에pno 넣는다.
+js에 onclick에 대한 함수를 만들고 pno을 담아 아작트로 보낸다. 그럼 아작트는 pno를 서블릿으로 보낸다
+서블릿은 수정할 사진위치 경로를  찾고.수정할대상을 갖고와서 바꾼다.
+일단sql을 두번써야하기떄문에 수정전 기존 첨부파일명 찾고! 기존에있떤 사진들을 삭제하기위해서 경로로를 찾는다
+dto 
+
+
+
+*/
+
+
+
+
+
+
+
+
+
 
 //[김은영]찜하기 버튼
 function setlike(pno){

@@ -50,7 +50,7 @@
 	</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a040eb3ed49e99fca18b3683cbee375"></script>
 <script src="/oimarket/js/product/product.js" type="text/javascript"></script>
-
+<script src="/oimarket/js/main.js" type="text/javascript"></script>
 
 </body>
 </html>
