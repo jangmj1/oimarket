@@ -15,7 +15,7 @@
 			response.sendRedirect("/oimarket/member/login.jsp");
 		}
 	%>
-	<%@include file="/footer.jsp" %>
+	<%@include file="/footer.jsp" %>	
 	<div class="wrap">
 	 <%
 	 	// 1. HTTP GET <a href="URL경로?변수명=값"> 전달된 매개변수 가져오기 

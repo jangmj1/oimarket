@@ -21,7 +21,7 @@
 			
 			<!-- 개인정보 호출 -->
 			<div class="container mypageInfobox"></div>
-
+			<a href="/oimarket/member/logout.jsp">로그아웃</a>
 			<h3> ------------------ 등록제품 출력 창 ------------------ </h3>				
 			<!-- 1. 등록제품 출력 창  -->	
 			<table border="1" class="mypageRegistbox">

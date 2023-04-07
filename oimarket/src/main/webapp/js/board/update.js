@@ -68,6 +68,13 @@ function getBoard(){
 	})
 }// end
 
+$(document).ready(function() {
+        $('#summernote').summernote(
+			{   height : 400 , 
+	  lang: 'ko-KR'   } 
+		);
+});
+
 // 수정시 첨부 파일만 삭제
 function bfiledelete(){
 	alert('첨부파일 삭제합니다.');getBoard();
