@@ -66,56 +66,9 @@ function oneproduct(pno){ // 제품 하나 클릭하면 상세 페이지로 전�
 	}
 	
 	
-	
-	
-	
-	
 }
 
 
-//김은영//삭제 
- Deleteproduct();
-function Deleteproduct(pno){
-	console.log(pno);
-	console.log('삭제함수열라아')
-	$.ajax({
-		url:"/oimarket/product",
-		method:"delete",
-		data:{"pno":pno,"type":1},
-		success:(r)=>{
-			console.log('삭제통신');
-			console.log(r);
-			if(r=='true'){
-				alert('삭제완료')
-				location.href="/oimarket/main.jsp"
-			}else{alert('삭제불가')}
-		}//success e
-	})//ajax e
-}//m e
-
-//[김은영]찜하기 버튼
-function setlike(pno){
-	console.log('하트함수')
-	if(memberInfo==null){
-		alert('회원기능입니다. 로그인후 사용해주세요'); return;
-	}
-	$.ajax({
-		url:"/oimarket/productlike",
-		method:"post",
-		data:{"pno":pno},
-		success:(r)=>{
-			console.log('하트 통신');
-			console.log(r);
-			if(r=='true'){
-				alert('찜 등록');
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;margin-top: 25px;">'
-			}else{
-				alert('찜 취소');
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:25px;height:25px;margin-top: 25px;">'
-			}
-		}
-	})
-}
 
 
 function category(pcno){ //카테고리선택 변경했을때 
@@ -158,7 +111,6 @@ function search(){//제목검색했을때
 					html+='<h3>검색결과가 없습니다.</h3>'
 				}
 				
-			
 			document.querySelector('.keyword').value="";
 			document.querySelector('.contentbox').innerHTML=html;
 			}

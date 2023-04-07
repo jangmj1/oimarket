@@ -4,7 +4,7 @@ getproduct();
 let productInfo='';
 
 
-
+//[장민정]제품 하나 상세 페이지
 function viewProductPrint(){
 	console.log(pno) //pno로 네츄럴 조인을 해서 글쓴 사람과 카테고리를 뽑아내야함
 		let html='';
@@ -15,14 +15,9 @@ function viewProductPrint(){
 			url:"/oimarket/product",
 			data:{pno:pno,type:2},
 			method:"get",
-			success:(r)=>{
+			success:(r)=>{//r에는 상세페이지의 작성자의 정보가 담겨잇다
 				console.log(r);
 				view(pno);
-				
-		
-	
-	
-	
 		html=
 			`
 				
@@ -37,7 +32,7 @@ function viewProductPrint(){
 					</div>
 					
 						<!-- product 정보 -->
-					<div>
+					<div class="chatbox">
 						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:25px;height:25px; margin-top: 25px;"></button>
 				  		<span  class="view">조회:${productInfo.pview}</span>
 				  		<button type="button"  onclick="">채팅하기</button>
@@ -77,7 +72,7 @@ function viewProductPrint(){
 		//카카오지도 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
-	        center: new kakao.maps.LatLng(r.plat, r.plng), // 지도의 중심좌표
+	        center: new kakao.maps.LatLng(productInfo.plat, productInfo.plng), // 지도의 중심좌표
 	        level: 3 // 지도의 확대 레벨
 	    };
 	
@@ -168,7 +163,7 @@ function getproduct(){
 }
 
 
-
+/*---------------------------------------------------------------------------------------------------*/
 
 //김은영// 조회수
 
@@ -229,6 +224,50 @@ function getlike(pno){
 	})
 }
 
+
+//김은영//삭제 
+ Deleteproduct();
+function Deleteproduct(pno){
+	console.log(pno);
+	console.log('삭제함수열라아')
+	$.ajax({
+		url:"/oimarket/product",
+		method:"delete",
+		data:{"pno":pno,"type":1},
+		success:(r)=>{
+			console.log('삭제통신');
+			console.log(r);
+			if(r=='true'){
+				alert('삭제완료')
+				location.href="/oimarket/main.jsp"
+			}else{alert('삭제불가')}
+		}//success e
+	})//ajax e
+}//m e
+
+//[김은영]찜하기 버튼
+function setlike(pno){
+	console.log('하트함수')
+	if(memberInfo==null){
+		alert('회원기능입니다. 로그인후 사용해주세요'); return;
+	}
+	$.ajax({
+		url:"/oimarket/productlike",
+		method:"post",
+		data:{"pno":pno},
+		success:(r)=>{
+			console.log('하트 통신');
+			console.log(r);
+			if(r=='true'){
+				alert('찜 등록');
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;margin-top: 25px;">'
+			}else{
+				alert('찜 취소');
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:25px;height:25px;margin-top: 25px;">'
+			}
+		}
+	})
+}
 
 
 

@@ -13,8 +13,7 @@
 	
 </head>
 <body>
-	<div class="wrap main">
-		<div>
+		<div class="wrap main">
 			<div class="topcontent">
 				<select class="form-select " aria-label="Default select example" onchange="category(this.value)">
 					<option value="0" >전체보기</option>
@@ -32,18 +31,9 @@
 			</div>
 			<div class="contentbox">
 				
-				
-				
 			</div>
-			
-			
-			
-			<!-- 김은영 버튼-->
-			<div class="btns"></div>
-			
 		
 		</div>
-	</div>
 	<%@include file="/footer.jsp" %>
 	
 <!-- 카카오지도 -->

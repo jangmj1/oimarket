@@ -45,7 +45,6 @@ body{
 	color: black;
 }
 
-#carouselExampleDark{padding: 30px;}
 
 .topcontent{
 	display: flex;
@@ -105,58 +104,9 @@ body{
     width: 30%;
  }
 
-.carousel-control-prev{
-	color: black;
-}
- 
-.carousel-inner img{
-    width: 300px !important;
-    margin: 0 auto;
-    }
- 
- 
-    
     
 .pdate{
 	font-size: 10px;
     color: gray;}    
     
-    
- .carousel-indicators button{
-     background-color: #00000069;}   
-    
-    
-    
- .rmnoinfo img{
- 	width: 50px !important;
- 	border-radius: 50%;
- 	border:1px solid #eeeeee;
- 	margin: 20px !important;
- }
 
-.rmnoinfo{
-	display: flex;
-	align-items: center;
-}
-
-.rmnobox{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}   
-
-.residence{
-	font-size: 10px;
-	color: gray;
-}  
-
-.rmnocontent{
-	border-top: 1px solid #eeeeee;
-	padding-top: 30px;
-	margin-top: 20px;
-}
-.likebtn{
-	    border: none;
-    background: white;
-   
-}
