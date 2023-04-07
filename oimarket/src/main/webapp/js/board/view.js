@@ -149,7 +149,6 @@ function getReplyList(){
 						<span>${o.rdate}</span>
 						<span>${o.rcontent}</span>
 						<button onclick="rereplyview(${o.rno})" type="button">대댓글보기</button>
-						<button onclick="replynoview(${o.rno})" type="button">대댓글가리기</button>
 						<div class="rereplybox${o.rno}"></div>
 					</div>
 				`
@@ -182,14 +181,17 @@ function rereplyview(rno){
 			html +=`
 				<textarea class="rrcontent${rno}"> </textarea>
 				<button onclick="rrwirte(${rno})" type="button"> 대댓글달기 </button>
+				<button onclick="replynoview(${rno})" type="button">대댓글가리기</button>
 			`
 			document.querySelector('.rereplybox'+rno).innerHTML = html;
 		}
 	})
 }
 
-function replynoview(){
-	document.querySelector(".rereplybox").style.display = "none";
+function replynoview(rno){
+	console.log(rno)
+	let html = ''
+	document.querySelector(".rereplybox"+rno).innerHTML = html;
 }
 
 
