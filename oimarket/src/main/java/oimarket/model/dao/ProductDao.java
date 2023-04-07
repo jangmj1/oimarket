@@ -93,7 +93,7 @@ public class ProductDao extends Dao{
 	 }
 	 
 	 //[장민정]개별출력:판매상품 pk번호로 판매자의 정보를 호출하는 함수
-	  public MemberDto getproduct(int pno) {
+	  public MemberDto getproductmember(int pno) {
 		 
 		  String sql="select m.*  from product p natural join member m  where pno=?  and p.rmno=m.mno;";
 		  try {
@@ -114,6 +114,38 @@ public class ProductDao extends Dao{
 		
 		  
 	  }
+	  //[장민정]개별출력:판매상품 pk번호로 product의 정보를 호출하는 함수
+	  public ProductDto getproduct(int pno){
+		
+			 String sql="select p.*,c.pcname from product p natural join product_category c where pno=?"; 
+			  try {
+				ps=con.prepareStatement(sql);
+				ps.setInt(1, pno);
+				rs=ps.executeQuery();
+				if (rs.next()) {
+					ArrayList<String>pimglist=new ArrayList<>();
+					sql="select * from product_img where pno=?";
+					ps=con.prepareStatement(sql);
+					ps.setInt(1, rs.getInt(1));
+					ResultSet rs2=ps.executeQuery();
+					while (rs2.next()){
+						pimglist.add(rs2.getString(2));
+					}
+				ProductDto dto=new ProductDto(
+						rs.getInt(1), rs.getString(2), rs.getString(3)
+						, rs.getInt(4), rs.getInt(5), rs.getString(6),
+						rs.getString(7), rs.getString(8), rs.getInt(9),
+						rs.getString(10), rs.getInt(11), rs.getInt(12),
+						rs.getInt(13), pimglist, rs.getString(14));
+				return dto;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e+"                         111");
+			}
+			return null;
+		 }
+	  
 	  
 	 //[장민정]검색해서 제목에 키워드가 존재하는 물품만 출력하기
 	  public ArrayList<ProductDto>search(String keyword){

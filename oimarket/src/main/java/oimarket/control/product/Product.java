@@ -50,15 +50,21 @@ public class Product extends HttpServlet {
 			
 			 
 			
-		}else if (type.equals("2")) { //pno를 가지고 판매한 맴버를 출력하기
+		}else if (type.equals("2")) {//pno를 가지고 판매한 맴버를 출력하기
 			int pno=Integer.parseInt(request.getParameter("pno")) ;
-			MemberDto result= ProductDao.getInstance().getproduct(pno);
+			MemberDto result= ProductDao.getInstance().getproductmember(pno);
 			jsonArray=mapper.writeValueAsString(result);
 			
 			
-		}else if (type.equals("3")) { //pno를 가지고 판매한 맴버를 출력하기
+		}else if (type.equals("3")) { //셀렉트값으로(카테고리) 출력하기
 			String keyword=request.getParameter("keyword") ;System.out.println(keyword);
 			ArrayList<ProductDto> result= ProductDao.getInstance().search(keyword);
+			jsonArray=mapper.writeValueAsString(result);
+			
+			
+		}else if (type.equals("4")) { //pno를 가지고 판매한 product 정보 출력하기
+			int pno=Integer.parseInt(request.getParameter("pno")) ;
+			ProductDto result= ProductDao.getInstance().getproduct(pno);
 			jsonArray=mapper.writeValueAsString(result);
 			
 			
