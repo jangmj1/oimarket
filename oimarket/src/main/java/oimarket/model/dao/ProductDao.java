@@ -211,11 +211,12 @@ public class ProductDao extends Dao{
 	
 	
 	  //김은영[제품상태변경]
-		public int productstate(int pno) {
-			String sql="update product set pstate= 2 where pno=?";
+		public int productstate(int pno,int buymno) {
+			String sql="update product set pstate= '2' ,buymno=? , buydate=now()  where pno=?";
 			try {
 				ps=con.prepareStatement(sql);
-				ps.setInt(1, pno);
+				ps.setInt(1, buymno);
+				ps.setInt(2, pno);
 				ps.executeUpdate();
 				return 2;
 				

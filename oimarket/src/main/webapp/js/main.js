@@ -57,7 +57,7 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 	})
 }
 
-let mid="";//[김은영]로그인된 사람만 가져올려고 전역변수했음
+
 function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 전환
 	document.getElementById('map').style.display='flex';
 	console.log(i) //인덱스
@@ -71,7 +71,7 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			data:{pno:pno,type:2},
 			method:"get",
 			success:(r)=>{
-				console.log(r);mid=r;
+				console.log(r);
 				view(pno);
 				
 		
@@ -139,17 +139,20 @@ function oneproduct(i,pno){ // 제품 하나 클릭하면 상세 페이지로 �
 			
 		
 				//<!--[김은영]//수정버튼,상태수정버튼,삭제버튼  -->
-				if(memberInfo.mid==mid.mid){
-			let html='';
-			html+=`		
+			let html1='';
+		if(memberInfo.mno!=r.mno){//제품등록한 사람과 사는사람이 같지 않으면 구매하기버튼 보이기
+			html1+=`		
 				<div>
 					<button onclick="state(${pno})" type="button">구매하기</button>
-					<button type="button">수정</button>
-					<button onclick="Deleteproduct(${pno})" type="button">삭제</button>
+					
 					
 				</div>`
-				document.querySelector('.btns').innerHTML=html;
+			}else if(memberInfo.mno==r.mno){//제품등록한 사람과 제품사는 사람이 같으면 수정/삭제 보이기 
+				html1+=`
+				<button type="button">수정</button>
+				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>`
 			}
+				document.querySelector('.btns').innerHTML=html1;
 
 
 			
@@ -347,7 +350,7 @@ function search(){//제목검색했을때
 			}
 			
 		})
-	}
+	} 
 	
 }
 

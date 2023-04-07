@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import oimarket.model.dao.MemberDao;
 import oimarket.model.dao.ProductDao;
 
 
@@ -25,9 +26,10 @@ public class Productstate extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int pno=Integer.parseInt(request.getParameter("pno")) ;System.out.println("pno:"+pno);
+		int buymno=MemberDao.getInstance().getMno((String)request.getSession().getAttribute("login")) ;
 		
 		
-			int result=ProductDao.getInstance().productstate(pno) ;
+			int result=ProductDao.getInstance().productstate(pno,buymno) ;
 			response.getWriter().print(result);
 		
 		
