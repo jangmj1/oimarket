@@ -24,7 +24,7 @@
 					</select>
 				</div>
 				<div>제목:
-					<input type="text" name="ptitle" class="ptitle">
+					<input type="text"  name="ptitle" class="ptitle">
 				</div>
 				
 				<div>내용:
