@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.wrap{
+	width: 412px;
+}
+.mainmenu{
+	display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-between;
+    }
+.searchbox{
+	display: flex;
+	flex-wrap: wrap;	
+}
+.contentbox{
+	border-bottom: 1px solid #e8e8e8;
+}
+.contentbc{
+	font-family: 'GmarketSansMedium';
+	font-weight: bold;
+	color: #60AC3F;
+	font-size: 12px;
+}
+.contenttitle a{
+	font-family: 'GmarketSansMedium';
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+}
+.bcbtn{
+	border: none;
+	background-color: #60AC3F;
+	color: white;
+}
+.boardTable img{
+	width: 50px;
+	height: 50px;
+	border: solid 1px #e8e8e8;
+	border-radius: 50%; /*둥근모서리*/
+}
+.contentmid{
+	vertical-align: top;
+	font-size: 12px;
+	font-family: 'GmarketSansMedium';
+	margin-left: 5px;
+}
+.contentdate{
+	vertical-align: top;
+	font-size: 5px;
+}
+
+.contentinfo{
+    display: flex;
+    justify-content: flex-end;
+}
+.contentinfoitem{
+	    padding-right: 5px;
+}

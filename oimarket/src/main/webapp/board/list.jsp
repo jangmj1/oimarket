@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/oimarket/css/main.css" rel="stylesheet">
+<link href="/oimarket/css/board/list.css" rel="stylesheet">
 </head>
 <body>
 
@@ -28,10 +29,10 @@
 			<h3 class="bcname"></h3>
 			<div>
 			<ul class="mainmenu">
-				<li><button onclick="setsearch()" type="button">전체보기</button></li>
-				<li> <button type="button" onclick="bcbtn1()"> 커뮤니티 </button> </li>
-				<li> <button type="button" onclick="bcbtn2()"> QnA </button> </li>
-				<li> <button type="button" onclick="bcbtn3()"> 노하우 </button> </li>
+				<li><button class="bcbtn" onclick="setsearch()" type="button">전체보기</button></li>
+				<li> <button class="bcbtn" type="button" onclick="bcbtn1()"> 커뮤니티 </button> </li>
+				<li> <button class="bcbtn" type="button" onclick="bcbtn2()"> QnA </button> </li>
+				<li> <button class="bcbtn" type="button" onclick="bcbtn3()"> 노하우 </button> </li>
 			</ul>
 			</div>
 			<span>
@@ -39,11 +40,10 @@
 					<option value="btitle">제목</option>
 					<option value="mid">작성자</option>
 				</select>
+				<span><input class="keyword" type="text"></span>
+				<span><button class="bcbtn" onclick="getsearch()" type="button">검색</button></span>			
+				<span><button class="bcbtn" onclick="boardUpload()" type="button">글쓰기</button> </span>
 			</span>
-			<span><input class="keyword" type="text"></span>
-			<span><button onclick="getsearch()" type="button">검색</button></span>			
-			<span><button onclick="boardUpload()" type="button">글쓰기</button> </span>
-			
 			
 			<div class="boardTable table">
 

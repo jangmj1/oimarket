@@ -32,17 +32,18 @@ function getBoardList(){
 			// 	 게시물 프로필 이미지 나중에 화긴
 			let html = ``
 			r.forEach( ( o , i ) => {
-				html += `<div>
+				html += `<div class="contentbox">
 							<div> 
-								<img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">
-								<span> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></span>
-								<span> ${ o.mid } </span>
-								<span> ${ o.bdate } </span>
+								<div class="contentbc">${o.bcno==1?"커뮤니티":o.bcno==2?"QnA":"노하우"}</div>
+								<div class="contenttitle"> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></div>
+								<img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">							
+								<span class="contentmid"> ${ o.mid } </span>
+								<span class="contentdate"> ${ o.bdate } </span>
 							</div>
-							<div>
-								<span> ${ o.bview } </span>
-								<span> ${ o.bup } </span> 
-								<span> ${ o.bdown } </span> 
+							<div class="contentinfo">
+								<span class="contentinfoitem"><i class="far fa-eye"></i>${ o.bview } </span>
+								<span class="contentinfoitem"><i class="far fa-thumbs-up"></i>${ o.bup } </span> 
+								<span class="contentinfoitem"><i class="far fa-thumbs-down"></i>${ o.bdown } </span> 
 							</div>
 						</div>`
 			})
@@ -63,18 +64,18 @@ function getBoardListAll(){
 			// 	 게시물 프로필 이미지 나중에 화긴
 			let html = ``
 			r.forEach( ( o , i ) => {
-				html += `<div>
+				html += `<div class="contentbox">
 							<div> 
-								<div>${o.bcno==1?"커뮤니티":o.bcno==2?"QnA":"노하우"}</div>
-								<div> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></div>
-								<img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">								
-								<span> ${ o.mid } </span>
-								<span> ${ o.bdate } </span>
+								<div class="contentbc">${o.bcno==1?"커뮤니티":o.bcno==2?"QnA":"노하우"}</div>
+								<div class="contenttitle"> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></div>
+								<img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">						
+								<span class="contentmid"> ${ o.mid } </span>
+								<span class="contentdate"> ${ o.bdate } </span>
 							</div>
-							<div>
-								<span><i class="far fa-eye"></i>  ${ o.bview } </span>
-								<span><i class="far fa-thumbs-up"></i> ${ o.bup } </span> 
-								<span><i class="far fa-thumbs-down"></i> ${ o.bdown } </span> 
+							<div class="contentinfo">
+								<span class="contentinfoitem"><i class="far fa-eye"></i>${ o.bview } </span>
+								<span class="contentinfoitem"><i class="far fa-thumbs-up"></i>${ o.bup } </span> 
+								<span class="contentinfoitem"><i class="far fa-thumbs-down"></i>${ o.bdown } </span> 
 							</div>
 						</div>`
 			})
@@ -99,7 +100,7 @@ function getsearch(){
 
 // 각 카테고리별 출력 리모콘(전체보기 포함)
 function setsearch(){
-	getBoardListAll();
+	location.href="list.jsp"
 }
 
 function bcbtn1(){
