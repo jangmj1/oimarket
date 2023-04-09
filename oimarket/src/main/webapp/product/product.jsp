@@ -48,15 +48,11 @@
 		
 		</div>
 	</div>
+<!-- 카카오지도 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a040eb3ed49e99fca18b3683cbee375"></script>
-<<<<<<< HEAD
-
 <!-- 사용자 -->
 <script src="/oimarket/js/product/product.js" type="text/javascript"></script>
-=======
-<script src="/oimarket/js/product/product.js" type="text/javascript"></script>
-<script src="/oimarket/js/main.js" type="text/javascript"></script>
->>>>>>> branch '김은영3' of https://github.com/jangmj1/oimarket
+
 
 </body>
 </html>

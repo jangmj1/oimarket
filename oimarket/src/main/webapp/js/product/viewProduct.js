@@ -35,7 +35,7 @@ function viewProductPrint(){
 					<div class="chatbox">
 						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:25px;height:25px; margin-top: 25px;"></button>
 				  		<span  class="view">조회:${productInfo.pview}</span>
-				  		<button type="button"  onclick="">채팅하기</button>
+				  		<button type="button"  onclick="chatting(${pno})">채팅하기</button>
 					</div>
 				</div>																						
 				
@@ -147,7 +147,7 @@ function viewProductPrint(){
 	
 }
 
-//product의 정보 한줄레코드 불러오는 함수
+//[장민정]product의 정보 한줄레코드 불러오는 함수
 function getproduct(){
 	$.ajax({
 			url:"/oimarket/product",
@@ -161,6 +161,19 @@ function getproduct(){
 		}
 	});
 }
+
+//[장민정] 채팅하기
+function chatting(pno){
+	location.href="/oimarket/product/chatting.jsp?pno="+pno
+}
+
+
+
+
+
+
+
+
 
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -268,14 +281,6 @@ function setlike(pno){
 		}
 	})
 }
-
-
-
-
-
-
-
-
 
 
 
