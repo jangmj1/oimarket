@@ -36,7 +36,7 @@ function getBoardList(){
 							<div> 
 								<div class="contentbc">${o.bcno==1?"커뮤니티":o.bcno==2?"QnA":"노하우"}</div>
 								<div class="contenttitle"> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></div>
-								<img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">							
+								<img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">							
 								<span class="contentmid"> ${ o.mid } </span>
 								<span class="contentdate"> ${ o.bdate } </span>
 							</div>

@@ -14,11 +14,13 @@ function getBoard(){
 		success:(r)=>{
 			console.log(r)
 			let html = `
-						${ r.bdate } 
-						<i class="far fa-eye"></i> ${ r.bview } <i class="far fa-thumbs-up"></i> 
-						<button onclick="bIncrease(2)" type="button">${ r.bup }</button> <i class="far fa-thumbs-down"></i>
-						<button onclick="bIncrease(3)" type="button">${ r.bdown }</button>`
+						<i class="far fa-eye"></i>${ r.bview } 
+						<i class="far fa-thumbs-up"></i><button onclick="bIncrease(2)" type="button">${ r.bup }</button>
+						 <i class="far fa-thumbs-down"></i><button onclick="bIncrease(3)" type="button">${ r.bdown }</button>          
+						`
+			let htmldate=`${r.bdate}`			
 
+			document.querySelector('.infoboxdate').innerHTML = htmldate;
 			document.querySelector('.infobox').innerHTML = html;
 			document.querySelector('.mimg').src=`/oimarket/img/${r.mimg==null ? 'default.webp' : r.mimg}`
 			document.querySelector('.mid').innerHTML = r.mid;
@@ -144,10 +146,12 @@ function getReplyList(){
 			r.forEach((o,i)=>{
 				html+=`
 					<div>
-						<span><img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
-						<span>${o.mid}</span>
-						<span>${o.rdate}</span>
+						<div  class="reply">
+							<span class="replyitem"><img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
+							<span class="replyitem">${o.mid}</span>
+							<span class="replyitem">${o.rdate}</span>
 						<span>${o.rcontent}</span>
+						</div>
 						<button onclick="rereplyview(${o.rno})" type="button">대댓글보기</button>
 						<div class="rereplybox${o.rno}"></div>
 					</div>
@@ -170,8 +174,8 @@ function rereplyview(rno){
 			r.forEach((o)=>{
 				
 				html+=`
-				<div>
-					<span><img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
+				<div class="rereply">
+					<span ><img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
 					<span>${o.mid}</span>
 					<span>${o.rdate}</span>
 					<span>${o.rcontent}</span>

@@ -1,20 +1,21 @@
 @charset "UTF-8";
-.wrap{
-	width: 412px;
-}
+
 .mainmenu{
+	width : 412px !important;
 	display: flex;
     text-decoration: none;
     list-style-type: none;
     align-items: center;
     justify-content: space-between;
+    padding-left: 0px;
     }
-.searchbox{
-	display: flex;
-	flex-wrap: wrap;	
-}
+.key{
+	padding-left: 0px;
+}    
 .contentbox{
+	width : 412px;
 	border-bottom: 1px solid #e8e8e8;
+	margin-top: 20px;
 }
 .contentbc{
 	font-family: 'GmarketSansMedium';
@@ -33,6 +34,13 @@
 	border: none;
 	background-color: #60AC3F;
 	color: white;
+}
+.searchbox{
+	width: 412px;
+    display: flex;
+    width: 412px;
+    align-items: center;
+    justify-content: center;
 }
 .boardTable img{
 	width: 50px;
@@ -57,4 +65,7 @@
 }
 .contentinfoitem{
 	    padding-right: 5px;
+}
+.item{
+	padding-right: 10px;
 }

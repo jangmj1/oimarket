@@ -35,14 +35,14 @@
 				<li> <button class="bcbtn" type="button" onclick="bcbtn3()"> 노하우 </button> </li>
 			</ul>
 			</div>
-			<span>
-				<select class="key">
+			<span class="searchbox">
+				<select class="key item">
 					<option value="btitle">제목</option>
 					<option value="mid">작성자</option>
 				</select>
-				<span><input class="keyword" type="text"></span>
-				<span><button class="bcbtn" onclick="getsearch()" type="button">검색</button></span>			
-				<span><button class="bcbtn" onclick="boardUpload()" type="button">글쓰기</button> </span>
+				<span><input class="keyword item" type="text"></span>
+				<span><button class="bcbtn item" onclick="getsearch()" type="button">검색</button></span>			
+				<span><button class="bcbtn item" onclick="boardUpload()" type="button">글쓰기</button> </span>
 			</span>
 			
 			<div class="boardTable table">

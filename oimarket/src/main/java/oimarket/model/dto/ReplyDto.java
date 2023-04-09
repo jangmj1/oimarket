@@ -1,5 +1,8 @@
 package oimarket.model.dto;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ReplyDto {
 
 	private int rno			;
@@ -20,7 +23,14 @@ public class ReplyDto {
 		super();
 		this.rno = rno;
 		this.rcontent = rcontent;
-		this.rdate = rdate;
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String now = sdf.format(date);
+		if(now.split(" ")[0].equals(rdate.split(" ")[0] ) ) {
+			this.rdate=rdate.split(" ")[1];
+		}else {
+			this.rdate = rdate.split(" ")[0];
+		}
 		this.rindex = rindex;
 		this.mno = mno;
 		this.bno = bno;

@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="/oimarket/css/main.css" rel="stylesheet">
+<link href="/oimarket/css/board/view.css" rel="stylesheet">
 </head>
 <body>
 	<%
@@ -29,20 +30,17 @@
 			
 			</div>
 			
-			<div>
+			<div class="biginfobox">
 
-				<div class="infobox"></div>
+				<span class="infoboxdate"></span>
+				<span class="infobox"></span>
 			
 			</div>
 			
 			<div>
 			
-				<img class="mimg">
-			
-			</div>
-			
-			<div>
-			
+				<img class="mimg hpimg">
+						
 				<div class="mid"></div>
 			
 			</div>

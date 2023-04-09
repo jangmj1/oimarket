@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.hpimg{
+	width: 50px;
+	height: 50px;
+	border: solid 1px #e8e8e8;
+	border-radius: 50%; /*둥근모서리*/
+}
+.biginfobox{
+	width: 412px;
+	padding-left: 0;
+	display: flex;
+	justify-content: space-between;	
+}
+.infobox{
+	padding-right: 5px;
+}
+.reply{
+	display: flex;
+	align-items: center;
+	margin: 10px 0px 10px 0px;
+}
+.replyitem{
+	margin-right: 10px;
+}
+.rereply img{
+    margin: 10px 0px 10px 40px;
+}
+.rereply{
+	display: flex;
+	justify-content: space-around; 
+	align-items: center;
+
+}
