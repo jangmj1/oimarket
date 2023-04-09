@@ -58,7 +58,7 @@ function viewProductPrint(){
 				</div>`
 			}else if(memberInfo.mno==r.mno){//제품등록한 사람과 제품사는 사람이 같으면 수정/삭제 보이기 
 				html1+=`
-				<button type="button">수정</button>
+				<button onclick="Updateproduct(${pno})" type="button">수정</button>
 				<button onclick="Deleteproduct(${pno})" type="button">삭제</button>`
 			}
 				document.querySelector('.btns').innerHTML=html1;
@@ -244,6 +244,14 @@ function Deleteproduct(pno){
 		}//success e
 	})//ajax e
 }//m e
+//김은영//수정창 이동
+function Updateproduct(pno){
+location.href="/oimarket/product/update.jsp?pno="+pno;
+}
+
+
+
+
 
 //[김은영]찜하기 버튼
 function setlike(pno){
