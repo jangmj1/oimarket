@@ -8,6 +8,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<link href="/oimarket/css/main.css" rel="stylesheet">
+	<link href="/oimarket/css/board/write.css" rel="stylesheet">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
 	%>
 	<input type="hidden" class="bno" value="<%=bno %>">
 	<div class="container">
-		<h3> 글수정페이지 </h3>
+		<h3 class="updatetitle"> 글수정페이지 </h3>
 		<form class="updateForm">
 			<div>
 			카테고리 : <select name="bcno" class="bcno">
@@ -40,8 +41,10 @@
 			<div class="bfilebox">
 			
 			</div>
-			<button onclick="bupdate()" type="button">수정</button>
-			<button onclick="bupdatecancel()" type="button">취소</button>
+			<div class="writeboard">
+				<button class="writeboardbtn" onclick="bupdate()" type="button">수정</button>
+				<button class="writeboardbtn" onclick="bupdatecancel()" type="button">취소</button>
+			</div>
 		</form>
 	</div>
 	</div>

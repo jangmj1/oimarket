@@ -22,6 +22,7 @@
 	font-weight: bold;
 	color: #60AC3F;
 	font-size: 12px;
+	border-radius: 10px;
 }
 .contenttitle a{
 	font-family: 'GmarketSansMedium';
@@ -31,16 +32,23 @@
     color: black;
 }
 .bcbtn{
+	font-family: 'GmarketSansMedium';
 	border: none;
 	background-color: #60AC3F;
 	color: white;
+	border-radius: 10px;
+	margin-left: 8px;
+	width: 70px;
+	height: 40px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;	
 }
 .searchbox{
 	width: 412px;
     display: flex;
-    width: 412px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 .boardTable img{
 	width: 50px;
@@ -66,6 +74,6 @@
 .contentinfoitem{
 	    padding-right: 5px;
 }
-.item{
-	padding-right: 10px;
+.all{
+	margin: 0px !important;
 }

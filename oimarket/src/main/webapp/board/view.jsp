@@ -24,28 +24,22 @@
 	<div class="wrap">
 	<input type="hidden" class="bno" value="<%=bno %>">
 		<div class="container">
-			<div>
-
 				
-			
-			</div>
-			
-			<div class="biginfobox">
-
-				<span class="infoboxdate"></span>
-				<span class="infobox"></span>
-			
-			</div>
-			
-			<div>
+		<div class="viewheader">	
+			<div class="parea">
 			
 				<img class="mimg hpimg">
 						
 				<div class="mid"></div>
+			<div class="biginfobox">
+
+				<span class="infoboxdate infoitem"></span>
+				<span class="infobox infoitem"></span>
 			
 			</div>
-			
-			
+			</div>
+
+		</div>	
 			
 			<div>
 			
@@ -59,9 +53,9 @@
 			
 			</div>
 			
-			<div>
+			<div class="viewfilearea">
 			
-				<div> 첨부파일 </div>
+				<div class="viewfile"> 첨부파일 : </div>
 				<div class="bfile"></div>
 			
 			</div>
@@ -72,7 +66,7 @@
 			<div class="replycount"></div>
 			
 			<div class="replywritebox">
-				<textarea class="rcontent" rows="" cols=""></textarea>
+				<textarea class="rcontent" rows="2" cols="44"></textarea>
 				<button class="rwritebtn bbtn" onclick="rwrite()" type="button">댓글 작성</button>
 			</div>
 			

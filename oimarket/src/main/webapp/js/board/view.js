@@ -15,8 +15,8 @@ function getBoard(){
 			console.log(r)
 			let html = `
 						<i class="far fa-eye"></i>${ r.bview } 
-						<i class="far fa-thumbs-up"></i><button onclick="bIncrease(2)" type="button">${ r.bup }</button>
-						 <i class="far fa-thumbs-down"></i><button onclick="bIncrease(3)" type="button">${ r.bdown }</button>          
+						<i class="far fa-thumbs-up"></i><button class="increasebtn" onclick="bIncrease(2)" type="button">${ r.bup }</button>
+						 <i class="far fa-thumbs-down"></i><button class="increasebtn" onclick="bIncrease(3)" type="button">${ r.bdown }</button>          
 						`
 			let htmldate=`${r.bdate}`			
 
@@ -35,8 +35,8 @@ function getBoard(){
 			}
 			if(memberInfo.mid==r.mid){
 				html =`
-					<button onclick="bdelete(${bno} , ${r.bcno})" type="button" class="bbtn">삭제</button>
-					<button onclick="bupdate(${bno})" type="button" class="bbtn">수정</button>
+					<button class="budbtn" onclick="bdelete(${bno} , ${r.bcno})" type="button" class="bbtn">삭제</button>
+					<button class="budbtn" onclick="bupdate(${bno})" type="button" class="bbtn">수정</button>
 					`;
 				document.querySelector('.bbtnbox').innerHTML=html;
 			}
@@ -152,7 +152,9 @@ function getReplyList(){
 							<span class="replyitem">${o.rdate}</span>
 						<span>${o.rcontent}</span>
 						</div>
-						<button onclick="rereplyview(${o.rno})" type="button">대댓글보기</button>
+						<div class="rereviewbox">
+							<button class="rereview" onclick="rereplyview(${o.rno})" type="button">대댓글보기</button>
+						</div>
 						<div class="rereplybox${o.rno}"></div>
 					</div>
 				`
@@ -176,16 +178,18 @@ function rereplyview(rno){
 				html+=`
 				<div class="rereply">
 					<span ><img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
-					<span>${o.mid}</span>
-					<span>${o.rdate}</span>
-					<span>${o.rcontent}</span>
+					<span class="reremid rereitem">${o.mid}</span>
+					<span class="reredate rereitem">${o.rdate}</span>
+					<span class="rereitem">${o.rcontent}</span>
 				</div>
 				`
 			})
 			html +=`
-				<textarea class="rrcontent${rno}"> </textarea>
-				<button onclick="rrwirte(${rno})" type="button"> 대댓글달기 </button>
-				<button onclick="replynoview(${rno})" type="button">대댓글가리기</button>
+				<div class="rereplybottom">
+					<textarea id="rrcontent" class="rrcontent${rno}"> </textarea>
+					<button class="rrbtn" onclick="rrwirte(${rno})" type="button"> 대댓글달기 </button>
+					<button class="rrbtn" onclick="replynoview(${rno})" type="button">대댓글가리기</button>
+				</div?
 			`
 			document.querySelector('.rereplybox'+rno).innerHTML = html;
 		}

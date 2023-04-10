@@ -1,5 +1,6 @@
 package oimarket.model.dao;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Array;
@@ -44,6 +45,10 @@ public class BoardDao extends Dao{
 						rs.getInt(7), rs.getInt(8), rs.getInt(9),
 						rs.getInt(10), rs.getString(11));
 				dto.setMimg(rs.getString(12));	// DTO에 추가한 필드 셋팅
+				sql = "select count(*) from reply where bno = " + dto.getBno();
+				ps = con.prepareStatement(sql);
+				ResultSet rs2 = ps.executeQuery();
+				if(rs2.next()) {dto.setRcount(rs2.getInt(1));}
 				list.add(dto);
 			}
 		}catch (Exception e) {System.out.println(e);}
@@ -69,6 +74,10 @@ public class BoardDao extends Dao{
 						rs.getInt(7), rs.getInt(8), rs.getInt(9),
 						rs.getInt(10), rs.getString(11));
 				dto.setMimg(rs.getString(12));	// DTO에 추가한 필드 셋팅
+				sql = "select count(*) from reply where bno ="+dto.getBno();
+				ps = con.prepareStatement(sql);
+				ResultSet rs2 = ps.executeQuery();
+				if(rs2.next()) {dto.setRcount(rs2.getInt(1));}
 				list.add(dto);
 			}
 		}catch (Exception e) {System.out.println(e);}
@@ -87,6 +96,10 @@ public class BoardDao extends Dao{
 					rs.getInt(7), rs.getInt(8), rs.getInt(9),
 					rs.getInt(10), rs.getString(11));
 			dto.setMimg(rs.getString(12));
+			sql = "select count(*) from reply where bno ="+dto.getBno();
+			ps = con.prepareStatement(sql);
+			ResultSet rs2 = ps.executeQuery();
+			if(rs2.next()) {dto.setRcount(rs2.getInt(rs2.getInt(1)) );}
 			return dto;
 			}
 		}catch (Exception e) {System.out.println(e);} return null;

@@ -29,7 +29,7 @@
 			<h3 class="bcname"></h3>
 			<div>
 			<ul class="mainmenu">
-				<li><button class="bcbtn" onclick="setsearch()" type="button">전체보기</button></li>
+				<li><button class="bcbtn all" onclick="setsearch()" type="button">전체보기</button></li>
 				<li> <button class="bcbtn" type="button" onclick="bcbtn1()"> 커뮤니티 </button> </li>
 				<li> <button class="bcbtn" type="button" onclick="bcbtn2()"> QnA </button> </li>
 				<li> <button class="bcbtn" type="button" onclick="bcbtn3()"> 노하우 </button> </li>

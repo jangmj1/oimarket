@@ -61,7 +61,7 @@ function getBoard(){
 				</div>
 				`
 			}
-				html += `새로운 첨부파일 : <input name="bfile" type="file">`
+				html += `<div class="writefile">새로운 첨부파일 : <input name="bfile" type="file"></div>`
 				document.querySelector('.bfilebox').innerHTML=html;
 				document.querySelector('.oldbfile').innerHTML=r.bfile;
 		}

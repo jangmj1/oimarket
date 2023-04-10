@@ -9,7 +9,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 	<link href="/oimarket/css/main.css" rel="stylesheet">
-	
+	<link href="/oimarket/css/board/write.css" rel="stylesheet">
 
 </head>
 <body>
@@ -31,9 +31,9 @@
 						</select>
 				제목 : <input name="btitle" type="text">
 				<textarea id="summernote" name="bcontent"></textarea>
-				첨부파일 : <input name="bfile" type="file">
+				<div class="writefile">첨부파일 : <input name="bfile" type="file"></div>
 			</form>
-			<button onclick="bwrite()">글쓰기</button>
+			<div class="writeboard"><button class="writeboardbtn" onclick="bwrite()">글쓰기</button></div>
 		</div>
  	</div>
  	

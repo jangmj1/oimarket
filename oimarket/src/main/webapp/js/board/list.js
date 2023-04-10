@@ -44,6 +44,7 @@ function getBoardList(){
 								<span class="contentinfoitem"><i class="far fa-eye"></i>${ o.bview } </span>
 								<span class="contentinfoitem"><i class="far fa-thumbs-up"></i>${ o.bup } </span> 
 								<span class="contentinfoitem"><i class="far fa-thumbs-down"></i>${ o.bdown } </span> 
+								<span class="contentinfoitem"> <i class="far fa-comment-dots"></i> ${ o.rcount } </span>
 							</div>
 						</div>`
 			})
@@ -76,6 +77,7 @@ function getBoardListAll(){
 								<span class="contentinfoitem"><i class="far fa-eye"></i>${ o.bview } </span>
 								<span class="contentinfoitem"><i class="far fa-thumbs-up"></i>${ o.bup } </span> 
 								<span class="contentinfoitem"><i class="far fa-thumbs-down"></i>${ o.bdown } </span> 
+								<span class="contentinfoitem"> <i class="far fa-comment-dots"></i>${ o.rcount } </span>
 							</div>
 						</div>`
 			})
