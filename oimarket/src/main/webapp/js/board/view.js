@@ -14,7 +14,7 @@ function getBoard(){
 		success:(r)=>{
 			console.log(r)
 			let html = `
-						<i class="far fa-eye"></i>${ r.bview } 
+						<i class="far fa-eye"></i>${r.bview} 
 						<i class="far fa-thumbs-up"></i><button class="increasebtn" onclick="bIncrease(2)" type="button">${ r.bup }</button>
 						 <i class="far fa-thumbs-down"></i><button class="increasebtn" onclick="bIncrease(3)" type="button">${ r.bdown }</button>          
 						`
