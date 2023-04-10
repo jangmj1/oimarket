@@ -10,6 +10,7 @@
 .mypageWrap img {
 	width: 80px;
     display: flex !important;
+    padding-top: 20%;
 }
 
 /* mypage 로고 위치 */
@@ -123,7 +124,7 @@
     font-family: 'GmarketSansMedium';
     color: white;
     font-size: 12px;
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
 /* 게시판 출력 */

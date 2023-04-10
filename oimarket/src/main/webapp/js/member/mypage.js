@@ -4,6 +4,7 @@ function logo(){
 }
 
 console.log(memberInfo)
+
 // [최성아] 회원 정보 호출
 getLogin();
 function getLogin() {
@@ -251,14 +252,95 @@ function getBoard(){
 	})
 }
 
+// 6. 오늘 방문자 수 출력 ( 파일처리 )
 
 
 
 
 
+// 7. 총 물품개수 출력
+getProductCount();
+function getProductCount(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 7 } ,
+		async : false ,
+		success: (r) => {
+			console.log('총 물품개수 통신'); console.log(r);
+			let html = `총 물품 개수 : <span class="ProductCount">${r}</span>`;
+			document.querySelector('.ProductCount').innerHTML = html;
+			
+		}
+	})
+} // 총 물품개수 end
+
+// 8. 4월 물품거래가격 출력
+getProductPriceCount();
+function getProductPriceCount(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 8 } ,
+		async : false ,
+		success: (r) => {
+			console.log('4월 물품가격 통신'); console.log(r);
+			let html = `4월 물품 총 거래가격 : <span class="ProductPriceCount">${r}</span>`;
+			document.querySelector('.ProductPriceCount').innerHTML = html;
+			
+		}
+	})
+} // 4월 물품거래가격 end
+const ctx = document.getElementById('myChart');
+
+// 9. 오늘 거래된 물품 카테고리별 개수 출력
+getProductCategoryCount();
+function getProductCategoryCount(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 9 } ,
+		async : false ,
+		success: (r) => {
+			console.log('오늘 거래된 물품 카테고리별 개수 통신'); console.log(r);
+			let html = `<th>물품 카테고리</th> <th> 거래된 개수 </th>`
+			
+			r.forEach( (p) => {
+					html += `<tr>
+								<td>${p.pcname} </td>
+								<td>${p.productCategoryCount}</td>
+							</tr>`
+			})						
+			document.querySelector('.ProductCategoryCount').innerHTML = html;
+			
+		}
+	})
+} // 오늘 거래된 물품 카테고리별 개수 end
 
 
+	
+$.get ( "/oimarket/member/mypage" , (r) => {
+	console.log(r);
+	console.log( Object.keys(r) );
+	console.log( Object.values(r) );
 
+  new Chart(ctx, {
+    type: 'bar', // bar : 막대차트 vs line : 선차트
+    data: {
+      labels: Object.keys(r) ,
+      datasets: [{
+        label: '4 mno 멤버 포인트 충전 내역' ,			// 데이터 항목명
+        data: Object.values(r) ,	// 해당 항목 데이터 
+        borderWidth: 4							// 막대 굵기
+      }] ,
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+	
+})
 
 
 

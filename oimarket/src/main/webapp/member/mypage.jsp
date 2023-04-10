@@ -84,9 +84,34 @@
 			
 			</div>
 			
+			<!-- 6. 오늘 방문자 수 (파일 처리) -->
+			<div>
+				<span class="VisitorCount"></span>
+			</div>
+			
+			<!-- 7. 총 물품 개수 출력 -->
+			<div>
+				<span class="ProductCount"></span> <br>
+			</div>
+			
+			<!-- 8. 4월 물품 총 거래 가격 -->
+			<div>
+				<span class="ProductPriceCount"></span>
+			</div>
+			
+			<!-- 9. 카테고리별 물품 거래 개수 (오늘 기준) -->
+			<div>
+				<div> 카테고리별 물품 거래 개수 (당일 기준)</div>
+				<table border="1" class="ProductCategoryCount"></table>
+			</div>
+			
 		</div>
 		
-
+		<!-- 9. 카테고리별 물품 거래 개수(당일 기준) 차트 -->
+		<div>
+			  <canvas id="myChart"></canvas>
+		</div>
+		
 		
 	
 	</div>	
@@ -94,5 +119,7 @@
 
 	<script src="/oimarket/js/member/mypage.js" type="text/javascript"></script>
 	
+	<!-- 차트 js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

@@ -70,6 +70,7 @@ public class Mypage extends HttpServlet {
 			response.getWriter().print(jsonArray);	
 		}
 		
+		
 		// mypage 게시물 출력
 		else if ( type == 5 ) { // 게시물 출력 start
 			
@@ -79,11 +80,33 @@ public class Mypage extends HttpServlet {
 			
 		} // type : 5 , 게시물 출력 end
 		
+		// type 6 : 오늘 방문자 수 (파일 처리)
+		else if ( type == 6 ) {
+			
+		}
 		
 		
+		// type 7 : 등록되어있는 물품 총 개수 
+		else if ( type == 7 ) {
+			int result = MypageDao.getInstance().ProductCount();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+
+		}
 		
+		// type 8 : 4월 물품 총 거래가격 
+		else if ( type == 8 ) {
+			int result = MypageDao.getInstance().ProductPriceCount();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);			
+		}
 		
-		
+		// type 9 : 카테고리별 물품 거래 개수(당일 기준)
+		else if ( type == 9 ) {
+			ArrayList<ProductDto> result = MypageDao.getInstance().ProductCategoryCount();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);			
+		}		
 		
 		
 		

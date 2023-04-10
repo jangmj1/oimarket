@@ -145,5 +145,60 @@ public class MypageDao extends Dao{
 		return null;
 	}// 게시물 출력 end
 	
+	// [최성아] 7. 등록되어있는 물품 개수 출력
+	public int ProductCount(){
+		String sql = "select count(p.pno) from product p";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if ( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) {System.out.println(e);}
+		return 0;
+		
+	}
+	
+	// [최성아] 8. 4월 물품 총 거래 가격
+	public int ProductPriceCount(){
+		String sql = "select sum(p.pprice) from product p where buydate between '2023-04-01' and '2023-04-30' and pstate = '2'";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if ( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) {System.out.println(e);}
+		return 0;		
+	}
+	
+	// [최성아] 9. 오늘 물품 카테고리별 거래 개수
+	public ArrayList<ProductDto> ProductCategoryCount(){
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = "select count(p.pno), pc.pcname from product p natural join product_category pc where p.pstate = \"2\" and buydate = CURDATE() group by pc.pcname order by count(p.pno) desc ";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				ProductDto dto = new ProductDto(
+						rs.getInt(1) , rs.getString(2) );
+				list.add(dto);
+			}
+			return list;
+		}catch (Exception e) {System.out.println(e);}
+		return null;		
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

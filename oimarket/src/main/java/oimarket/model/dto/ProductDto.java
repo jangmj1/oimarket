@@ -25,15 +25,12 @@ public class ProductDto {
     // [최성아 추가필드]
     private String divideDate;		// 판매현황 상태로 date 구분하기
     private String mainImg;			// 모든 물품 출력 관한 대표 img 
-
+    private int ProductCategoryCount;	// 오늘 거래된 물품 별 카테고리 개수
 
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}//깡통생성자
-
-
-
 
 
 	public ProductDto(int pno, String ptitle, String pcontent, int pprice, int pview, String plat, String plng,
@@ -98,6 +95,13 @@ public class ProductDto {
 		this.pprice = pprice;
 		this.pdate = pdate;	
 	}		
+	
+	// [최성아] 3. 오늘 거래된 물품 카테고리별 개수 출력
+	public ProductDto(int productCategoryCount , String pcname) {
+		super();
+		this.ProductCategoryCount = productCategoryCount;
+		this.pcname = pcname;
+	}	
 	
 
 	public int getPno() {
@@ -264,6 +268,14 @@ public class ProductDto {
 
 	public void setMainImg(String mainImg) {
 		this.mainImg = mainImg;
+	}
+	
+	public int getProductCategoryCount() {
+		return ProductCategoryCount;
+	}
+
+	public void setProductCategoryCount(int productCategoryCount) {
+		ProductCategoryCount = productCategoryCount;
 	}
 	
 	@Override
