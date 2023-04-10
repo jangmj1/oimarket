@@ -24,12 +24,16 @@
 	font-size: 12px;
 	border-radius: 10px;
 }
+.contenttitle{
+	margin-bottom: 10px;	
+}
 .contenttitle a{
 	font-family: 'GmarketSansMedium';
     text-decoration: none;
     font-weight: bold;
     font-size: 15px;
     color: black;
+    margin-bottom: 10px;
 }
 .bcbtn{
 	font-family: 'GmarketSansMedium';
