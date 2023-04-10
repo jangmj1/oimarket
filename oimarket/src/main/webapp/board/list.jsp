@@ -26,7 +26,6 @@
 	 <!-- cno 숨겨서 js에게 전달  -->
 	<input type="hidden" class="bcno" value="<%=bcno%>">
 		<div class="container">
-			<h3 class="bcname"></h3>
 			<div>
 			<ul class="mainmenu">
 				<li><button class="bcbtn all" onclick="setsearch()" type="button">전체보기</button></li>

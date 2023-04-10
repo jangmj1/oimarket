@@ -148,8 +148,8 @@ function getReplyList(){
 					<div>
 						<div  class="reply">
 							<span class="replyitem"><img class="hpimg" alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}"></span>
-							<span class="replyitem">${o.mid}</span>
-							<span class="replyitem">${o.rdate}</span>
+							<span class="reremid replyitem">${o.mid}</span>
+							<span class="reredate replyitem">${o.rdate}</span>
 						<span>${o.rcontent}</span>
 						</div>
 						<div class="rereviewbox">

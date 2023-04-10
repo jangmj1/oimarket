@@ -13,14 +13,6 @@ let boardObject2={
 	type:3
 }
 
-
-// 카테고리 제목
-let bcnameHTML ="";
-if(boardObject.bcno == 1){bcnameHTML="커뮤니티";}
-if(boardObject.bcno == 2){bcnameHTML="QnA";}
-if(boardObject.bcno == 3){bcnameHTML="노하우";}
-document.querySelector('.bcname').innerHTML = bcnameHTML;
-
 // 카테고리별 전체 출력
 function getBoardList(){
 	$.ajax({
