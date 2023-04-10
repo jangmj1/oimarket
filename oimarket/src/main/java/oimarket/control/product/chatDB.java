@@ -26,16 +26,17 @@ public class chatDB extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	ObjectMapper mapper=new ObjectMapper();
-	int pno=Integer.parseInt(request.getParameter("pno"));
-	int mno=Integer.parseInt(request.getParameter("mno"));
-	ArrayList<MessageDto> result=chatdbDao.getInstance().getchat(pno,mno);
-	
-	String jsonArray=mapper.writeValueAsString(result);
-	response.setCharacterEncoding("UTF-8");
-	response.setContentType("application/json");
-	response.getWriter().print(jsonArray); 
-	}
+		ObjectMapper mapper=new ObjectMapper();
+		int pno=Integer.parseInt(request.getParameter("pno"));
+		int frommno=ProductDao.getInstance().getproductmember(pno).getMno();
+		int tomno=Integer.parseInt(request.getParameter("mno"));
+		ArrayList<MessageDto> result=chatdbDao.getInstance().getchat(pno,frommno,tomno);
+		
+		String jsonArray=mapper.writeValueAsString(result);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.getWriter().print(jsonArray); 
+		}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String ncontent=request.getParameter("textbox");
 		int pno=Integer.parseInt(request.getParameter("pno"));

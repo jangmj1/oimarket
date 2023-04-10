@@ -32,6 +32,6 @@
 			</div>
 		</div>
 	
-	<script src="/oimarket/js/product/chatting.js" type="text/javascript"></script>
+	<script src="/oimarket/js/chat/chatting.js" type="text/javascript"></script>
 </body>
 </html>

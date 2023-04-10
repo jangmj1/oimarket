@@ -12,6 +12,10 @@ function boardGo(){
 	location.href="/oimarket/board/list.jsp";
 	getBoardListAll()
 }
+function chattingListGo(){
+	location.href="/oimarket/chat/mychattingList.jsp";
+	
+}
 
 let memberInfo = null;
 

@@ -164,7 +164,7 @@ function getproduct(){
 
 //[장민정] 채팅하기
 function chatting(pno){
-	location.href="/oimarket/product/chatting.jsp?pno="+pno
+	location.href="/oimarket/chat/chatting.jsp?pno="+pno
 }
 
 

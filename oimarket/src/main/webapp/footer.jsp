@@ -29,8 +29,8 @@
 				<div><i class="fas fa-edit"></i>   </div>
 				<div class="menuname">물품등록</div>
 			</div>
-			<div class="menubox">
-				<div><i class="fas fa-comments"></i>   </div>
+			<div class="menubox" onclick="chattingListGo()">
+				<div ><i class="fas fa-comments"></i>   </div>
 				<div class="menuname">쪽지함</div>
 			</div>
 			<div  onclick="mypageGo()" class="menubox">
