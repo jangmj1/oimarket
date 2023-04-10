@@ -289,10 +289,9 @@ function getProductPriceCount(){
 		}
 	})
 } // 4월 물품거래가격 end
-const ctx = document.getElementById('myChart');
 
 // 9. 오늘 거래된 물품 카테고리별 개수 출력
-getProductCategoryCount();
+/*getProductCategoryCount();
 function getProductCategoryCount(){
 	$.ajax({
 		url : "/oimarket/member/mypage" ,
@@ -312,11 +311,13 @@ function getProductCategoryCount(){
 			
 		}
 	})
-} // 오늘 거래된 물품 카테고리별 개수 end
+} // 오늘 거래된 물품 카테고리별 개수 end*/
 
 
-	
-$.get ( "/oimarket/member/mypage" , (r) => {
+const ctx = document.getElementById('myChart');
+
+// 9. 오늘 거래된 물품 카테고리별 개수 출력 (차트화)
+$.get ( "/oimarket/count" , (r) => {
 	console.log(r);
 	console.log( Object.keys(r) );
 	console.log( Object.values(r) );
@@ -326,14 +327,18 @@ $.get ( "/oimarket/member/mypage" , (r) => {
     data: {
       labels: Object.keys(r) ,
       datasets: [{
-        label: '4 mno 멤버 포인트 충전 내역' ,			// 데이터 항목명
-        data: Object.values(r) ,	// 해당 항목 데이터 
-        borderWidth: 4							// 막대 굵기
+        label: '당일 기준 물품 카테고리별 거래 개수' ,		// 데이터 항목명
+        data: Object.values(r) ,					// 해당 항목 데이터 
+        borderWidth: 2,								// 막대 굵기
+        borderColor: '#41A541',
+		backgroundColor: '#41A541'
       }] ,
     },
     options: {
       scales: {
         y: {
+			min : 0 ,
+			max: 10 ,
           beginAtZero: true
         }
       }

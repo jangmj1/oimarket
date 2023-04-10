@@ -2,6 +2,7 @@ package oimarket.model.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import oimarket.model.dto.BoardDto;
 import oimarket.model.dto.ProductDto;
@@ -170,7 +171,8 @@ public class MypageDao extends Dao{
 		return 0;		
 	}
 	
-	// [최성아] 9. 오늘 물품 카테고리별 거래 개수
+	// [최성아] 9. 오늘 물품 카테고리별 거래 개수 
+	/*
 	public ArrayList<ProductDto> ProductCategoryCount(){
 		ArrayList<ProductDto> list = new ArrayList<>();
 		String sql = "select count(p.pno), pc.pcname from product p natural join product_category pc where p.pstate = \"2\" and buydate = CURDATE() group by pc.pcname order by count(p.pno) desc ";
@@ -187,8 +189,22 @@ public class MypageDao extends Dao{
 		}catch (Exception e) {System.out.println(e);}
 		return null;		
 	}	
+	*/
 	
+	// [최성아] 9. 오늘 물품 카테고리별 거래 개수 (차트화)
 	
+	public HashMap<String , Integer> getProductCategoryCount(){
+		HashMap<String, Integer> map = new HashMap<>();
+		String sql = "select count(p.pno), pc.pcname from product p natural join product_category pc where p.pstate = \"2\" and buydate = CURDATE() group by pc.pcname order by count(p.pno) desc ;";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next() ) {
+				map.put(rs.getString(2), rs.getInt(1) );
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return map;
+	}
 	
 	
 	

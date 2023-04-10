@@ -86,7 +86,7 @@
 			
 			<!-- 6. 오늘 방문자 수 (파일 처리) -->
 			<div>
-				<span class="VisitorCount"></span>
+				총 방문자 수 : <span class="VisitorCount"></span>
 			</div>
 			
 			<!-- 7. 총 물품 개수 출력 -->
@@ -100,17 +100,23 @@
 			</div>
 			
 			<!-- 9. 카테고리별 물품 거래 개수 (오늘 기준) -->
+			
+			<!-- 			
 			<div>
 				<div> 카테고리별 물품 거래 개수 (당일 기준)</div>
 				<table border="1" class="ProductCategoryCount"></table>
+			</div> 
+			-->
+
+			<!-- 9. 카테고리별 물품 거래 개수(당일 기준) 차트화 -->
+			<div>
+				  <canvas id="myChart"></canvas>
 			</div>
+			
 			
 		</div>
 		
-		<!-- 9. 카테고리별 물품 거래 개수(당일 기준) 차트 -->
-		<div>
-			  <canvas id="myChart"></canvas>
-		</div>
+
 		
 		
 	

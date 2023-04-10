@@ -2,6 +2,7 @@ package oimarket.control.member;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -80,12 +81,7 @@ public class Mypage extends HttpServlet {
 			
 		} // type : 5 , 게시물 출력 end
 		
-		// type 6 : 오늘 방문자 수 (파일 처리)
-		else if ( type == 6 ) {
-			
-		}
-		
-		
+				
 		// type 7 : 등록되어있는 물품 총 개수 
 		else if ( type == 7 ) {
 			int result = MypageDao.getInstance().ProductCount();
@@ -101,13 +97,18 @@ public class Mypage extends HttpServlet {
 			response.getWriter().print(jsonArray);			
 		}
 		
-		// type 9 : 카테고리별 물품 거래 개수(당일 기준)
+		// type 9 : 카테고리별 물품 거래 개수(당일 기준) -> 차트화시켜놨음
+		/*
 		else if ( type == 9 ) {
-			ArrayList<ProductDto> result = MypageDao.getInstance().ProductCategoryCount();
+			
+			HashMap<String, Integer> result = MypageDao.getInstance().getProductCategoryCount();
+			
+			mapper = new ObjectMapper();
 			jsonArray = mapper.writeValueAsString(result);
-			response.getWriter().print(jsonArray);			
+			response.getWriter().print(jsonArray);
+	
 		}		
-		
+		*/
 		
 		
 		
