@@ -27,8 +27,20 @@
 
 html , body {height: 100%}
 
-.sendtext{text-align: right;}
-
+.sendmessage{
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	}
+	
+.sendtime{
+	color:#808080ad;
+	font-size: 12px;
+	margin-right: 10px;
+	}
+.sendtext{
+	font-size: 17px;
+}
 .send{
   height: 34px;
   width: 96px;
@@ -37,6 +49,9 @@ html , body {height: 100%}
   background-color: #eeeeee7d;
   border: none;
   }
+.receivemessage{
+	display: flex;
+}
   
  .btnbox{
  text-align: right;
@@ -55,4 +70,5 @@ html , body {height: 100%}
 	border: 1px solid #eeeeee;
     padding: 10px;
     }
+
  

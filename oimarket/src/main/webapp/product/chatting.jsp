@@ -17,17 +17,17 @@
 	<%@include file="/footer.jsp" %>
 	<% int pno=Integer.parseInt(request.getParameter("pno"));  %> 
 	<!-- http://localhost:8080/oimarket/product/chatting.jsp?pno=8 주소 이렇게 넘어옴 -->	
-	<!-- ws://localhost:8080/oimarket/chatting/asd1 이건뭐임? -->	
+	<!-- ws://localhost:8080/oimarket/chatting/asd1 연결소켓..이건뭐임? -->	
 			<input class="pno" type="hidden" value="<%=pno%>">
 		<div class="wrap chat">
 			<div class="chattingbox">
-				<div class="sendtext">안녕하세요</div>
-				<div class="receivetext">반갑습니다.</div>
+				
+				
 			</div>
 			<div class="belowArea">
 				<textarea class="textbox msgbox" rows="" cols=""></textarea>
 				<div class="btnbox">
-					<button onclick="send()" class="send" type="button">보내기</button>
+					<button onclick="보내기()" class="send" type="button">보내기</button>
 				</div>
 			</div>
 		</div>
