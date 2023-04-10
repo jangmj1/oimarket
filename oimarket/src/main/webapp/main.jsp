@@ -26,7 +26,8 @@
 				</select>
 				<div >
 					<input class="keyword" type="text">
-					<i onclick="search()" class="fas fa-search"></i>
+					<img width="25px" src="/oimarket/img/favicon.ico" onclick="search()" ></img>
+					
 				</div>
 			</div>
 			<div class="contentbox">

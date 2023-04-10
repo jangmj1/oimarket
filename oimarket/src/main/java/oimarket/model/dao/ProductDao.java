@@ -61,10 +61,10 @@ public class ProductDao extends Dao{
 		 ArrayList<ProductDto>list=new ArrayList<>(); 
 		 String sql=null;
 		 if(pcno==0) { //전체출력 db에 없는아무런 값으로 지정
-			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 limit " + pcount; //상태가 1(판매중)인것만 출력
+			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 order by p.pdate desc limit " + pcount+" "; //상태가 1(판매중)인것만 출력
 			 
 		 }else {//카테고리 선택시 마다 0이상의 값들이 넘어옴
-			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 and pcno= " + pcno+" limit "  + pcount;//카테고리별 출력
+			 sql="select p.*,c.pcname from product p natural join product_category c where pstate=1 and pcno= " + pcno+" order by p.pdate desc limit "  + pcount+" ";;//카테고리별 출력
 		 }
 		  try {
 			ps=con.prepareStatement(sql);
@@ -78,13 +78,23 @@ public class ProductDao extends Dao{
 				while (rs2.next()){
 					pimglist.add(rs2.getString(2));
 				}
+				
 			ProductDto dto=new ProductDto(
 					rs.getInt(1), rs.getString(2), rs.getString(3)
 					, rs.getInt(4), rs.getInt(5), rs.getString(6),
 					rs.getString(7), rs.getString(8), rs.getInt(9),
 					rs.getString(10), rs.getInt(11), rs.getInt(12),
-					rs.getInt(13), pimglist, rs.getString(14));
+					rs.getInt(13), pimglist, rs.getString(14));	
+			
+				// 찜수 구하기 
+				sql ="select count(*) from product_like where pno = "+ dto.getPno();
+				ps=con.prepareStatement(sql);
+				ResultSet rs3=ps.executeQuery();
+				if( rs3.next() ) { dto.setPlikecount( rs3.getInt(1) ); }
+				// ----------
+				
 				list.add(dto); 
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

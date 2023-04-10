@@ -19,5 +19,9 @@
   		justify-content: space-around;
   		background-color: white;
   		z-index: 999;
+  		text-align: center;
+}
+.menubox{
+	width: 20%;
 }
 

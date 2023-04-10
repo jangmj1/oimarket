@@ -19,7 +19,7 @@
 		<div class="footerbox">
 			<div class="menubox">
 				<div onclick="homeGo()"><i class="fas fa-home"></i> </div>
-				<div class="menuname">홈(물품출력)</div>
+				<div class="menuname">홈</div>
 			</div>
 			<div class="menubox">
 				<div onclick="boardGo()"><i class="fas fa-newspaper"></i>   </div>
@@ -35,7 +35,7 @@
 			</div>
 			<div  onclick="mypageGo()" class="menubox">
 				<div><i class="fas fa-carrot"></i>   </div>
-				<div class="menuname"> 마이페이지 </div>
+				<div class="menuname"> 나의정보 </div>
 			</div>
 			
 		</div>

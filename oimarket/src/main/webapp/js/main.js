@@ -38,15 +38,20 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 					<div class="content" onclick="oneproduct(${o.pno})">
 						<img  src="/oimarket/img/${o.pimglist[0]==null?'기본.png':o.pimglist[0]}">
 						<div class="pinfo">
-							<h3 class="ptitle">${o.ptitle}</h3>
-							<h5 class="pdate">${o.pdate}</h5>
-							<h3 class="pprice">${(o.pprice).toLocaleString()} 원</h3>
+							<div class="pinfotop">
+								<span class="pcname"> ${o.pcname} </span>
+								<span class="pdate"> ${o.pdate}  </span>
+								<div class="ptitle">${o.ptitle}</div>
+								<div class="pprice">${(o.pprice).toLocaleString()} 원</div>
+							</div>
+							<div class="pinfobottom">
+								<span class="icon"> <i class="far fa-eye"></i> <span class="bview">${ o.pview }</span> </span>
+								<span class="icon"> <i class="far fa-heart"></i> <span class="bup">${ o.plikecount}</span> </span>
+								<span class="icon"> <i class="far fa-comment-dots"></i> <span class="rcount">30 </span> </span>
+							</div>
 						</div>
-						
 					</div>
-					
 					`	
-				
 			})
 			
 			document.querySelector('.contentbox').innerHTML=html;
@@ -119,6 +124,19 @@ function search(){//제목검색했을때
 		})
 	} 
 	
+}
+
+function searchToggle(obj, evt){
+    var container = $(obj).closest('.search-wrapper');
+        if(!container.hasClass('active')){
+            container.addClass('active');
+            evt.preventDefault();
+        }
+        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+        }
 }
 
 

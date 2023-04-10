@@ -1,5 +1,11 @@
 package oimarket.model.dto;
 
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class ProductDto {
@@ -25,8 +31,10 @@ public class ProductDto {
     // [최성아 추가필드]
     private String divideDate;		// 판매현황 상태로 date 구분하기
     private String mainImg;			// 모든 물품 출력 관한 대표 img 
-
-
+    
+    // 추가필드 [ 찜수 ] 
+    private int plikecount;
+    
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
@@ -47,7 +55,33 @@ public class ProductDto {
 		this.pview = pview;
 		this.plat = plat;
 		this.plng = plng;
-		this.pdate = pdate;
+		
+				// -- 날짜 형식 
+				LocalDateTime 현재날짜시간 = LocalDateTime.now(); // 현재 날짜/시간 
+				
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // 날짜형식 
+				LocalDateTime 제품등록날짜 = LocalDateTime.parse(pdate, formatter); // 문자형태[DB온 날짜] 의 날짜를 날짜형식으로 변환
+			
+				// 현재날짜/시간 과 제품등록날짜의 분 차이 구하기 
+				Duration diff = Duration.between( 제품등록날짜.toLocalTime() , 현재날짜시간.toLocalTime() ) ;
+				long minute = diff.toMinutes();
+				long hour = diff.toHours();
+				
+				// 현재날짜/시간 과 제품등록날짜의 일 차이 구하기 
+				Period diff2 = Period.between(제품등록날짜.toLocalDate() , 현재날짜시간.toLocalDate() ) ;
+				long day = diff2.getDays();
+				
+				
+				// 1. 오늘이면서 한시간 전 
+				if( day == 0 && minute <= 60 ) { this.pdate = minute+"분 전"; }
+				// 2. 오늘이면서 한시간 이후 이면서 하루 전이면 
+				else if( day == 0 && minute >=60  ) {  
+					this.pdate = ( hour )+"시간 전"; 
+				}
+				// 2. 하루 지났을떄 
+				else {  this.pdate = ( day )+"일 전"; }
+				
+				
 		this.pstate = pstate;
 		this.buydate = buydate;
 		this.rmno = rmno;
@@ -265,6 +299,19 @@ public class ProductDto {
 	public void setMainImg(String mainImg) {
 		this.mainImg = mainImg;
 	}
+	public int getPlikecount() {
+		return plikecount;
+	}
+
+
+
+
+
+	public void setPlikecount(int plikecount) {
+		this.plikecount = plikecount;
+	}
+
+
 	
 	@Override
 	public String toString() {
