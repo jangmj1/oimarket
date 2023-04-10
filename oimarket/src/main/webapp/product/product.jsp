@@ -9,10 +9,8 @@
 
 </head>
 <body>
-	<%@include file="/footer.jsp" %>
-	<div class="wrap">
-		<div class="container main">
-		
+	
+	<div class="wrap main">
 			<form class="productform">
 				<div>카테고리:
 					<select name="pcno" class="pcno">
@@ -46,17 +44,14 @@
 				</div>
 			</form>	
 		
-		</div>
 	</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7a040eb3ed49e99fca18b3683cbee375"></script>
-<<<<<<< HEAD
 
 <!-- 사용자 -->
 <script src="/oimarket/js/product/product.js" type="text/javascript"></script>
-=======
-<script src="/oimarket/js/product/product.js" type="text/javascript"></script>
 <script src="/oimarket/js/main.js" type="text/javascript"></script>
->>>>>>> branch '김은영3' of https://github.com/jangmj1/oimarket
+
+<%@include file="/footer.jsp" %>
 
 </body>
 </html>

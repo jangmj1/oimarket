@@ -20,42 +20,52 @@ function viewProductPrint(){
 				view(pno);
 		html=
 			`
-				
 				<div class="rmnobox">
 					<div class="rmnoinfo">
 						<!-- member 정보 -->
 						<img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">
-						<div>
-							<h5>${r.mname}</h5>
-							<h5 class="residence">${r.mresidence}</h5>
+						<div class="infotop">
+							<div class="mname">${r.mname}</div>
+							<div class="residence">${r.mresidence}</div>
 						</div>
 					</div>
 					
 						<!-- product 정보 -->
 					<div class="chatbox">
-						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:25px;height:25px; margin-top: 25px;"></button>
-				  		<span  class="view">조회:${productInfo.pview}</span>
-				  		<button type="button"  onclick="">채팅하기</button>
+						<button class="likebtn" type="button" onclick="setlike(${pno})"><img src="/oimarket/img/likeoff.png"style="width:30px;height:30px;" ></button>
 					</div>
 				</div>																						
 				
 				<div class="rmnocontent">
-					<h3>${productInfo.ptitle}</h3>
-					<h5>${productInfo.pcname}</h5>
-					<h3>${(productInfo.pprice).toLocaleString()} 원</h3>
-					<p>${productInfo.pcontent}</p>
+						<div class="pinfo">
+							<div class="pinfotop">
+								<span class="pcname"> ${productInfo.pcname} </span>
+								<span class="pdate"> ${productInfo.pdate}  </span>
+								<div class="ptitle">${productInfo.ptitle}</div>
+								<div class="pcontent">${productInfo.pcontent}</div>
+								<div class="pprice">${(productInfo.pprice).toLocaleString()} 원</div>
+							</div>
+							<div class="pinfobottom">
+								<span class="icon"> <i class="far fa-eye"></i> <span class="bview">${ productInfo.pview }</span> </span>
+								<span class="icon"> <i class="far fa-heart"></i> <span class="bup">${ productInfo.plikecount}</span> </span>
+								<span class="icon"> <i class="far fa-comment-dots"></i> <span class="rcount">30 </span> </span>
+							</div>
+						</div>
 				</div>`
+		document.querySelector('.productbox').innerHTML=html;		
+				
 					
 		
 				//<!--[김은영]//수정버튼,상태수정버튼,삭제버튼  -->
 			let html1='';
 		if(memberInfo.mno!=r.mno){//제품등록한 사람과 사는사람이 같지 않으면 구매하기버튼 보이기
+			/*
 			html1+=`		
 				<div>
 					<button onclick="state(${pno})" type="button">구매하기</button>
-					
-					
 				</div>`
+				*/
+				
 			}else if(memberInfo.mno==r.mno){//제품등록한 사람과 제품사는 사람이 같으면 수정/삭제 보이기 
 				html1+=`
 				<button type="button">수정</button>
@@ -101,7 +111,7 @@ function viewProductPrint(){
 		
 		
 	
-		document.querySelector('.productbox').innerHTML=html;
+		
 	 	getlike(pno);
 	 	/*사진첩 포문돌려서 꺼내기*/
 	 	console.log("사진수량:"+productInfo.pimglist.length)
@@ -111,7 +121,7 @@ function viewProductPrint(){
 			 if(j==0){
 			pimglistbox+=`
 					 <div class="carousel-item active" data-bs-interval="10000">
-				      <img src="/oimarket/img/${o}" class="d-block w-100" alt="...">
+				      <img src="/oimarket/img/${o}" class="w-100" alt="...">
 				    </div>`
 			
 			btn+=
@@ -123,7 +133,7 @@ function viewProductPrint(){
 			 pimglistbox+=
 			 	`
 				  <div class="carousel-item" data-bs-interval="2000">
-				      <img src="/oimarket/img/${o}" class="d-block w-100" alt="...">
+				      <img src="/oimarket/img/${o}" class="w-100" alt="...">
 				    </div>`
 				    
 			
@@ -215,10 +225,10 @@ function getlike(pno){
 			console.log(r);
 			if(r=='true'){
 				
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;margin-top: 25px;">'
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;">'
 			}else{
 				
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:25px;height:25px;margin-top: 25px;">'
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:30px;height:30px;">'
 			}
 		}
 	})
@@ -260,10 +270,10 @@ function setlike(pno){
 			console.log(r);
 			if(r=='true'){
 				alert('찜 등록');
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;margin-top: 25px;">'
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeon.png"style="width:30px;height:30px;">'
 			}else{
 				alert('찜 취소');
-				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:25px;height:25px;margin-top: 25px;">'
+				document.querySelector('.likebtn').innerHTML='<img src="/oimarket/img/likeoff.png"style="width:30px;height:30px;">'
 			}
 		}
 	})

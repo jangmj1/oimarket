@@ -15,22 +15,22 @@
 <body>
 	<%@include file="/footer.jsp" %>
 	<%int pno =Integer.parseInt(request.getParameter("pno")) ;%>
-	
+
 			<input class="pno" type="hidden" value="<%=pno%>">
-			<div class="wrap main" id="viewproduct">		
+			<div class="wrap main" id="viewproduct" style="padding: 0px 0px 200px 0px">		
+					
+	<div class="chatdiv">
+		<button type="button"  onclick="">채팅하기</button>
+	</div>
+				
+				
 				<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-				 
 				  <div class="carousel-indicators">
 				  	<!-- 밑에 버튼 들어가는 구역-->
-				  
 				  </div>
 				 
-				 
 				  <div class="carousel-inner">
-				  
 				  	<!-- 사진들어가는 구역 -->
-				    
-				    
 				  </div>
 				  <div>
 					  <!-- 왼쪽버튼 -->
@@ -49,13 +49,11 @@
 				<div class="productbox">
 				
 				</div>
-				
-				
-				<div id="map" style="width:350px;height:300px;"></div>
-				
-				
-				<!-- 김은영 버튼-->
 				<div class="btns"></div>
+							
+				<div class="maptitle"> 거래 희망 장소 </div>
+				<div id="map" style="width:100%;height:250px;"></div>
+				
 			</div>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=302a2d5c43d29cb22e0d5d10d6434665"></script>
 <!-- 부트스트랩-->
