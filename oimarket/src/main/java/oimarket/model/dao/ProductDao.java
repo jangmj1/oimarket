@@ -205,7 +205,7 @@ public class ProductDao extends Dao{
 				//제품우선 등록한 후에 pk번호를 받음
 				System.out.println("이미지:"+dto.getPimglist());
 				
-				//
+				//기존에 있던 이미지 삭제
 				sql="delete from product_img where pno="+dto.getPno();
 				ps=con.prepareStatement(sql);ps.executeUpdate();
 				
