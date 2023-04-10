@@ -189,10 +189,11 @@ public class ProductDao extends Dao{
 	  }
 	//[김은영] 제품수정
 		public  boolean updatebtn(ProductDto dto) {//제품 우선등록하고 이미지는 나중에 추가
+			System.out.println("이미지2:"+dto.getPimglist());
 			String sql=
 			"update product set ptitle=?, pcontent=?, pprice=? ,plat=?,plng=?,pcno=? where pno=?;";
 			try {
-				ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+				ps=con.prepareStatement(sql);
 				ps.setString(1, dto.getPtitle());
 				ps.setString(2, dto.getPcontent());
 				ps.setInt(3, dto.getPprice());
@@ -202,17 +203,22 @@ public class ProductDao extends Dao{
 				ps.setInt(7, dto.getPno());
 				ps.executeUpdate();
 				//제품우선 등록한 후에 pk번호를 받음
-				rs=ps.getGeneratedKeys();
-				if(rs.next()) {//존재하면 productdto내에 리스트에서 하나씩 ?//물어보기 
+				System.out.println("이미지:"+dto.getPimglist());
+				
+				//
+				sql="delete from product_img where pno="+dto.getPno();
+				ps=con.prepareStatement(sql);ps.executeUpdate();
+				
+				//새로운 이미지 
 					for(String pimgname: dto.getPimglist()) {
-						
 						sql="insert into product_img(pimgname,pno) values(?,?) ";
 						ps=con.prepareStatement(sql);
 						ps.setString(1, pimgname);
-						ps.setInt(2, rs.getInt(1));
+						ps.setInt(2, dto.getPno());
 						ps.executeUpdate();
+						System.out.println("이미지3:"+dto.getPimglist());
 					}
-				}return true;
+			return true;
 			} catch (Exception e) {
 				System.out.println(e);
 			}return false;

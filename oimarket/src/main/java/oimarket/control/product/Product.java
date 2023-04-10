@@ -199,7 +199,7 @@ public class Product extends HttpServlet {
 			response.getWriter().print(result);
 			
 		} catch (Exception e) {
-			System.out.println("파일저장 실패");
+			System.out.println("파일저장 실패"+e);
 			}
 			
 	}
