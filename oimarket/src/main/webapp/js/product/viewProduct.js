@@ -157,7 +157,7 @@ function viewProductPrint(){
 	
 }
 
-//product의 정보 한줄레코드 불러오는 함수
+//[장민정]product의 정보 한줄레코드 불러오는 함수
 function getproduct(){
 	$.ajax({
 			url:"/oimarket/product",
@@ -171,6 +171,23 @@ function getproduct(){
 		}
 	});
 }
+
+//[장민정] 채팅하기
+function chatting(pno){
+	location.href="/oimarket/chat/chatting.jsp?pno="+pno
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*---------------------------------------------------------------------------------------------------*/
@@ -286,14 +303,6 @@ function setlike(pno){
 		}
 	})
 }
-
-
-
-
-
-
-
-
 
 
 

@@ -21,7 +21,7 @@
 			<div class="wrap main" id="viewproduct" style="padding: 0px 0px 200px 0px">		
 					
 	<div class="chatdiv">
-		<button type="button"  onclick="">채팅하기</button>
+		<button type="button"  onclick="chatting(<%=pno%>)">채팅하기</button>
 	</div>
 				
 				
