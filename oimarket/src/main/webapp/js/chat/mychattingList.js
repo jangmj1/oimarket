@@ -25,11 +25,15 @@ function getchatList(){
 				}
 				
 				html += `
-						<div onclick="getchatting(${o.cno},${o.pno},${tomno})">
-							<span> ${ o.cno } </span>
-							<span> ${ o.pno } </span>
-							<span> ${ o.mno1 } </span>
-							<span> ${ o.mno2 } </span>
+						<div class="allbox" onclick="getchatting(${o.cno},${o.pno},${tomno})">
+							 
+							<img width=20% alt="" src="/oimarket/img/${memberInfo.mimg==null? '기본.png':memberInfo.mimg}" class="mpimg">
+							
+							<div class="namecontent">
+								<div class="mmid">${o.mid1}</div>
+								<div class="ncontent">${o.ccontent}</div>
+								<span><img width=20% alt="" src="/oimarket/img/${o.mpimg==null? '기본.png':o.mpimg}" class="mpimg"></span>
+							</div>	
 						</div>
 				`;
 				

@@ -70,5 +70,29 @@ html , body {height: 100%}
 	border: 1px solid #eeeeee;
     padding: 10px;
     }
-
+/*------------채팅목록----------------*/
+.allbox{
+	display: flex;
+    border-top: 1px solid #eeeeee;
+    padding: 20px 0px;
+    display: b
+}
  
+div img{
+ 	width: 80px ;
+	border-radius: 50%;
+ 	border:1px solid #eeeeee;
+ 
+ }
+.namecontent{
+	display: block;
+
+}
+.mmid{
+	font-size: 10px;
+}
+ span img{
+ width: 80px ;
+ border-radius: 5%;
+ border:1px solid #eeeeee;
+ }
