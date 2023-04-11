@@ -20,10 +20,6 @@
 			<button type="button"  onclick="loginpage()">로그인</button>
 		</div>
 	</div>
-	
-	
-	
-	
 	<script src="/oimarket/js/index.js" type="text/javascript"></script>
  
 </body>
