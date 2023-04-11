@@ -50,9 +50,10 @@ function 메세지출력(){
 		data:{pno:pno,type:1 , cno : cno },
 		success:(r)=>{
 			console.log(r);
+			getrmno()
 		let html='';
 		chattingbox.innerHTML='';
-		
+		console.log(rmno);
 		if(rmno!=memberInfo.mno ){
 		 
 		 let pstate  = 0;
