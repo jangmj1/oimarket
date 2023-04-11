@@ -258,7 +258,6 @@ function getBoard(){
 
 
 
-
 // 7. 총 물품개수 출력
 getProductCount();
 function getProductCount(){

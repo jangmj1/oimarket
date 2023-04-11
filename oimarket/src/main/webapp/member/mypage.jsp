@@ -13,20 +13,16 @@
 	
 	
 	
-	<div class="wrap mypageWrap">
-		<div class="mypageMainbox">
+	<div class="wrap main asd">
+		<div class="">
 			<div class="mypageLogo" >
 				<img class="mypage_logo" onclick="logo()" alt="" src="/oimarket/img/아이콘.png"> 
 			</div>
 			
 			<!-- 개인정보 호출 -->
 			<div class="container mypageInfobox"></div>
-			<a href="/oimarket/member/logout.jsp">로그아웃</a>
+			<a class="logoutbtn" href="/oimarket/member/logout.jsp">로그아웃</a>
 			
-			<h3> ------------------ 등록제품 출력 창 ------------------ </h3>				
-			<!-- 1. 등록제품 출력 창  -->	
-			<table border="1" class="mypageRegistbox">
-
 			<div class="mypage_mainbox">
 				<div class="mypage_Box_name">
 					<h3> < 등록한 제품 > </h3>	
@@ -46,7 +42,7 @@
 				<!-- 2. 판매제품 출력 창  -->	
 				<div  class="mypageSellbox"> </div>
 
-			
+
 			</div>
 			
 			
@@ -91,6 +87,7 @@
 			<!-- 6. 오늘 방문자 수 (파일 처리) -->
 			<div>
 				총 방문자 수 : <span class="VisitorCount"></span>
+			 방문자수 : <%=application.getAttribute("Counter")%>
 			</div>
 			
 			<!-- 7. 총 물품 개수 출력 -->
@@ -120,7 +117,16 @@
 			
 		</div>
 		
-
+<%
+    if (application.getAttribute("Counter") != null) {
+        String strCounter = String.valueOf(application.getAttribute("Counter"));
+        int counter = Integer.parseInt(strCounter) + 1;
+        // 페이지에 새로운 접속이 시도될때 application 변수에 Counter를 1씩 증가시킨다.
+        application.setAttribute("Counter", counter);
+    } else {
+        application.setAttribute("Counter", 1);
+    }
+%>
 		
 		
 	

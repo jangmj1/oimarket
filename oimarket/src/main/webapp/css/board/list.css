@@ -74,10 +74,15 @@
 .contentinfo{
     display: flex;
     justify-content: flex-end;
+    margin-right: 20px;
 }
 .contentinfoitem{
 	    padding-right: 5px;
 }
 .all{
 	margin: 0px !important;
+}
+
+.subcontentbox{
+	margin-left: 20px;
 }
