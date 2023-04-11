@@ -15,6 +15,31 @@ public class MessageDto {
 	private int frommno;
 	private int tomno;	
 	
+	//추가 
+	private String tomname;
+	private String frommname;
+	
+	
+	public String getFrommname() {
+		return frommname;
+	}
+
+
+	public void setFrommname(String frommname) {
+		this.frommname = frommname;
+	}
+
+
+	public String getTomname() {
+		return tomname;
+	}
+
+
+	public void setTomname(String tomname) {
+		this.tomname = tomname;
+	}
+
+
 	public MessageDto() {
 		// TODO Auto-generated constructor stub
 	}

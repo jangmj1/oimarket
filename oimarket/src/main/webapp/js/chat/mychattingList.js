@@ -18,23 +18,36 @@ function getchatList(){
 			r.forEach( (o)=>{
 				
 				let tomno = o.mno1;
+				let tomid = o.mid1;
 				
 				// 채팅방에 접속되어 있는 첫번째 회원과 로그인된 회원과 일치하면 
-				if( o.mno1 == memberInfo.mno ){
+				if( o.mid1 == memberInfo.mid ){
+					tomid = o.mid2;
 					tomno = o.mno2;
+					
 				}
 				
+				
+				
 				html += `
-						<div onclick="getchatting(${o.cno},${o.pno},${tomno})">
-							<span> ${ o.cno } </span>
-							<span> ${ o.pno } </span>
-							<span> ${ o.mno1 } </span>
-							<span> ${ o.mno2 } </span>
+						<div class="mychatbox" onclick="getchatting(${o.cno},${o.pno},${tomno})">
+							<img class="mpimg" alt="" src="/oimarket/img/${o.mpimg==null?'기본.png':o.mpimg}">
+							<div class="mychatinfo">
+								<div class="tomno">${tomid} </div>
+								<div> ${ o.ccontent } </div>
+								<div class="cdate"> ${ o.cdate } </div>
+							</div>
+							
 						</div>
+						
 				`;
 				
 				
+				
+				
 			} )
+			
+			
 			
 			chatList.innerHTML = html;
 			

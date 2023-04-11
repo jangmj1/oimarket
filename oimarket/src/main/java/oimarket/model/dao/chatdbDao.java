@@ -86,6 +86,12 @@ public class chatdbDao extends Dao{
 					MessageDto dto=new MessageDto(
 							rs.getInt(1), rs.getString(2), rs.getString(3),
 							rs.getInt(4), rs.getInt(5), rs.getInt(6));
+					
+					
+					String tomid=MemberDao.getInstance().getMid(dto.getTomno());
+					String frommname=MemberDao.getInstance().getMid(dto.getFrommno());
+					dto.setTomname(tomid);
+					dto.setFrommname(frommname);
 					list.add(dto);
 				}
 			

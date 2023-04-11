@@ -107,7 +107,7 @@ function 메세지출력(){
 			`
 			<div >
 				<div>
-					<div class="frommember">${o.frommno}</div>
+					<div class="frommember"> ${o.frommname==memberInfo.mid ? o.frommno : o.frommname} </div>
 				</div>
 				<div class="receivemessage">
 					<div class="receivetext">${o.ncontent}</div>
