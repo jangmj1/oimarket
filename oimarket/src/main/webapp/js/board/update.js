@@ -20,6 +20,7 @@ function bupdate(){
 			console.log(r)
 			if(r=='true'){
 				alert('수정완료');
+				location.href="/oimarket/board/view.jsp?bno="+bno;
 			}else{
 				alert('수정실패');
 			}
@@ -60,12 +61,19 @@ function getBoard(){
 				</div>
 				`
 			}
-				html += `새로운 첨부파일 : <input name="bfile" type="file">`
+				html += `<div class="writefile">새로운 첨부파일 : <input name="bfile" type="file"></div>`
 				document.querySelector('.bfilebox').innerHTML=html;
 				document.querySelector('.oldbfile').innerHTML=r.bfile;
 		}
 	})
 }// end
+
+$(document).ready(function() {
+        $('#summernote').summernote(
+			{   height : 400 , 
+	  lang: 'ko-KR'   } 
+		);
+});
 
 // 수정시 첨부 파일만 삭제
 function bfiledelete(){
@@ -84,9 +92,10 @@ function bfiledelete(){
 		}
 	})
 }
-
-
-
+// 수정 취소버튼
+function bupdatecancel(){
+	location.href="/oimarket/board/view.jsp?bno="+bno;
+}
 
 
 

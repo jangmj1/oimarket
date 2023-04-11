@@ -5,59 +5,72 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/oimarket/css/main.css" rel="stylesheet">
+<link href="/oimarket/css/board/view.css" rel="stylesheet">
 </head>
 <body>
+	<%
+		Object o = request.getSession().getAttribute("login");
+		if(o==null){
+			response.sendRedirect("/oimarket/member/login.jsp");
+		}
+	%>
 	<%@include file="/footer.jsp" %>
 	<%
 		String bno = request.getParameter("bno");
 		String btitle = request.getParameter("btitle");
 	%>
+	
 	<div class="wrap">
+	<input type="hidden" class="bno" value="<%=bno %>">
 		<div class="container">
-			<div>
+				
+		<div class="viewheader">	
+			<div class="parea">
 			
-				<div> 게시물번호 </div>
-				<div class="bno"><%=bno %></div>
-			
-			</div>
-			
-			<div>
-			
-				<div> 작성일 / 조회수 / 좋아요 / 싫어요 </div>
-				<div class="infobox"></div>
-			
-			</div>
-			
-			<div>
-			
-				<div> 작성자(프로필) </div>
-				<div class="pimgbox"></div>
+				<img class="mimg hpimg">
+						
+				<div class="mid"></div>
+			<div class="biginfobox">
+
+				<span class="infoboxdate infoitem"></span>
+				<span class="infobox infoitem"></span>
 			
 			</div>
+			</div>
+
+		</div>	
 			
 			<div>
 			
-				<div> 제목 </div>
 				<div class="btitle"></div>
 			
 			</div>
 			
 			<div>
 			
-				<div> 내용 </div>
 				<div class="bcontent"></div>
 			
 			</div>
 			
-			<div>
+			<div class="viewfilearea">
 			
-				<div> 첨부파일 </div>
+				<div class="viewfile"> 첨부파일 : </div>
 				<div class="bfile"></div>
 			
 			</div>
 			<div class="bbtnbox">
 			
 			</div>
+			
+			<div class="replycount"></div>
+			
+			<div class="replywritebox">
+				<textarea class="rcontent" rows="2" cols="44"></textarea>
+				<button class="rwritebtn bbtn" onclick="rwrite()" type="button">댓글 작성</button>
+			</div>
+			
+			<div class="replylistbox"></div>
 			
 		</div>
 	</div>

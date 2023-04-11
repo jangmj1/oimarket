@@ -17,6 +17,7 @@ public class BoardDto {
 	// 추가 필드
 	private String mid;
 	private String mimg;
+	private int rcount; // 댓글개수
 	
 	public String getMimg() {
 		return mimg;
@@ -24,6 +25,15 @@ public class BoardDto {
 
 	public void setMimg(String mimg) {
 		this.mimg = mimg;
+	}
+	
+
+	public int getRcount() {
+		return rcount;
+	}
+
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
 	}
 
 	public BoardDto() {
