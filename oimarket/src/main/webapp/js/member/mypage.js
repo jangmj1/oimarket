@@ -253,8 +253,33 @@ function getBoard(){
 	})
 }
 
-// 6. 오늘 방문자 수 출력 ( 파일처리 )
+// 6. 오늘 방문자 수 증가 
+function viewIncrease(){
+	$.ajax({
+		url : "/oimarket/mview" ,
+		data : { "mno" : memberInfo.mno } ,
+		success : (r) => {
+			console.log('오늘 방문자 수 증가 성공')
+			console.log(r);
+		}
+	})
+}
 
+// 6.1 오늘 방문자 수 출력 [ ip + mno ]
+viewCount();
+function viewCount(){
+	$.ajax({
+		url : "/oimarket/member/mypage" ,
+		data : { "type" : 6} ,
+		async : false ,
+		success : (r) => {
+			console.log('오늘 방문자 수 카운트 통신 성공')
+			console.log(r);
+			let html = `${r}`;
+			document.querySelector('.viewCount').innerHTML = html;
+		}
+	})	
+}
 
 
 
@@ -318,9 +343,6 @@ const ctx = document.getElementById('myChart');
 
 // 9. 오늘 거래된 물품 카테고리별 개수 출력 (차트화)
 $.get ( "/oimarket/count" , (r) => {
-	console.log(r);
-	console.log( Object.keys(r) );
-	console.log( Object.values(r) );
 
   new Chart(ctx, {
     type: 'bar', // bar : 막대차트 vs line : 선차트

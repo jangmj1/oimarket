@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="/oimarket/css/product/product.css" rel="stylesheet">
 <link href="/oimarket/css/main.css" rel="stylesheet"> 
 

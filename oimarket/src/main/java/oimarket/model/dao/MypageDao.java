@@ -206,10 +206,28 @@ public class MypageDao extends Dao{
 		return map;
 	}
 	
+	// [최성아] 6.1 오늘 방문자 수 증가
+	public boolean viewIncrease(int mno) {
+		String sql = "insert into mview(mno) values(?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, mno);
+			ps.executeUpdate();
+			return true;
+		}catch (Exception e) {System.out.println(e);}
+		return false;
+	}
 	
-	
-	
-	
+	// [최성아] 6.2 오늘 방문자 수 count
+	public int viewCount() {
+		String sql = "select count(mdate) from mview";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if ( rs.next() )return rs.getInt(1);
+		}catch (Exception e) {System.out.println(e);}
+		return 0;
+	}
 	
 	
 	

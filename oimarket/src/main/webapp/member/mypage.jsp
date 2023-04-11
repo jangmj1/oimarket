@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/oimarket/css/member/mypage.css" rel="stylesheet">
 	<link href="/oimarket/css/main.css" rel="stylesheet">
 </head>
@@ -86,8 +88,7 @@
 			
 			<!-- 6. 오늘 방문자 수 (파일 처리) -->
 			<div>
-				총 방문자 수 : <span class="VisitorCount"></span>
-			 방문자수 : <%=application.getAttribute("Counter")%>
+				오늘 방문자 수 : <span class="viewCount"></span>
 			</div>
 			
 			<!-- 7. 총 물품 개수 출력 -->
@@ -116,18 +117,7 @@
 			
 			
 		</div>
-		
-<%
-    if (application.getAttribute("Counter") != null) {
-        String strCounter = String.valueOf(application.getAttribute("Counter"));
-        int counter = Integer.parseInt(strCounter) + 1;
-        // 페이지에 새로운 접속이 시도될때 application 변수에 Counter를 1씩 증가시킨다.
-        application.setAttribute("Counter", counter);
-    } else {
-        application.setAttribute("Counter", 1);
-    }
-%>
-		
+
 		
 	
 	</div>	
