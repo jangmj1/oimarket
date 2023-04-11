@@ -103,13 +103,13 @@ select * from member;
 -- ----------------------------------------------------------------------------------------------
 
 -- product_category 임의 값 대입
-/*
+
 insert into product_category values ( '1' , '생활가전' );
 insert into product_category values ( '2' , '의류' );
 insert into product_category values ( '3' , '뷰티미용' );
 insert into product_category values ( '4' , '가공식품' );
 insert into product_category values ( '5' , '식물' );
-*/
+
 select * from product_category;
 
 -- ----------------------------------------------------------------------------------------------
