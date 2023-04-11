@@ -2,6 +2,7 @@ package oimarket.model.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import oimarket.model.dto.BoardDto;
 import oimarket.model.dto.ProductDto;
@@ -12,7 +13,7 @@ public class MypageDao extends Dao{
 	public MypageDao() {};
 	public static MypageDao getInstance() { return dao; }
 
-	// [최성아] 1. 로그인 된 회원의 구매한 물품 7개 출력
+	// [최성아] 1. 로그인 된 회원의 등록한 물품 7개 출력
 	public ArrayList<ProductDto> MypageRegisterProductList( int rmno ){
 		ArrayList<ProductDto> list = new ArrayList<>();
 		String sql = "select p.pno , p.pcno, p.ptitle , p.pprice , "
@@ -43,19 +44,18 @@ public class MypageDao extends Dao{
 	} // 등록한 물품 end
 	
 	// [최성아] 2. 로그인 된 회원의 판매중 물품 5개 출력
-	public ArrayList<ProductDto> MypageSellProductList( int rmno , int pstate ){
+	public ArrayList<ProductDto> MypageSellProductList( int rmno  ){
 		ArrayList<ProductDto> list = new ArrayList<>();
-		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate from product p  where rmno = ? and pstate = ?  order by pdate desc ";
+		String sql = "select p.pno, p.pcno , p.ptitle , p.pprice , p.pdate , p.pstate from product p  where rmno = ?   order by pdate desc ";
 			
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setInt(1, rmno);
-				ps.setInt(2, pstate);
 				rs = ps.executeQuery();
 				while ( rs.next() ) {
 					ProductDto dto = new ProductDto(
 							rs.getInt(1), rs.getInt(2), 
-							rs.getString(3), rs.getInt(4), rs.getString(5) );
+							rs.getString(3), rs.getInt(4), rs.getString(5) , rs.getInt(6) );
 					
 					sql = "select * from product_img where pno = ? limit 1";
 					ps = con.prepareStatement(sql);
@@ -145,6 +145,76 @@ public class MypageDao extends Dao{
 		}catch (Exception e) {System.out.println("게시물오류 : " + e);}
 		return null;
 	}// 게시물 출력 end
+	
+	// [최성아] 7. 등록되어있는 물품 개수 출력
+	public int ProductCount(){
+		String sql = "select count(p.pno) from product p";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if ( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) {System.out.println(e);}
+		return 0;
+		
+	}
+	
+	// [최성아] 8. 4월 물품 총 거래 가격
+	public int ProductPriceCount(){
+		String sql = "select sum(p.pprice) from product p where buydate between '2023-04-01' and '2023-04-30' and pstate = '2'";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if ( rs.next() ) return rs.getInt(1);
+		}catch (Exception e) {System.out.println(e);}
+		return 0;		
+	}
+	
+	// [최성아] 9. 오늘 물품 카테고리별 거래 개수 
+	/*
+	public ArrayList<ProductDto> ProductCategoryCount(){
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = "select count(p.pno), pc.pcname from product p natural join product_category pc where p.pstate = \"2\" and buydate = CURDATE() group by pc.pcname order by count(p.pno) desc ";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				ProductDto dto = new ProductDto(
+						rs.getInt(1) , rs.getString(2) );
+				list.add(dto);
+			}
+			return list;
+		}catch (Exception e) {System.out.println(e);}
+		return null;		
+	}	
+	*/
+	
+	// [최성아] 9. 오늘 물품 카테고리별 거래 개수 (차트화)
+	
+	public HashMap<String , Integer> getProductCategoryCount(){
+		HashMap<String, Integer> map = new HashMap<>();
+		String sql = "select count(p.pno), pc.pcname from product p natural join product_category pc where p.pstate = \"2\" and buydate = CURDATE() group by pc.pcname order by count(p.pno) desc ;";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next() ) {
+				map.put(rs.getString(2), rs.getInt(1) );
+			}
+		}catch (Exception e) {System.out.println(e);}
+		return map;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

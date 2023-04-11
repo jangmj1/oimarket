@@ -2,6 +2,7 @@ package oimarket.control.member;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,9 +49,8 @@ public class Mypage extends HttpServlet {
 		// mypage 판매한 물품 출력
 		else if ( type == 2 ) {
 			int rmno = mno;
-			int pstate = Integer.parseInt(request.getParameter("pstate") );
 						
-			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno , pstate );						
+			ArrayList<ProductDto> result = MypageDao.getInstance().MypageSellProductList( rmno  );						
 			jsonArray = mapper.writeValueAsString(result);
 			response.getWriter().print(jsonArray);
 		}
@@ -71,6 +71,7 @@ public class Mypage extends HttpServlet {
 			response.getWriter().print(jsonArray);	
 		}
 		
+		
 		// mypage 게시물 출력
 		else if ( type == 5 ) { // 게시물 출력 start
 			
@@ -80,12 +81,34 @@ public class Mypage extends HttpServlet {
 			
 		} // type : 5 , 게시물 출력 end
 		
+				
+		// type 7 : 등록되어있는 물품 총 개수 
+		else if ( type == 7 ) {
+			int result = MypageDao.getInstance().ProductCount();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+
+		}
 		
+		// type 8 : 4월 물품 총 거래가격 
+		else if ( type == 8 ) {
+			int result = MypageDao.getInstance().ProductPriceCount();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);			
+		}
 		
-		
-		
-		
-		
+		// type 9 : 카테고리별 물품 거래 개수(당일 기준) -> 차트화시켜놨음
+		/*
+		else if ( type == 9 ) {
+			
+			HashMap<String, Integer> result = MypageDao.getInstance().getProductCategoryCount();
+			
+			mapper = new ObjectMapper();
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+	
+		}		
+		*/
 		
 		
 		

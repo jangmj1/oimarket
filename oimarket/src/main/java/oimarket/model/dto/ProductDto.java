@@ -35,13 +35,11 @@ public class ProductDto {
     // 추가필드 [ 찜수 ] 
     private int plikecount;
     
+    private int ProductCategoryCount;	// 오늘 거래된 물품 별 카테고리 개수
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
 	}//깡통생성자
-
-
-
 
 
 	public ProductDto(int pno, String ptitle, String pcontent, int pprice, int pview, String plat, String plng,
@@ -57,6 +55,7 @@ public class ProductDto {
 		this.plng = plng;
 		
 				// -- 날짜 형식 
+			
 				LocalDateTime 현재날짜시간 = LocalDateTime.now(); // 현재 날짜/시간 
 				
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // 날짜형식 
@@ -159,6 +158,13 @@ public class ProductDto {
 		this.pprice = pprice;
 		this.pdate = pdate;	
 	}		
+	
+	// [최성아] 3. 오늘 거래된 물품 카테고리별 개수 출력
+	public ProductDto(int productCategoryCount , String pcname) {
+		super();
+		this.ProductCategoryCount = productCategoryCount;
+		this.pcname = pcname;
+	}	
 	
 
 	public int getPno() {
@@ -338,6 +344,16 @@ public class ProductDto {
 		this.plikecount = plikecount;
 	}
 
+
+	
+	public int getProductCategoryCount() {
+		return ProductCategoryCount;
+	}
+
+	public void setProductCategoryCount(int productCategoryCount) {
+		ProductCategoryCount = productCategoryCount;
+	}
+	
 
 	
 	@Override
