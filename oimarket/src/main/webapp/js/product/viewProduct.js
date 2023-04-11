@@ -3,6 +3,8 @@ let pno=document.querySelector('.pno').value;
 getproduct();
 let productInfo='';
 
+let chatdiv=document.querySelector('.chatdiv');
+
 
 //[장민정]제품 하나 상세 페이지
 function viewProductPrint(){
@@ -150,6 +152,13 @@ function viewProductPrint(){
 	 	
 	 	document.querySelector('.carousel-inner').innerHTML=pimglistbox;
 	 	document.querySelector('.carousel-indicators').innerHTML=btn;
+	 	
+	 	
+	 	// 내거 작성한 제품이 아니면 채팅 버튼 보이기 
+	 	if( productInfo.rmno != memberInfo.mno ){
+			 chatdiv.innerHTML = `<button type="button"  onclick="chatting(${pno},${productInfo.rmno})">채팅하기</button>`
+		 }
+		 
 	 
 	 	}
 			
@@ -173,8 +182,8 @@ function getproduct(){
 }
 
 //[장민정] 채팅하기
-function chatting(pno){
-	location.href="/oimarket/chat/chatting.jsp?pno="+pno
+function chatting(pno , tomno ){
+	location.href="/oimarket/chat/chatting.jsp?pno="+pno+"&tomno="+tomno;
 }
 
 

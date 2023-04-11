@@ -5,28 +5,27 @@ import java.util.Date;
 
 import javax.websocket.Session;
 
-import oimarket.control.product.chatting;
+import oimarket.control.chat.chatting;
 
 public class MessageDto {
-	int nno	;
-	String ncontent;					
-	String ndate;			
-	int pno;					
-	int frommno;							
-	int tomno;	
-	
+	private int nno	;
+	private String ncontent;					
+	private String ndate;			
+	private int cno;					
+	private int frommno;
+	private int tomno;	
 	
 	public MessageDto() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public MessageDto(int nno, String ncontent, String ndate, int pno, int frommno, int tomno) {
+	public MessageDto(int nno, String ncontent, String ndate, int cno, int frommno, int tomno) {
 		super();
 		this.nno = nno;
 		this.ncontent = ncontent;
 		this.ndate = ndate;
-		this.pno = pno;
+		this.cno = cno;
 		this.frommno = frommno;
 		this.tomno = tomno;
 	}
@@ -62,13 +61,13 @@ public class MessageDto {
 	}
 
 
-	public int getPno() {
-		return pno;
+	public int getcno() {
+		return cno;
 	}
 
 
-	public void setPno(int pno) {
-		this.pno = pno;
+	public void setcno(int cno) {
+		this.cno = cno;
 	}
 
 
@@ -94,7 +93,7 @@ public class MessageDto {
 
 	@Override
 	public String toString() {
-		return "MessageDto [nno=" + nno + ", ncontent=" + ncontent + ", ndate=" + ndate + ", pno=" + pno + ", frommno="
+		return "MessageDto [nno=" + nno + ", ncontent=" + ncontent + ", ndate=" + ndate + ", cno=" + cno + ", frommno="
 				+ frommno + ", tomno=" + tomno + "]";
 	}
 	

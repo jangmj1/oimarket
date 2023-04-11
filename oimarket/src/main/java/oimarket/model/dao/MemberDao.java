@@ -206,5 +206,23 @@ public class MemberDao extends Dao{
 				System.out.println(e);
 			}return 0;
 		}
+		//[김은영] mno 에서 mid 추출
+				public String getMid(int mno ) {
+					String sql="select mid from member where mno=?";
+					
+					try {
+						ps=con.prepareStatement(sql);
+						ps.setInt(1, mno);
+						rs=ps.executeQuery();
+						if(rs.next()) {
+							return rs.getString(1);
+							
+						}
+					
+						
+					} catch (Exception e) {
+						System.out.println(e);
+					}return null;
+				}
 
 }

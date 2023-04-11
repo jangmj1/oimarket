@@ -15,10 +15,24 @@
 </head>
 <body>
 	<%@include file="/footer.jsp" %>
-	<% int pno=Integer.parseInt(request.getParameter("pno"));  %> 
+	<% int pno=Integer.parseInt(request.getParameter("pno"));  %>
+	<% int tomno=Integer.parseInt(request.getParameter("tomno"));  %>
+	<% 
+		int cno = 0;
+		String cnoString = request.getParameter("cno");  // 상세페이지에서 왔을때는 null / 쪽지목록에서 왔을때는 cno 가 있다.
+		
+		if( cnoString == null ){  // 제품 상세페이지에서 채팅을 클릭했을때.
+			cno = 0; 
+		}else{// 채팅목록에서 채팅을 클릭했을때
+			cno = Integer.parseInt( cnoString );
+		}
+		
+	%>  
 	<!-- http://localhost:8080/oimarket/product/chatting.jsp?pno=8 주소 이렇게 넘어옴 -->	
 	<!-- ws://localhost:8080/oimarket/chatting/asd1 연결소켓..이건뭐임? -->	
 			<input class="pno" type="hidden" value="<%=pno%>">
+			<input class="cno" type="hidden" value="<%=cno%>">
+			<input class="tomno" type="hidden" value="<%=tomno%>">
 		<div class="wrap chat">
 			<div class="chattingbox">
 				

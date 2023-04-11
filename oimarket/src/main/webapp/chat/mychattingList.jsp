@@ -10,7 +10,7 @@
 </head>	
 <body>
 	<%@include file="/footer.jsp" %>
-	<div class="wrap">
+	<div class="wrap main">
 		<h3>채팅목록</h3>
 		<div class="chatList">
 			
@@ -19,6 +19,6 @@
 	
 	
 	<!-- 사용자 js -->
-<script src="/oimarket/js/chat/chattingList.js" type="text/javascript"></script>
+<script src="/oimarket/js/chat/mychattingList.js" type="text/javascript"></script>
 </body>
 </html>

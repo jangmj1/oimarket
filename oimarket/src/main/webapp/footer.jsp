@@ -15,6 +15,11 @@
 
 </head>
 <body>
+
+   <div class="alarm">
+      오이마켓! 메시지가 도착했어요.
+   </div>
+
 	<div class="wrap">
 		<div class="footerbox">
 			<div class="menubox">

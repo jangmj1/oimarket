@@ -35,7 +35,7 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 				
 				html+=
 				` 
-					<div class="content" onclick="oneproduct(${o.pno})">
+					<div class="content" onclick="oneproduct( ${o.pno}  )">
 						<img  src="/oimarket/img/${o.pimglist[0]==null?'기본.png':o.pimglist[0]}">
 						<div class="pinfo">
 							<div class="pinfotop">
@@ -62,7 +62,7 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 }
 
 
-function oneproduct(pno){ // 제품 하나 클릭하면 상세 페이지로 전환
+function oneproduct(pno  ){ // 제품 하나 클릭하면 상세 페이지로 전환
 	if(memberInfo==null){
 		alert('회원전용입니다 로그인해주세요!')
 		location.href="/oimarket/member/login.jsp"
@@ -70,7 +70,6 @@ function oneproduct(pno){ // 제품 하나 클릭하면 상세 페이지로 전�
 	}else{
 		location.href="/oimarket/product/viewProduct.jsp?pno="+pno;
 	}
-	
 	
 }
 
