@@ -110,6 +110,28 @@ public class ProductDto {
     }
  
     
+    
+    
+    
+    
+    //수정용
+    public ProductDto(int pno, String ptitle, String pcontent, int pprice, String plat, String plng,  int pcno,
+    		List<String> pimglist) {
+    	super();
+    	this.pno = pno;
+    	this.ptitle = ptitle;
+    	this.pcontent = pcontent;
+    	this.pprice = pprice;
+    	this.plat = plat;
+    	this.plng = plng;
+	
+    	this.pcno = pcno;
+    	this.pimglist = pimglist;
+    }
+	
+
+
+
 
 	// [최성아] 1. mypage 등록한 제품 출력용 + 4. mypage 찜한 제품 출력용 
 	public ProductDto(int pno, int pcno , String ptitle, int pprice, String divideDate , int pstate) {
@@ -123,6 +145,11 @@ public class ProductDto {
 	}		
     
 	
+
+
+
+
+
 	// [최성아] 2. mypage 판매 제품 출력용 + 3. mypage 구매 제품 출력용
 	public ProductDto(int pno , int pcno ,String ptitle, int pprice, String pdate ) {
 		super();

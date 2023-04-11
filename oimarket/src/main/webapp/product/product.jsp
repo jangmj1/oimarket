@@ -41,6 +41,7 @@
 				<div>
 					<button class="btn" onclick="productbtn()" type="button">물품 등록</button>
 				
+				
 				</div>
 			</form>	
 		
