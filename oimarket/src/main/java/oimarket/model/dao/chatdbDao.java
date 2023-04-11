@@ -103,6 +103,25 @@ public class chatdbDao extends Dao{
 			e.printStackTrace();
 		}return list;
 	}
+	
+	//[장민정]pno로 판매자 rmno찾기
+	public int  getrmno(int pno) {
+		String sql="select rmno from product where pno=?";
+		try {
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, pno);
+			rs=ps.executeQuery();
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return 0;
+	}
+	
+	
+	
 
 	//[장민정]채팅리스트출력하기
 	public synchronized ArrayList<chatcategoryDto>getallchat(int mno){
@@ -168,6 +187,10 @@ public class chatdbDao extends Dao{
 
 
 }
+
+
+
+
 // 현재 select에서 검색된 레코드들은 회원이 채팅에 포함된 모두 레코드 이니까
 // 최근 채팅 순서[정렬] 기준으로 제품별 하나씩만 리스트에 담자
 // 조건식 만들기 : 만약에 리스트에 담은 제품중에 이미 제품번호가 존재하면 리스트에 저장하지 않는다.

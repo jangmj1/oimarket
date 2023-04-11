@@ -53,6 +53,12 @@ public class chatDB extends HttpServlet {
 			ArrayList<chatcategoryDto> result=chatdbDao.getInstance().getallchat(frommno);
 			jsonArray=mapper.writeValueAsString(result);
 		}
+		else if(type.equals("3")) {// 채팅 목록 뽑기
+			
+			int pno=Integer.parseInt(request.getParameter("pno"));
+			int result=chatdbDao.getInstance().getrmno(pno);
+			jsonArray=mapper.writeValueAsString(result);
+		}
 		
 		
 		response.setCharacterEncoding("UTF-8");
