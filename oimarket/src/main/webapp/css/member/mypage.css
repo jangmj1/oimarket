@@ -1,16 +1,9 @@
 @charset "UTF-8";
 
-.mypageWrap{
-    width: 600px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;	
-}
-
-.mypageWrap img {
-	width: 80px;
+.asd img {
+	width: 100px;
     display: flex !important;
-    padding-top: 20%;
+    padding-top: 10%;
 }
 
 /* mypage 로고 위치 */
@@ -29,7 +22,7 @@
     font-size: 16px; 
 }
 
-.deletebtn , .updatebtn{
+.updatebtn {
 	border: none;
 	background-color:   #60ac3f;
 	border-radius: 5px;
@@ -38,10 +31,30 @@
 	padding: 3px 8px;
 }
 
+.deletebtn {
+	border: none;
+	background-color:   #60ac3f;
+	border-radius: 5px;
+	color: white;
+	font-family: 'GmarketSansMedium';	
+	padding: 3px 8px;
+	margin-top: 20px;
+}
+
+.logoutbtn{
+	text-decoration: none;
+	background-color:   #60ac3f;
+	border-radius: 5px;
+	color: white;
+	font-family: 'GmarketSansMedium';	
+	padding: 3px 8px;
+	margin-left: 290px;
+		
+}
+
 .deleteLine{
 	display: flex;
-    justify-content: space-between;	
-    align-items: baseline;
+    flex-direction: column;
 }
 
 .updateLine{
@@ -55,12 +68,9 @@
 }
 
 .mypageInfobox {
-	margin-top: 15%;
+	margin-top: 5%;
+	margin-left: 20px;
 	padding-bottom: 80px;
-}
-
-.mypageMainbox{
-	padding-bottom: 50%;
 }
 
 .mypage_Box_name{
@@ -115,7 +125,7 @@
 
 /* 제품 상태 */
 .p_state{
-    width: 15%;
+    width: 20%;
     height: 20%;
     text-align: center;
 	padding: 6px;
@@ -124,12 +134,12 @@
     font-family: 'GmarketSansMedium';
     color: white;
     font-size: 12px;
-    margin-left: 20%;
+    margin-left: 40px;
 }
 
 /* 게시판 출력 */
 .mypageBoardbox{
-	border: none;
+	font-size: 13px;
 }
 
 

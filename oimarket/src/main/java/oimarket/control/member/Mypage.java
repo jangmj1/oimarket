@@ -81,6 +81,13 @@ public class Mypage extends HttpServlet {
 			
 		} // type : 5 , 게시물 출력 end
 		
+		// type 6 : 방문자 수 체크
+		else if ( type == 6 ) {
+			int result = MypageDao.getInstance().viewCount();
+			System.out.println("asd" + result);
+			jsonArray = mapper.writeValueAsString(result);
+			response.getWriter().print(jsonArray);
+		}
 				
 		// type 7 : 등록되어있는 물품 총 개수 
 		else if ( type == 7 ) {

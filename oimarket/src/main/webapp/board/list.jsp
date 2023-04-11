@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="/oimarket/css/main.css" rel="stylesheet">
 <link href="/oimarket/css/board/list.css" rel="stylesheet">
 </head>
@@ -17,7 +18,7 @@
 		}
 	%>
 	<%@include file="/footer.jsp" %>	
-	<div class="wrap">
+	<div class="wrap main">
 	 <%
 	 	// 1. HTTP GET <a href="URL경로?변수명=값"> 전달된 매개변수 가져오기 
 	 	String bcno = request.getParameter("bcno");

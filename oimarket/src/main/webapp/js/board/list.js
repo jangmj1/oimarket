@@ -25,7 +25,7 @@ function getBoardList(){
 			let html = ``
 			r.forEach( ( o , i ) => {
 				html += `<div class="contentbox">
-							<div> 
+							<div class="subcontentbox"> 
 								<div class="contentbc">${o.bcno==1?"커뮤니티":o.bcno==2?"QnA":"노하우"}</div>
 								<div class="contenttitle"> <a href="/oimarket/board/view.jsp?bno=${ o.bno }">${ o.btitle }</a></div>
 								<img alt="" src="/oimarket/img/${o.mimg==null?'default.webp':o.mimg}">							
