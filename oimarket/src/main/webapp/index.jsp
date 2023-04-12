@@ -18,12 +18,9 @@
 		<div class="mainbox">
 			<button type="button"  onclick="signupPage()">회원가입</button> 
 			<button type="button"  onclick="loginpage()">로그인</button>
+			
 		</div>
 	</div>
-	
-	
-	
-	
 	<script src="/oimarket/js/index.js" type="text/javascript"></script>
  
 </body>

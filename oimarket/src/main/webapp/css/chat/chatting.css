@@ -6,7 +6,6 @@
     font-style: normal;
 }
 
-
 .chat{
 	display:flex;
 	height: 100%;
@@ -71,3 +70,24 @@ html , body {height: 100%}
 	border: 1px solid #eeeeee;
     padding: 10px;
     }
+
+ .mpimg{
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+        margin-right: 10px;
+}
+.mychatbox{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+.mychatinfo{
+	    text-align: right;
+}
+.cdate{
+	font-size: 13px;
+	color: gray;
+}

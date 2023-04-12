@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="/oimarket/css/product/chatting.css" rel="stylesheet">
+<link href="/oimarket/css/chat/chatting.css" rel="stylesheet">
 <link href="/oimarket/css/main.css" rel="stylesheet"> 
 
 	<!-- css 부트스트립 -->
