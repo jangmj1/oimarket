@@ -26,7 +26,7 @@ function getLogin() {
 						</div>
 					</div>
 					<div class="mypageInfo"> <div class="mypageH">아이디</div>   ${r.mid} </div>
-					<div class="mypageInfo"> <div class="mypageH">프로필</div>   ${r.mimg} </div>
+					<div class="mypageInfo"> <div class="mypageH">프로필</div><img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">    </div>
 					<div class="mypageInfo"> <div class="mypageH">닉네임</div>   ${r.mname} </div>
 					<div class="mypageInfo"> <div class="mypageH">핸드폰</div>   ${r.mphone} </div>
 					<div class="mypageInfo"> <div class="mypageH">거주지</div>   ${r.mresidence} </div>
