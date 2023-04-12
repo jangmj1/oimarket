@@ -23,6 +23,7 @@ public class ProductDao extends Dao{
 		return dao;
 	}
 	
+	
 	//물픔등록
 	public  boolean productPrint(ProductDto dto) {//제품 우선등록하고 이미지는 나중에 추가
 		String sql="insert into product(ptitle,pcontent,pprice,plat,plng,rmno,pcno) values(?,?,?,?,?,?,?)";
