@@ -40,7 +40,7 @@ let chatSocket = null;
 		location.href="/oimarket/member/login.jsp"
 	}else{
 		//소켓과 연결
-		chatSocket=new WebSocket('ws://localhost:8080/oimarket/chatting/'+memberInfo.mid);console.log(chatSocket)
+		chatSocket=new WebSocket('ws://192.168.17.123:8080/oimarket/chatting/'+memberInfo.mid);console.log(chatSocket)
 		chatSocket.onopen=function(e){console.log("들어왔다.")}
 		chatSocket.onmessage=function(e){onalarm(e)}
 		chatSocket.onclose=function(e){console.log("나갔다")}

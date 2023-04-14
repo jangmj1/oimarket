@@ -27,7 +27,7 @@
 				</div>
 				
 				<div>내용:
-					<input type="text" name="pcontent" class="pcontent" >
+					<textarea type="text" name="pcontent" class="pcontent" > </textarea>
 				</div>
 				
 				<div>가격:
