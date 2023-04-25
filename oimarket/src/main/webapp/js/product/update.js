@@ -5,7 +5,7 @@ function Updatebtn(){
    console.log('수정함수');
    let productform=document.querySelectorAll('.productform')[0]
    let productformDate=new FormData(productform);
-   productformDate.set("pno",pno);console.log("pno!!번호:"+pno);
+   productformDate.set("pno",pno);
    productformDate.set("plat",plat);
    productformDate.set("plng",plng);
 

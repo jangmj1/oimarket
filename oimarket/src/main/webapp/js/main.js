@@ -47,7 +47,7 @@ function getproduct(){//등록된 물품전체출력 and 카테고리별 출력 
 							<div class="pinfobottom">
 								<span class="icon"> <i class="far fa-eye"></i> <span class="bview">${ o.pview }</span> </span>
 								<span class="icon"> <i class="far fa-heart"></i> <span class="bup">${ o.plikecount}</span> </span>
-								<span class="icon"> <i class="far fa-comment-dots"></i> <span class="rcount">30 </span> </span>
+								<span class="icon"> <i class="far fa-comment-dots"></i> <span class="rcount">${ o.chatCount} </span> </span>
 							</div>
 						</div>
 					</div>
@@ -80,6 +80,14 @@ function category(pcno){ //카테고리선택 변경했을때
 	getproduct(); //카테고리별 출력
 }
 
+//검색창에서 엔터치를 쳤을때
+function enterkey(){
+	
+	if(window.event.keyCode == 13){	
+		search();
+	}
+}
+
 function search(){//제목검색했을때
 	let keyword = document.querySelector('.keyword').value;
 	console.log("keyword:"+keyword)
@@ -95,17 +103,27 @@ function search(){//제목검색했을때
 			success:(r)=>{
 				console.log(r)
 				if(r.length>0){
+				html+=`<h5 class="ptitle">${r.length}개가 검색 되었습니다.</h5>`
 					
 					r.forEach( (o,i)=>{
+				
 				
 				html+=
 				`
 					<div class="content" onclick="oneproduct(${i},${o.pno})">
 						<img  src="/oimarket/img/${o.pimglist[0]==null?'기본.png':o.pimglist[0]}">
 						<div class="pinfo">
-							<h3 class="ptitle">${o.ptitle}</h3>
-							<h5 class="pdate">${o.pdate}</h5>
-							<h3 class="pprice">${(o.pprice).toLocaleString()} 원</h3>
+							<div class="pinfotop">
+								<span class="pcname"> ${o.pcname} </span>
+								<span class="pdate"> ${o.pdate}  </span>
+								<div class="ptitle">${o.ptitle}</div>
+								<div class="pprice">${(o.pprice).toLocaleString()} 원</div>
+							</div>
+							<div class="pinfobottom">
+								<span class="icon"> <i class="far fa-eye"></i> <span class="bview">${ o.pview }</span> </span>
+								<span class="icon"> <i class="far fa-heart"></i> <span class="bup">${ o.plikecount}</span> </span>
+								<span class="icon"> <i class="far fa-comment-dots"></i> <span class="rcount">${ o.chatCount} </span> </span>
+							</div>
 						</div>
 					</div>
 				

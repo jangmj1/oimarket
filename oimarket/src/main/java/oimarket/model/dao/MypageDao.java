@@ -129,16 +129,16 @@ public class MypageDao extends Dao{
 	// [최성아] 5. 로그인 된 회원의 게시물 5개까지 출력
 	public ArrayList<BoardDto> MypageBoardList(int mno){
 		ArrayList<BoardDto> list = new ArrayList<>();
-		String sql = "select b.bcno , b.btitle , b.bdate , b.bview , b.bup , b.bdown "
-				+ " from board b where bdate between  '20230301'  and '20230430' and mno = ? order by bdate desc limit 5;";
+		String sql = "select b.bno, b.bcno , b.btitle , b.bdate , b.bview , b.bup , b.bdown from board b where mno = ? order by bdate desc limit 5";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, mno); 
 			rs = ps.executeQuery();
 			while( rs.next() ) {
 				BoardDto dto = new BoardDto(
-						rs.getInt(1), rs.getString(2), rs.getString(3), 
-						rs.getInt(4), rs.getInt(5), rs.getInt(6) );
+						rs.getInt(1), rs.getInt(2), rs.getString(3),
+						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7));
+				
 				list.add(dto);						
 			}
 			return list;

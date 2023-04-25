@@ -92,7 +92,7 @@ function getRegistProduct(){
 			
 			r.forEach( (p) => {
 				console.log(p);
-				html += `<div class="product_box">
+				html += `<div class="product_box" onclick="viewProduct(${p.pno})">
 							<div> 
 								<img src="/oimarket/img/${p.mainImg}">
 							</div> 
@@ -117,6 +117,7 @@ function getRegistProduct(){
 	})	
 }
 
+
 // 2. 내가 판매중인 물품 출력
 getSellProduct();
 function getSellProduct(){
@@ -128,7 +129,7 @@ function getSellProduct(){
 			let html = ``;
 			
 			r.forEach( (p) => {
-				html += `<div class="product_box">
+				html += `<div class="product_box" onclick="viewProduct(${p.pno})">
 							<div> 
 								<img src="/oimarket/img/${p.mainImg}">
 							</div> 
@@ -166,7 +167,7 @@ function getBuyProduct(){
 			
 			r.forEach( (p) => {
 				console.log(p);
-				html += `<div class="product_box">
+				html += `<div class="product_box" onclick="viewProduct(${p.pno})">
 							<div> 
 								<img src="/oimarket/img/${p.mainImg}">
 							</div> 
@@ -202,7 +203,7 @@ function getLikeProduct(){
 			
 			r.forEach( (p) => {
 				console.log(p);
-				html += `<div class="product_box">
+				html += `<div class="product_box" onclick="viewProduct(${p.pno})">
 							<div> 
 								<img src="/oimarket/img/${p.mainImg}">
 							</div> 
@@ -224,6 +225,13 @@ function getLikeProduct(){
 	})	
 }
 
+//!! 제품 클릭했을때 제품하나 상세 페이지로 이동하기[장민정 추가]
+function viewProduct(pno){
+	console.log(pno)
+	location.href="/oimarket/product/viewProduct.jsp?pno="+pno
+}
+
+
 // 5. 내가 게시한 게시글 출력
 
 getBoard();
@@ -242,7 +250,7 @@ function getBoard(){
 						</tr>`;
 			
 			r.forEach( (b) => {
-					html += `<tr>
+					html += `<tr onclick="viewboard(${b.bno})">
 								<td>${b.bcno == 1 ? '공지사항' : b.bcno == 2 ? '자유게시판' : 'QnA'  } </td>
 								<td>${b.btitle}</td><td>${b.bdate}</td>
 								<td>${b.bview}</td><td>${b.bup}</td><td>${b.bdown}</td>
@@ -251,6 +259,12 @@ function getBoard(){
 			document.querySelector('.mypageBoardbox').innerHTML = html;
 		}
 	})
+}
+
+//!! 제품 클릭했을때 글하나 상세 페이지로 이동하기[장민정 추가]
+function viewboard(bno){
+	
+	location.href="/oimarket/board/view.jsp?bno="+bno;
 }
 
 // 6. 오늘 방문자 수 증가 

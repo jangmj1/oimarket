@@ -107,8 +107,9 @@ public class BoardDto {
 	}
 
 	// [최성아] mypage 게시물 출력용 생성자
-		public BoardDto( int bcno , String btitle, String bdate, int bview, int bup, int bdown) {
+		public BoardDto(int bno, int bcno , String btitle, String bdate, int bview, int bup, int bdown) {
 			super();
+			this.bno = bno;
 			this.bcno = bcno;
 			this.btitle = btitle;
 			this.bdate = bdate;

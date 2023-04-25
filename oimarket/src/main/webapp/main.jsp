@@ -25,7 +25,7 @@
 					
 				</select>
 				<div >
-					<input class="keyword" type="text">
+					<input class="keyword" type="text" onkeyup="enterkey()">
 					<img width="25px" src="/oimarket/img/favicon.ico" onclick="search()" ></img>
 					
 				</div>

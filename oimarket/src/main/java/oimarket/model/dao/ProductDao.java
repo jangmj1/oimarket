@@ -92,6 +92,12 @@ public class ProductDao extends Dao{
 				ps=con.prepareStatement(sql);
 				ResultSet rs3=ps.executeQuery();
 				if( rs3.next() ) { dto.setPlikecount( rs3.getInt(1) ); }
+				
+				//채팅수 구하기
+				sql="select count(*) from chatcategory where pno="+dto.getPno();
+				ps=con.prepareStatement(sql);
+				ResultSet rs4=ps.executeQuery();
+				if( rs4.next() ) { dto.setChatCount(rs4.getInt(1)); }
 				// ----------
 				
 				list.add(dto); 

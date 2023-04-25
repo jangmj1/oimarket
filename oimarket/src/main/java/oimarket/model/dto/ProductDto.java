@@ -36,6 +36,21 @@ public class ProductDto {
     private int plikecount;
     
     private int ProductCategoryCount;	// 오늘 거래된 물품 별 카테고리 개수
+    
+    //추가필드 채팅수[장민정]
+    private int chatCount; 			//채팅수
+    
+    
+
+	public int getChatCount() {
+		return chatCount;
+	}
+
+
+	public void setChatCount(int chatCount) {
+		this.chatCount = chatCount;
+	}
+
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
