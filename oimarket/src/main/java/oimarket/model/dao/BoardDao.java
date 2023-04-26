@@ -56,13 +56,13 @@ public class BoardDao extends Dao{
 	}
 	
 	// [김동혁] 전체게시글 출력
-	public ArrayList<BoardDto> getBoardListAll(String key , String keyword){
+	public ArrayList<BoardDto> getBoardListAll(String key , String keyword, int pcount){
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "";
 		if( key.equals("") && keyword.equals("")) {
-			sql = "select board.* , member.mid , member.mimg from member natural join board order by board.bdate desc";
+			sql = "select board.* , member.mid , member.mimg from member natural join board order by board.bdate desc limit "+pcount;
 		}else {
-			sql = "select board.* , member.mid , member.mimg from member natural join board where "+key+" like '%"+keyword+"%' order by board.bdate desc";
+			sql = "select board.* , member.mid , member.mimg from member natural join board where "+key+" like '%"+keyword+"%' order by board.bdate desc limit "+pcount;
 		}
 		try {
 			ps=con.prepareStatement(sql);
@@ -179,6 +179,7 @@ public class BoardDao extends Dao{
 		}catch (Exception e) {System.out.println("댓글 문제 " + e);} return list;
 				
 	}
+
 }
 
 

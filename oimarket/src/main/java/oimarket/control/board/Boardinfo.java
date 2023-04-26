@@ -32,6 +32,7 @@ public class Boardinfo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int type = Integer.parseInt(request.getParameter("type"));
+		
 		if(type==1) { // 카테고리별 게시물 출력
 		
 		// 카테고리 번호 가져오기
@@ -60,11 +61,13 @@ public class Boardinfo extends HttpServlet {
 			response.getWriter().print(json);}
 		// ------------------------------------------------------ //
 		else if(type==3) { // 게시물 전체 출력
+			int pcount=Integer.parseInt(request.getParameter("pcount") );
+			System.out.println("pcount:"+pcount);
 			// 검색에 필요한 매개변수 가져오기
 			String key = request.getParameter("key");			System.out.println("검색 키(제목 등) :" +key);
 			String keyword = request.getParameter("keyword");	System.out.println("검색 내용 : " +keyword);
 			// ------------------------------------------------------ //
-			ArrayList<BoardDto> result = BoardDao.getInstance().getBoardListAll(key , keyword);
+			ArrayList<BoardDto> result = BoardDao.getInstance().getBoardListAll(key , keyword, pcount);
 			ObjectMapper mapper = new ObjectMapper();
 			String jsonArray = mapper.writeValueAsString(result);
 			response.setCharacterEncoding("UTF-8");

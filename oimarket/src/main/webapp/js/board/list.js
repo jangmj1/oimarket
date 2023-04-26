@@ -1,20 +1,43 @@
 
+
+// ----------------- 스크롤막대가 바닥이면 --------------- //
+
+let pcount = 3;
+
+$(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+	   
+	   pcount +=2;
+	   console.log("pcount"+pcount) //잘나옴
+      getBoardListAll();
+   }
+});
+
+
+
+
+
+// ------------------------------------------------
+
 // 검색에 필요한 정보+ 출력에필요한 정보들 한번에 보낼 객체 (카테고리별 출력)
 let boardObject={
 	key:"",
 	keyword:"",
 	type:1,
-	bcno : document.querySelector('.bcno').value
-}
+	bcno : document.querySelector('.bcno').value,
+	pcount:pcount
+	
+		}
+	
+	
 // 검색에 필요한 정보+ 출력에필요한 정보들 한번에 보낼 객체 (전체 출력)
-let boardObject2={
-	key:"",
-	keyword:"",
-	type:3
-}
+
 
 // 카테고리별 전체 출력
 function getBoardList(){
+
+	
+	
 	$.ajax({
 		url:"/oimarket/boardinfo",
 		method:"get",
@@ -48,10 +71,13 @@ function getBoardList(){
 // 전체 게시물 출력
 getBoardListAll();
 function getBoardListAll(){
+	let key = document.querySelector('.key').value;
+	let keyword = document.querySelector('.keyword').value;
+	console.log(boardObject)
 	$.ajax({
 		url:"/oimarket/boardinfo",
 		method:"get",
-		data:boardObject2,
+		data:{type:3, pcount : pcount ,key:key,keyword:keyword},
 		success:(r)=>{
 			console.log(r)
 			// 	 게시물 프로필 이미지 나중에 화긴
@@ -86,10 +112,8 @@ function boardUpload(){
 // 검색
 function getsearch(){
 	console.log("검색 실행")
-	boardObject2.key = document.querySelector('.key').value;
-	boardObject2.keyword = document.querySelector('.keyword').value;
 	getBoardListAll();
-	console.log(boardObject2)
+	
 }
 
 // 각 카테고리별 출력 리모콘(전체보기 포함)
