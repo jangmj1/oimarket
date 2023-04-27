@@ -1,17 +1,14 @@
 @charset "UTF-8";
 
 .mainmenu{
-	width : 95% !important;
 	display: flex;
     text-decoration: none;
     list-style-type: none;
     align-items: center;
-    justify-content: space-between;
     padding-left: 0px;
+        margin: 0;
     }
-.key{
-	padding-left: 0px;
-}    
+  
 .contentbox{
 	width : 95%;
 	border-bottom: 1px solid #e8e8e8;
@@ -40,24 +37,26 @@
 	border: none;
 	background-color: #60AC3F;
 	color: white;
-	border-radius: 10px;
-	margin-left: 8px;
-	width: 40px;
-	height: 40px;
+	border-radius: 7px;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: middle;	
-	font-size: 8px;
+	font-size: 12px;
+    margin: 3px;
+    padding: 3px 5px;
 }
 .searchbox{
-	width: 95%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+   justify-content: space-between;
+   margin-bottom: 20px;
+   
 }
-.searchbox input{
-	width: 150px;
-	margin: 0px 12px;
+.keyword{
+	padding: 4px;
+    margin: 3px;
+    border-radius: 25px;
+    border: 1px solid #60ac3f;
 }
 .boardTable img{
 	width: 50px;
@@ -84,10 +83,28 @@
 .contentinfoitem{
 	    padding-right: 5px;
 }
-.all{
-	margin: 0px !important;
-}
+
 
 .subcontentbox{
 	margin-left: 20px;
+}
+.topbtn{
+	    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        padding: 10px;
+    border-top: 1px solid #eeeeee
+}
+.item{
+	font-family: 'GmarketSansMedium';
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    margin: 3px;
+    padding: 3px 10px;
 }

@@ -26,24 +26,28 @@
 	 %>
 	 <!-- cno 숨겨서 js에게 전달  -->
 	<input type="hidden" class="bcno" value="<%=bcno%>">
-		<div class="container">
-			<div>
-			<ul class="mainmenu">
-				<li><button class="bcbtn all" onclick="setsearch()" type="button">전체보기</button></li>
-				<li> <button class="bcbtn" type="button" onclick="bcbtn1()"> 커뮤니티 </button> </li>
-				<li> <button class="bcbtn" type="button" onclick="bcbtn2()"> QnA </button> </li>
-				<li> <button class="bcbtn" type="button" onclick="bcbtn3()"> 노하우 </button> </li>
-			</ul>
-			</div>
-			<span class="searchbox">
-				<select class="key item">
+		<div>
+			<div class="searchbox">
+				<select class="form-select key ">
 					<option value="btitle">제목</option>
 					<option value="mid">작성자</option>
 				</select>
-				<span><input class="keyword item" type="text"></span>
-				<span><button class="bcbtn item" onclick="getsearch()" type="button">검색</button></span>			
-				<span><button class="bcbtn item" onclick="boardUpload()" type="button">글쓰기</button> </span>
-			</span>
+				<div>
+					<input class="keyword" type="text">
+					<img width="25px" src="/oimarket/img/favicon.ico" onclick="getsearch()" ></img>
+				</div>
+			</div>
+			<div class="topbtn">
+				<ul class="mainmenu">
+					<li><button class="bcbtn" onclick="setsearch()" type="button">전체보기</button></li>
+					<li> <button class="bcbtn" type="button" onclick="bcbtn1()"> 커뮤니티 </button> </li>
+					<li> <button class="bcbtn" type="button" onclick="bcbtn2()"> QnA </button> </li>
+					<li> <button class="bcbtn" type="button" onclick="bcbtn3()"> 노하우 </button> </li>
+				</ul>
+				<button class="item" onclick="boardUpload()" type="button">글쓰기</button>
+			
+			</div>
+			
 			
 			<div class="boardTable table">
 

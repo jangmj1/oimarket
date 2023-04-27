@@ -15,24 +15,55 @@ html,body{
 #id{
 	margin: 20px;
 }
-.main {
+
+.pcno{
+	width: 50% important!;
 }
-.ptitle, .pcontent , .pprice{
-	border: 1px solid #988b8e; border-radius: 5px;
+
+.ptitle_1, .pcontent_1 , .pprice_1{
+	border: none;
+	border-bottom: 1px solid  #eeeeee;
 	margin: 3px; padding: 5px;
+	width: 100%;
+	font-size: 13px;
+	
+	
+}
+
+.pcontent_1 {
+	resize: none;
+	overflow-y:scroll;
+	
+}
+.productInfo{
+	margin: 30px 0px;
 }
 
 .pfiles{
-	margin: 3px; padding: 5px
+	margin: 20px 0px; 
 }
-.pcno{margin: 1px;}
+
 
 .btn{
 	font-family: GmarketSansMedium;
 	background-color: #60ac3f;
-	border: none;	border-radius: 5px;
+	border: none;	border-radius: 10px;
 	color : white;
-	width: 100px;	height: 35px;
     font-size: 18px;
     float: right;
+    margin: 0 auto;
+    padding: 10px 30px;
+    margin-top: 20px;
 }
+.productform{
+	display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+}
+p{margin-bottom: 0px;
+    font-size: 13px;
+    color: gray;
+    margin-left: 10px;}
+
+
+  

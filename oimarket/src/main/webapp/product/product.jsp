@@ -13,37 +13,30 @@
 	
 	<div class="wrap main">
 			<form class="productform">
-				<div>카테고리:
-					<select name="pcno" class="pcno">
-						<option value="1">생활가전</option>
-						<option value="2">의류</option>
-						<option value="3">뷰티미용</option>
-						<option value="4">가공식품</option>
-						<option value="5">식물</option>
-					</select>
+				<div class="form-floating">
+				  <select  class=" form-select " id="floatingSelect" aria-label="Floating label select example" name="pcno" style="width: 200px;">
+				    <option value="1">생활가전</option>
+				    <option value="2">의류</option>
+				    <option value="3">뷰티미용</option>
+				    <option value="4">가공식품</option>
+				    <option value="5">식물</option>
+				  </select>
+				  <label for="floatingSelect">카테고리를 선정해주세요</label>
 				</div>
-				<div>제목:
-					<input type="text"  name="ptitle" class="ptitle">
+				<div class="productInfo">
+				  <input type="text" class=" ptitle_1" id="floatingInput"  name="ptitle" placeholder="제목을 적어주세요">
+				  <textarea   class="pcontent_1" name="pcontent"  style="height: 100px" placeholder="내용을 적어주세요" ></textarea>
+				  <input type="number" class="pprice_1" id="floatingInput"  name="pprice" placeholder="금액을 적어주세요" >
 				</div>
 				
-				<div>내용:
-					<textarea type="text" name="pcontent" class="pcontent" > </textarea>
-				</div>
 				
-				<div>가격:
-					<input type="text" name="pprice" class="pprice">
-				</div>
-				장소:
-				<div id="map" style="width:300px;height:300px;"></div>
+				<p>장소를 지정해 주세요</p>
+				<div id="map" style="height:300px;"></div>
 				<div>
 					<input type="file" name="pfiles" class="pfiles"  multiple="multiple" accept="image/*">
-					
 				</div> 
-				<div>
-					<button class="btn" onclick="productbtn()" type="button">물품 등록</button>
+				<button class="btn" onclick="productbtn()" type="button">물품 등록</button>
 				
-				
-				</div>
 			</form>	
 		
 	</div>
