@@ -23,7 +23,7 @@
 			
 			<!-- 개인정보 호출 -->
 			<div class="container mypageInfobox"></div>
-			<a class="logoutbtn" href="/oimarket/member/logout.jsp">로그아웃</a>
+			
 			
 			<div class="mypage_mainbox">
 				<div class="mypage_Box_name">
@@ -80,7 +80,7 @@
 						
 				<!-- 5. 게시판 출력 창  -->	
 				
-				<table border="1" class="mypageBoardbox">
+				<table class="mypageBoardbox">
 	
 				</table>
 			
@@ -101,21 +101,18 @@
 				<span class="ProductPriceCount"></span>
 			</div>
 			
-			<!-- 9. 카테고리별 물품 거래 개수 (오늘 기준) -->
 			
-			<!-- 			
-			<div>
-				<div> 카테고리별 물품 거래 개수 (당일 기준)</div>
-				<table border="1" class="ProductCategoryCount"></table>
-			</div> 
-			-->
 
 			<!-- 9. 카테고리별 물품 거래 개수(당일 기준) 차트화 -->
 			<div>
 				  <canvas id="myChart"></canvas>
 			</div>
 			
-			
+			<div class="delbox">
+				<button class="deletebtn" onclick="setDelete();" type="button"> 회원 탈퇴 </button>
+				<a class="logoutbtn" href="/oimarket/member/logout.jsp">로그아웃</a>
+				<button class="updatebtn" onclick="modal_Update()" type="button"> 회원 정보 수정 </button>
+			</div>
 		</div>
 
 		

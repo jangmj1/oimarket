@@ -1,9 +1,13 @@
 @charset "UTF-8";
 
+.asd{
+padding-bottom: 100px !important;
+}
+
+
 .asd img {
 	width: 100px;
     display: flex !important;
-    padding-top: 10%;
 }
 
 /* mypage 로고 위치 */
@@ -39,7 +43,7 @@
 	color: white;
 	font-family: 'GmarketSansMedium';	
 	padding: 3px 8px;
-	margin-top: 20px;
+	
 }
 
 .logoutbtn{
@@ -49,7 +53,6 @@
 	color: white;
 	font-family: 'GmarketSansMedium';	
 	padding: 3px 8px;
-	margin-left: 290px;
 		
 }
 
@@ -58,20 +61,18 @@
     flex-direction: column;
 }
 
-.updateLine{
-	display: flex;
-    align-items: center;
-    justify-content: space-between;	
-}
+
 
 .delete_input{
 	margin: 10px 70px 0px 0px;
 }
 
 .mypageInfobox {
-	margin-top: 5%;
-	margin-left: 20px;
+	margin-top: 20%;
 	padding-bottom: 80px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .mypage_Box_name{
@@ -143,6 +144,21 @@
 	font-size: 13px;
 }
 
+.delbox{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 30px;
+}
 
+.myimg{
+	width: 150px !important;
+    border: 1px solid #eeeeee;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.updateLine{
+	    text-align: center;
+}
 
 

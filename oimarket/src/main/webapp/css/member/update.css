@@ -9,26 +9,47 @@
 
 .Updatewrap img {
 	width: 200px !important;
+	    margin: 0 auto;
 }
 
 .updateLogo{
 	display: flex;
 }
-
+.mimg{
+	border: 1px solid #eeeeee;
+	border-radius: 50%
+	
+}
+.imgbtn{
+	margin: 20px;
+}
 
 
 .updatebtn{
-	border: none;
-	background-color:   #60ac3f;
-	border-radius: 5px;
-	color: white;
-	font-family: 'GmarketSansMedium';	
-	padding: 3px 8px;	
-	display: flex;
+	    border: none;
+    background-color: #60ac3f;
+    border-radius: 10px;
+    color: white;
+    font-family: 'GmarketSansMedium';
+    padding: 15px 40px;
+    display: flex;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 30px;
+    font-size: 20px;
 }
-.mresidence , .nowpwd ,   .newPwd{
+.mresidence , .nowpwd ,   .newPwd, .mphone , .mname{
 	border: 1px solid #eeeeee; border-radius: 5px;
 	margin: 5px; padding: 5px;
 }	
+.updateMainbox{
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imgbox{
+	text-align: center;
+}
+.updatemyinfo div{
+	padding: 10px;
+}

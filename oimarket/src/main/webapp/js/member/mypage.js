@@ -20,27 +20,16 @@ function getLogin() {
 			if ( r.mid != null){
 				html += `
 					<div class="updateLine">
-						<h3> 회원 정보 출력 </h3>
-						<div>
-							<button class="updatebtn" onclick="modal_Update()" type="button"> 회원 정보 수정 </button>
-						</div>
+						<h3> My page </h3>
+						<div class="mypageInfo"> <img class="myimg" alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">    </div>
 					</div>
-					<div class="mypageInfo"> <div class="mypageH">아이디</div>   ${r.mid} </div>
-					<div class="mypageInfo"> <div class="mypageH">프로필</div><img alt="" src="/oimarket/img/${r.mimg==null?'기본.png':r.mimg}">    </div>
-					<div class="mypageInfo"> <div class="mypageH">닉네임</div>   ${r.mname} </div>
-					<div class="mypageInfo"> <div class="mypageH">핸드폰</div>   ${r.mphone} </div>
-					<div class="mypageInfo"> <div class="mypageH">거주지</div>   ${r.mresidence} </div>
-					
+					<div>
+						<div class="mypageInfo"> <div class="mypageH">아이디</div>   ${r.mid} </div>
+						<div class="mypageInfo"> <div class="mypageH">닉네임</div>   ${r.mname} </div>
+						<div class="mypageInfo"> <div class="mypageH">핸드폰</div>   ${r.mphone} </div>
+						<div class="mypageInfo"> <div class="mypageH">거주지</div>   ${r.mresidence} </div>
+					</div>
 
-					
-					<div class="deleteLine">
-						<div class="delete_input">
-							<input class="deleteinput" type="text" placeholder="비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!"> 
-						</div>
-						<div>
-							<button class="deletebtn" onclick="setDelete();" type="button"> 회원 탈퇴 </button> 
-						</div>
-					</div>
 					
 					
 					`
@@ -56,11 +45,11 @@ function getLogin() {
 
 // [최성아] 회원 탈퇴
 function setDelete() {
-	
+	var deleteinput =prompt('비밀번호 입력 후 탈퇴 버튼 누를시 탈퇴됩니다!')
 	$.ajax({
 		url : "/oimarket/login" ,
 		method : "delete" ,
-		data : {"mpwd" : document.querySelector('.deleteinput').value } ,
+		data : {"mpwd" : deleteinput } ,
 		success : (r) => {
 			if( r == 'true'){
 				alert('회원 탈퇴 성공')
